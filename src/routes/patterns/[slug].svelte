@@ -6,6 +6,8 @@ export function preload({ params }) {
 
 <script>
 export let slug;
+
+import Viewer from '../../components/Viewer.svelte';
 </script>
 
-{slug}
+<Viewer slug={slug} />
