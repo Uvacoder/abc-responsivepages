@@ -1,5 +1,6 @@
 .netlify
-__sapper__
+.stencil
+dist
 node_modules
-src/node_modules
 package-lock.json
+www
