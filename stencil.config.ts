@@ -2,7 +2,6 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
     taskQueue: 'async',
-    // buildEs5: true,
     outputTargets: [
         {
             type: 'www',
