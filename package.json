@@ -18,5 +18,15 @@
     "bugs": {
         "url": "https://github.com/phuoc-ng/responsive-web/issues"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "scripts": {
+        "build": "stencil build --prerender",
+        "prerender": "stencil build --prerender",
+        "start": "stencil build --dev --watch --serve"
+    },
+    "devDependencies": {
+        "@stencil/core": "^2.4.0",
+        "@stencil/router": "^1.0.1",
+        "typescript": "^4.1.3"
+    }
 }
