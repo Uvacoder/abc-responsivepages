@@ -19,8 +19,6 @@ export class DemoViewer implements ComponentInterface {
         const rect = this.frameContainer!.getBoundingClientRect();
         this.frameContainerWidth = rect.width;
         this.frameContainerHeight = rect.height;
-
-        this.switchTo(this.frameContainerWidth, this.frameContainerHeight);
     }
 
     switchTo(width: number, height: number) {
