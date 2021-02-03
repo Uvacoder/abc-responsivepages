@@ -8,7 +8,7 @@ export class PatternPage implements ComponentInterface {
 
     render() {
         return (
-            <div>{this.pattern}</div>
+            <demo-viewer url={`/assets/${this.pattern}.html`}></demo-viewer>
         );
     }
 }
