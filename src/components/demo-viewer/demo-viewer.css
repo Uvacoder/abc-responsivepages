@@ -1,0 +1,28 @@
+.demo-viewer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.demo-viewer__toolbar {
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    padding: 0.25em 0;
+}
+.demo-viewer__switch {
+    border: none;
+    background: none;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.demo-viewer__switch:hover {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+.demo-viewer__body {
+    flex: 1;
+}
+.demo-viewer__frame {
+    border: none;
+}
