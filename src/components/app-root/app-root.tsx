@@ -1,5 +1,7 @@
-import '@stencil/router';
+import { createRouter, match, Route } from 'stencil-router-v2';
 import { Component, h } from '@stencil/core';
+
+const Router = createRouter();
 
 @Component({
     tag: 'app-root'
@@ -7,15 +9,13 @@ import { Component, h } from '@stencil/core';
 export class AppRoot {
     render() {
         return (
-            <stencil-router scrollTopOffset={0}>
-                <stencil-route-switch>
-                    <stencil-route url="/" component="home-page" exact={true}/>
-                    <stencil-route url="/patterns/:patternName" routeRender={({ match }) => (
-                        <pattern-page pattern={match!.params['patternName']}></pattern-page>
-                    )}
-                    />
-                </stencil-route-switch>
-            </stencil-router>
+            <Router.Switch>
+                <Route path="/"><home-page /></Route>
+                <Route
+                    path={match('/patterns/:pattern')}
+                    render={({pattern}) => <pattern-page pattern={pattern} />}
+                />
+            </Router.Switch>
         );
     }
 }
