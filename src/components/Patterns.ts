@@ -1,5 +1,6 @@
 const PATTERNS = [
-    'Mostly Fluid',
+    'Column drop',
+    'Mostly fluid',
 ];
 
 export default PATTERNS;
