@@ -4,13 +4,16 @@ import PATTERNS from '../Patterns';
 import slugify from '../../utils/slugify';
 
 @Component({
-    tag: 'home-page'
+    tag: 'home-page',
+    styleUrl: 'home-page.css'
 })
 export class HomePage {
     render() {
         return (
-            <div>
-                <h1>Responsive design patterns</h1>
+            <div class="home-page">
+                <div class="home-page__hero">
+                    <h1>Responsive design patterns</h1>
+                </div>
 
                 <ul>
                 {
