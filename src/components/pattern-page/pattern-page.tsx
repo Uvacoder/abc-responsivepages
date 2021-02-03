@@ -1,9 +1,9 @@
-import { Component, Prop, ComponentInterface, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'pattern-page'
 })
-export class PatternPage implements ComponentInterface {
+export class PatternPage {
     @Prop() pattern?: string;
 
     render() {
