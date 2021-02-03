@@ -12,7 +12,7 @@ export class AppRoot {
             <Router.Switch>
                 <Route path="/"><home-page /></Route>
                 <Route
-                    path={match('/patterns/:pattern')}
+                    path={match('/:pattern')}
                     render={({pattern}) => <pattern-page pattern={pattern} />}
                 />
             </Router.Switch>
