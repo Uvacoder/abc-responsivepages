@@ -35,6 +35,7 @@ export class DemoViewer implements ComponentInterface {
         return (
             <div class="demo-viewer">
                 <div class="demo-viewer__toolbar">
+                    {/* iPhone 6-7-8 */}
                     <button class="demo-viewer__switch" onClick={() => this.switchTo(375, 667)}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path d="M12,21.25h0a.25.25,0,0,1,.25.25h0a.25.25,0,0,1-.25.25h0a.25.25,0,0,1-.25-.25h0a.25.25,0,0,1,.25-.25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -45,6 +46,7 @@ export class DemoViewer implements ComponentInterface {
                         </svg>
                     </button>
 
+                    {/* Apple iPad Mini, Apple iPad 1/2/3/4 */}
                     <button class="demo-viewer__switch" onClick={() => this.switchTo(1024, 768)}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path d="M3.500 0.500 L20.500 0.500 L20.500 23.500 L3.500 23.500 Z" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -57,6 +59,7 @@ export class DemoViewer implements ComponentInterface {
                         </svg>
                     </button>
 
+                    {/* Apple Macbook 13" */}
                     <button class="demo-viewer__switch" onClick={() => this.switchTo(1366, 768)}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path d="M8.5,16.5c0,1.1,1.567,2,3.5,2s3.5-.9,3.5-2h5V5.167A1.667,1.667,0,0,0,18.833,3.5H5.167A1.667,1.667,0,0,0,3.5,5.167V16.5Z" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -64,6 +67,7 @@ export class DemoViewer implements ComponentInterface {
                         </svg>
                     </button>
 
+                    {/* Desktop monitors in 24" to 27" */}
                     <button class="demo-viewer__switch" onClick={() => this.switchTo(1920, 1080)}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path d="M9,22.5a6.979,6.979,0,0,0,1.5-4" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
