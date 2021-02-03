@@ -21,8 +21,11 @@
     cursor: pointer;
 }
 .demo-viewer__body {
+    align-items: center;
+    display: flex;
     flex: 1;
+    justify-content: center;
 }
 .demo-viewer__frame {
-    border: none;
+    border: 1px solid rgba(0, 0, 0, .3);
 }
