@@ -9,7 +9,10 @@ export const config: Config = {
             prerenderConfig: './prerender.config.ts',
             serviceWorker: {
                 unregister: true,
-            }
+            },
+            copy: [
+                { src: '../src/assets', dest: 'assets' },
+            ],
         },
         {
             type: 'dist-hydrate-script',
