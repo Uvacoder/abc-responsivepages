@@ -12,7 +12,7 @@ export class PatternPage {
 
     render() {
         return (
-            <demo-viewer url={`/assets/${this.pattern}.html`}>
+            <demo-viewer url={`/patterns/${this.pattern}.html`}>
                 <div class="pattern-page__breadcumb" slot="leftnav"><a {...href(`/`)}>Home</a> → {unslugify(this.pattern!)}</div>
             </demo-viewer>
         );
