@@ -39,8 +39,6 @@ export class DemoViewer implements ComponentInterface {
         return (
             <div class="demo-viewer">
                 <div class="demo-viewer__toolbar">
-                    <div class="demo-viewer__leftnav"><slot name="leftnav"></slot></div>
-
                     {/* iPhone 6-7-8 */}
                     <button class="demo-viewer__switch" onClick={() => this.switchTo(375, 667)}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -83,8 +81,6 @@ export class DemoViewer implements ComponentInterface {
                             <path d="M0.500 1.500 L23.500 1.500 L23.500 18.500 L0.500 18.500 Z" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </button>
-
-                    <div class="demo-viewer__rightnav"><slot name="rightnav"></slot></div>
                 </div>
                 <div class="demo-viewer__body" ref={ele => this.frameContainer = ele}>
                     <iframe 
