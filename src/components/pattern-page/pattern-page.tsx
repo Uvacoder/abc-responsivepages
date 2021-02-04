@@ -33,6 +33,7 @@ export class PatternPage {
                 </div>
                 { this.isNavigationOpen && (
                     <div class="pattern-page__patterns">
+                        <pattern-list />
                     </div>
                 )}
                 <div class="pattern-page__content">
