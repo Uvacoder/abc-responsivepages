@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from '@stencil/core';
+import { Component, Listen, Prop, State, h } from '@stencil/core';
 import { href } from 'stencil-router-v2';
 
 @Component({
@@ -8,6 +8,11 @@ import { href } from 'stencil-router-v2';
 export class PatternPage {
     @Prop() pattern?: string;
     @State() isNavigationOpen: boolean = false;
+
+    @Listen('clickOutSide')
+    clickOutSideHandler() {
+        this.isNavigationOpen = false;
+    }
 
     render() {
         return (
@@ -33,7 +38,9 @@ export class PatternPage {
                 </div>
                 { this.isNavigationOpen && (
                     <div class="pattern-page__patterns">
-                        <pattern-list />
+                        <click-outside>
+                            <pattern-list />
+                        </click-outside>
                     </div>
                 )}
                 <div class="pattern-page__content">

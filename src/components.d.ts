@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
+    interface ClickOutside {
+    }
     interface DemoViewer {
         "url"?: string;
     }
@@ -25,6 +27,12 @@ declare global {
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLClickOutsideElement extends Components.ClickOutside, HTMLStencilElement {
+    }
+    var HTMLClickOutsideElement: {
+        prototype: HTMLClickOutsideElement;
+        new (): HTMLClickOutsideElement;
     };
     interface HTMLDemoViewerElement extends Components.DemoViewer, HTMLStencilElement {
     }
@@ -52,6 +60,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
+        "click-outside": HTMLClickOutsideElement;
         "demo-viewer": HTMLDemoViewerElement;
         "home-page": HTMLHomePageElement;
         "pattern-list": HTMLPatternListElement;
@@ -60,6 +69,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppRoot {
+    }
+    interface ClickOutside {
+        "onClickOutSide"?: (event: CustomEvent<any>) => void;
     }
     interface DemoViewer {
         "url"?: string;
@@ -73,6 +85,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
+        "click-outside": ClickOutside;
         "demo-viewer": DemoViewer;
         "home-page": HomePage;
         "pattern-list": PatternList;
@@ -84,6 +97,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "click-outside": LocalJSX.ClickOutside & JSXBase.HTMLAttributes<HTMLClickOutsideElement>;
             "demo-viewer": LocalJSX.DemoViewer & JSXBase.HTMLAttributes<HTMLDemoViewerElement>;
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
             "pattern-list": LocalJSX.PatternList & JSXBase.HTMLAttributes<HTMLPatternListElement>;
