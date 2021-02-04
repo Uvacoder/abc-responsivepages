@@ -28,4 +28,14 @@
 }
 .pattern-page__content {
     flex: 1;
+    position: relative;
+}
+.pattern-page__overlay {
+    background: rgba(0, 0, 0, .25);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }

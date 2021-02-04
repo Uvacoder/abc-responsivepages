@@ -36,7 +36,7 @@ export class PatternPage {
                         </button>
                     </div>
                 </div>
-                { this.isNavigationOpen && (
+                {this.isNavigationOpen && (
                     <div class="pattern-page__patterns">
                         <click-outside>
                             <pattern-list />
@@ -44,6 +44,11 @@ export class PatternPage {
                     </div>
                 )}
                 <div class="pattern-page__content">
+                    {/*
+                    Since the content consists of an iframe, <click-outside> can't check if the user clicks outside 
+                    of it if user clicks on the iframe. Creating an overlay will fix the issue.
+                    */}
+                    {this.isNavigationOpen && <div class="pattern-page__overlay" />}
                     <demo-viewer url={`/patterns/${this.pattern}.html`}></demo-viewer>
                 </div>
             </div>
