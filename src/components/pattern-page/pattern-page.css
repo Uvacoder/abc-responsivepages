@@ -1,3 +1,26 @@
-.pattern-page__breadcumb a {
+.pattern-page {
+    display: flex;
+    flex-direction: row;
+}
+.pattern-page__sidebar {
+    border-right: 1px solid rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.25em;
+}
+.pattern-page__button {
+    background: none;
+    border: none;   
+    display: block;
+    padding: 0.25em;
     text-decoration: none;
+}
+.pattern-page__button:hover {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+.pattern-page__content {
+    flex: 1;
 }
