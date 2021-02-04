@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, State, h } from '@stencil/core';
 import { href } from 'stencil-router-v2';
 
 @Component({
@@ -7,6 +7,7 @@ import { href } from 'stencil-router-v2';
 })
 export class PatternPage {
     @Prop() pattern?: string;
+    @State() isNavigationOpen: boolean = false;
 
     render() {
         return (
@@ -20,8 +21,20 @@ export class PatternPage {
                                 <path d="M0.500 0.500 L10.500 0.500 L10.500 13.500 L0.500 13.500 Z" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </a>
+
+                        <button class="pattern-page__button" onClick={() => this.isNavigationOpen = !this.isNavigationOpen}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M21 7L3 7" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M21 12L3 12" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M21 17L3 17" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
+                { this.isNavigationOpen && (
+                    <div class="pattern-page__patterns">
+                    </div>
+                )}
                 <div class="pattern-page__content">
                     <demo-viewer url={`/patterns/${this.pattern}.html`}></demo-viewer>
                 </div>

@@ -13,6 +13,8 @@ export namespace Components {
     }
     interface HomePage {
     }
+    interface PatternList {
+    }
     interface PatternPage {
         "pattern"?: string;
     }
@@ -36,6 +38,12 @@ declare global {
         prototype: HTMLHomePageElement;
         new (): HTMLHomePageElement;
     };
+    interface HTMLPatternListElement extends Components.PatternList, HTMLStencilElement {
+    }
+    var HTMLPatternListElement: {
+        prototype: HTMLPatternListElement;
+        new (): HTMLPatternListElement;
+    };
     interface HTMLPatternPageElement extends Components.PatternPage, HTMLStencilElement {
     }
     var HTMLPatternPageElement: {
@@ -46,6 +54,7 @@ declare global {
         "app-root": HTMLAppRootElement;
         "demo-viewer": HTMLDemoViewerElement;
         "home-page": HTMLHomePageElement;
+        "pattern-list": HTMLPatternListElement;
         "pattern-page": HTMLPatternPageElement;
     }
 }
@@ -57,6 +66,8 @@ declare namespace LocalJSX {
     }
     interface HomePage {
     }
+    interface PatternList {
+    }
     interface PatternPage {
         "pattern"?: string;
     }
@@ -64,6 +75,7 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "demo-viewer": DemoViewer;
         "home-page": HomePage;
+        "pattern-list": PatternList;
         "pattern-page": PatternPage;
     }
 }
@@ -74,6 +86,7 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "demo-viewer": LocalJSX.DemoViewer & JSXBase.HTMLAttributes<HTMLDemoViewerElement>;
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
+            "pattern-list": LocalJSX.PatternList & JSXBase.HTMLAttributes<HTMLPatternListElement>;
             "pattern-page": LocalJSX.PatternPage & JSXBase.HTMLAttributes<HTMLPatternPageElement>;
         }
     }

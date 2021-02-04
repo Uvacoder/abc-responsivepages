@@ -21,6 +21,11 @@
     border-radius: 0.25em;
     cursor: pointer;
 }
+.pattern-page__patterns {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    width: 16em;
+}
 .pattern-page__content {
     flex: 1;
 }
