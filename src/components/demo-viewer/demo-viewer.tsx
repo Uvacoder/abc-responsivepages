@@ -19,16 +19,20 @@ export class DemoViewer implements ComponentInterface {
         const rect = this.frameContainer!.getBoundingClientRect();
         this.frameContainerWidth = rect.width;
         this.frameContainerHeight = rect.height;
+        
+        // Set the size for container
+        this.frameContainer!.style.width = `${this.frameContainerWidth}px`;
+        this.frameContainer!.style.height = `${this.frameContainerHeight}px`;
     }
 
     switchTo(width: number, height: number) {
-        // Set the frame size
-        this.frameWidth = width;
-        this.frameHeight = height;
-
         // Calculate the scale to make sure the frame fit best in the container
         const s = Math.min(this.frameContainerWidth! / width, this.frameContainerHeight! / height);
         this.scale = Math.min(s, 1);
+
+        // Set the frame size
+        this.frameWidth = width;
+        this.frameHeight = height;
     }
 
     render() {
