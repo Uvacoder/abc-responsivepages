@@ -13,6 +13,7 @@ export class ResizeAble {
     @Event() resizeEvent?: EventEmitter<ResizeEvent>;
 
     private container!: HTMLElement;
+    private overlayEle!: HTMLElement;
 
     // The current position of mouse
     private x: number = 0;
@@ -37,6 +38,8 @@ export class ResizeAble {
         // Attach the listeners to `document`
         document.addEventListener('mousemove', this.handleMouseMove);
         document.addEventListener('mouseup', this.handleMouseUp);
+
+        this.overlayEle.classList.add('resize-able__overlay');
     }
 
     handleMouseMove = (e: MouseEvent) => {
@@ -58,6 +61,7 @@ export class ResizeAble {
 
     handleMouseUp = () => {
         this.container.style.removeProperty('user-select');
+        this.overlayEle.classList.remove('resize-able__overlay');
 
         // Remove the handlers of `mousemove` and `mouseup`
         document.removeEventListener('mousemove', this.handleMouseMove);
@@ -70,6 +74,7 @@ export class ResizeAble {
                 <div class="resize-able__resizer resize-able__resizer--r" onMouseDown={this.handleMouseDown}></div>
                 <div class="resize-able__resizer resize-able__resizer--b" onMouseDown={this.handleMouseDown}></div>
                 <slot></slot>
+                <div ref={ele => this.overlayEle = ele as HTMLElement}></div>
             </div>
         );
     }
