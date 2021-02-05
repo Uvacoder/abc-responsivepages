@@ -91,15 +91,22 @@ export class DemoViewer implements ComponentInterface {
                     </tool-tip>
                 </div>
                 <div class="demo-viewer__body" ref={ele => this.frameContainer = ele}>
-                    <iframe 
-                        class="demo-viewer__frame"
+                    <browser-frame
                         style={{
-                            width: `${this.frameWidth}px`,
-                            height: `${this.frameHeight}px`,
-                            transform: `scale(${this.scale})`,
+                            height: `${this.frameHeight! * this.scale}px`,
+                            width: `${this.frameWidth! * this.scale}px`,
                         }}
-                        src={this.url}
-                    />
+                    >
+                        <iframe
+                            class="demo-viewer__frame"
+                            style={{
+                                width: `${this.frameWidth}px`,
+                                height: `${this.frameHeight}px`,
+                                transform: `scale(${this.scale})`,
+                            }}
+                            src={this.url}
+                        />
+                    </browser-frame>
                 </div>
             </div>
         );

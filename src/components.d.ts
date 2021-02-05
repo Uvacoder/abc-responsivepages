@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
+    interface BrowserFrame {
+    }
     interface ClickOutside {
     }
     interface DemoViewer {
@@ -31,6 +33,12 @@ declare global {
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLBrowserFrameElement extends Components.BrowserFrame, HTMLStencilElement {
+    }
+    var HTMLBrowserFrameElement: {
+        prototype: HTMLBrowserFrameElement;
+        new (): HTMLBrowserFrameElement;
     };
     interface HTMLClickOutsideElement extends Components.ClickOutside, HTMLStencilElement {
     }
@@ -70,6 +78,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
+        "browser-frame": HTMLBrowserFrameElement;
         "click-outside": HTMLClickOutsideElement;
         "demo-viewer": HTMLDemoViewerElement;
         "home-page": HTMLHomePageElement;
@@ -80,6 +89,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppRoot {
+    }
+    interface BrowserFrame {
     }
     interface ClickOutside {
         "onClickOutSide"?: (event: CustomEvent<any>) => void;
@@ -100,6 +111,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
+        "browser-frame": BrowserFrame;
         "click-outside": ClickOutside;
         "demo-viewer": DemoViewer;
         "home-page": HomePage;
@@ -113,6 +125,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "browser-frame": LocalJSX.BrowserFrame & JSXBase.HTMLAttributes<HTMLBrowserFrameElement>;
             "click-outside": LocalJSX.ClickOutside & JSXBase.HTMLAttributes<HTMLClickOutsideElement>;
             "demo-viewer": LocalJSX.DemoViewer & JSXBase.HTMLAttributes<HTMLDemoViewerElement>;
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
