@@ -14,8 +14,8 @@ export class DemoViewer implements ComponentInterface {
     @State() scale: number = 1;
 
     frameContainer?: HTMLElement;
-    frameContainerWidth?: number;
-    frameContainerHeight?: number;
+    frameContainerWidth: number = 0;
+    frameContainerHeight: number = 0;
 
     componentDidLoad() {
         const rect = this.frameContainer!.getBoundingClientRect();
@@ -29,7 +29,7 @@ export class DemoViewer implements ComponentInterface {
 
     switchTo(width: number, height: number) {
         // Calculate the scale to make sure the frame fit best in the container
-        const s = Math.min(this.frameContainerWidth! / width, this.frameContainerHeight! / height);
+        const s = Math.min(this.frameContainerWidth / width, this.frameContainerHeight / height);
         this.scale = Math.min(s, 1);
 
         // Set the frame size
@@ -98,8 +98,8 @@ export class DemoViewer implements ComponentInterface {
                 <div class="demo-viewer__body" ref={ele => this.frameContainer = ele}>
                     <browser-frame
                         style={{
-                            height: `${this.frameHeight! * this.scale}px`,
-                            width: `${this.frameWidth! * this.scale}px`,
+                            height: this.frameHeight ? `${this.frameHeight * this.scale}px` : '100%',
+                            width: this.frameWidth ? `${this.frameWidth * this.scale}px` : '100%',
                         }}
                         browserTitle={title}
                     >

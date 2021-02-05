@@ -26,7 +26,7 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    margin: 2rem;
+    margin: 4em;
 }
 .demo-viewer__frame {
     border: 1px solid rgba(0, 0, 0, .3);
