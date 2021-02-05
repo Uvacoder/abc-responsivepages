@@ -108,7 +108,7 @@ export class DemoViewer implements ComponentInterface {
                             style={{
                                 width: `${this.frameWidth}px`,
                                 height: `${this.frameHeight}px`,
-                                transform: `scale(${this.scale})`,
+                                transform: this.scale === 1 ? 'scale(1)' : `translate(${this.frameWidth! * (this.scale - 1) / 2}px, ${this.frameHeight! * (this.scale - 1) / 2}px) scale(${this.scale})`,
                             }}
                             src={url}
                         />
