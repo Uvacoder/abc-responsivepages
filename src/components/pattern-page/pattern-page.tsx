@@ -53,7 +53,7 @@ export class PatternPage {
                     of it if user clicks on the iframe. Creating an overlay will fix the issue.
                     */}
                     {this.isNavigationOpen && <div class="pattern-page__overlay" />}
-                    <demo-viewer url={`/patterns/${this.pattern}.html`}></demo-viewer>
+                    <demo-viewer pattern={this.pattern!}></demo-viewer>
                 </div>
             </div>
         );

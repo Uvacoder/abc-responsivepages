@@ -1,11 +1,13 @@
 import { Component, Prop, ComponentInterface, State, h } from '@stencil/core';
 
+import unslugify from '../../utils/unslugify';
+
 @Component({
     tag: 'demo-viewer',
     styleUrl: 'demo-viewer.css'
 })
 export class DemoViewer implements ComponentInterface {
-    @Prop() url?: string;
+    @Prop() pattern?: string;
 
     @State() frameWidth?: number;
     @State() frameHeight?: number;
@@ -36,6 +38,9 @@ export class DemoViewer implements ComponentInterface {
     }
 
     render() {
+        const url = `/patterns/${this.pattern!}.html`;
+        const title = unslugify(this.pattern!);
+
         return (
             <div class="demo-viewer">
                 <div class="demo-viewer__toolbar">
@@ -96,6 +101,7 @@ export class DemoViewer implements ComponentInterface {
                             height: `${this.frameHeight! * this.scale}px`,
                             width: `${this.frameWidth! * this.scale}px`,
                         }}
+                        browserTitle={title}
                     >
                         <iframe
                             class="demo-viewer__frame"
@@ -104,7 +110,7 @@ export class DemoViewer implements ComponentInterface {
                                 height: `${this.frameHeight}px`,
                                 transform: `scale(${this.scale})`,
                             }}
-                            src={this.url}
+                            src={url}
                         />
                     </browser-frame>
                 </div>

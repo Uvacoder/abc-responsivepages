@@ -1,10 +1,12 @@
-import { Component, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'browser-frame',
     styleUrl: 'browser-frame.css'
 })
 export class BrowserFrame {
+    @Prop() browserTitle?: string;
+
     render() {
         return (
             <div class="browser-frame">
@@ -18,6 +20,7 @@ export class BrowserFrame {
                         <div class="browser-frame__tab">
                             <div class="browser-frame__round--left"></div>
                             <div class="browser-frame__round--right"></div>
+                            <div class="browser-frame__title">{this.browserTitle!}</div>
                         </div>
                     </div>
                     <div class="browser-frame__bottom"></div>

@@ -9,11 +9,12 @@ export namespace Components {
     interface AppRoot {
     }
     interface BrowserFrame {
+        "browserTitle"?: string;
     }
     interface ClickOutside {
     }
     interface DemoViewer {
-        "url"?: string;
+        "pattern"?: string;
     }
     interface HomePage {
     }
@@ -91,12 +92,13 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface BrowserFrame {
+        "browserTitle"?: string;
     }
     interface ClickOutside {
         "onClickOutSide"?: (event: CustomEvent<any>) => void;
     }
     interface DemoViewer {
-        "url"?: string;
+        "pattern"?: string;
     }
     interface HomePage {
     }

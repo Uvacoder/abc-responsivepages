@@ -33,9 +33,11 @@
 
 /* Tab */
 .browser-frame__tab {
+    align-items: center;
     background: #fff;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
+    display: flex;
     height: 100%;
     min-width: 12em;
     position: relative;
@@ -77,6 +79,12 @@
     right: 0;
     top: 0;
     width: 100%;
+}
+.browser-frame__title {
+    overflow: hidden;
+    padding: 0 0.5em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .browser-frame__buttons {
