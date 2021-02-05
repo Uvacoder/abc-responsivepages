@@ -26,11 +26,10 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    margin: 2rem;
+    margin: 4em;
 }
 .demo-viewer__frame {
     border: 1px solid rgba(0, 0, 0, .3);
     height: 100%;
-    transition: width 200ms ease-in-out;
     width: 100%;
 }

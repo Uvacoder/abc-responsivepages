@@ -1,19 +1,21 @@
 import { Component, Prop, ComponentInterface, State, h } from '@stencil/core';
 
+import unslugify from '../../utils/unslugify';
+
 @Component({
     tag: 'demo-viewer',
     styleUrl: 'demo-viewer.css'
 })
 export class DemoViewer implements ComponentInterface {
-    @Prop() url?: string;
+    @Prop() pattern?: string;
 
     @State() frameWidth?: number;
     @State() frameHeight?: number;
     @State() scale: number = 1;
 
     frameContainer?: HTMLElement;
-    frameContainerWidth?: number;
-    frameContainerHeight?: number;
+    frameContainerWidth: number = 0;
+    frameContainerHeight: number = 0;
 
     componentDidLoad() {
         const rect = this.frameContainer!.getBoundingClientRect();
@@ -27,7 +29,7 @@ export class DemoViewer implements ComponentInterface {
 
     switchTo(width: number, height: number) {
         // Calculate the scale to make sure the frame fit best in the container
-        const s = Math.min(this.frameContainerWidth! / width, this.frameContainerHeight! / height);
+        const s = Math.min(this.frameContainerWidth / width, this.frameContainerHeight / height);
         this.scale = Math.min(s, 1);
 
         // Set the frame size
@@ -36,6 +38,9 @@ export class DemoViewer implements ComponentInterface {
     }
 
     render() {
+        const url = `/patterns/${this.pattern!}.html`;
+        const title = unslugify(this.pattern!);
+
         return (
             <div class="demo-viewer">
                 <div class="demo-viewer__toolbar">
@@ -91,15 +96,23 @@ export class DemoViewer implements ComponentInterface {
                     </tool-tip>
                 </div>
                 <div class="demo-viewer__body" ref={ele => this.frameContainer = ele}>
-                    <iframe 
-                        class="demo-viewer__frame"
+                    <browser-frame
                         style={{
-                            width: `${this.frameWidth}px`,
-                            height: `${this.frameHeight}px`,
-                            transform: `scale(${this.scale})`,
+                            height: this.frameHeight ? `${this.frameHeight * this.scale}px` : '100%',
+                            width: this.frameWidth ? `${this.frameWidth * this.scale}px` : '100%',
                         }}
-                        src={this.url}
-                    />
+                        browserTitle={title}
+                    >
+                        <iframe
+                            class="demo-viewer__frame"
+                            style={{
+                                width: `${this.frameWidth}px`,
+                                height: `${this.frameHeight}px`,
+                                transform: this.scale === 1 ? 'scale(1)' : `translate(${this.frameWidth! * (this.scale - 1) / 2}px, ${this.frameHeight! * (this.scale - 1) / 2}px) scale(${this.scale})`,
+                            }}
+                            src={url}
+                        />
+                    </browser-frame>
                 </div>
             </div>
         );
