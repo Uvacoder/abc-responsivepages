@@ -11,6 +11,7 @@ export interface ResizeEvent {
 })
 export class ResizeAble {
     @Event() resizeEvent?: EventEmitter<ResizeEvent>;
+    @Event() didResizeEvent?: EventEmitter<ResizeEvent>;
 
     private container!: HTMLElement;
     private overlayEle!: HTMLElement;
@@ -22,6 +23,9 @@ export class ResizeAble {
     // The dimension of the element
     private w: number = 0;
     private h: number = 0;
+
+    private newWidth: number = 0;
+    private newHeight: number = 0;
 
     // Handle the mousedown event
     // that's triggered when user drags the resizer
@@ -49,19 +53,24 @@ export class ResizeAble {
 
         this.container.style.userSelect = 'none';
 
-        const newHeight = this.h + dy;
-        const newWidth = this.w + dx;
+        this.newHeight = this.h + dy;
+        this.newWidth = this.w + dx;
 
         // Emit the event with new dimension of element
         this.resizeEvent!.emit({
-            height: newHeight,
-            width: newWidth,
+            height: this.newHeight,
+            width: this.newWidth,
         });
     }
 
     handleMouseUp = () => {
         this.container.style.removeProperty('user-select');
         this.overlayEle.classList.remove('resize-able__overlay');
+
+        this.didResizeEvent!.emit({
+            height: this.newHeight,
+            width: this.newWidth,
+        });
 
         // Remove the handlers of `mousemove` and `mouseup`
         document.removeEventListener('mousemove', this.handleMouseMove);
