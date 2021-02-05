@@ -20,6 +20,10 @@ export namespace Components {
     interface PatternPage {
         "pattern"?: string;
     }
+    interface ToolTip {
+        "position": string;
+        "tip"?: string;
+    }
 }
 declare global {
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
@@ -58,6 +62,12 @@ declare global {
         prototype: HTMLPatternPageElement;
         new (): HTMLPatternPageElement;
     };
+    interface HTMLToolTipElement extends Components.ToolTip, HTMLStencilElement {
+    }
+    var HTMLToolTipElement: {
+        prototype: HTMLToolTipElement;
+        new (): HTMLToolTipElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "click-outside": HTMLClickOutsideElement;
@@ -65,6 +75,7 @@ declare global {
         "home-page": HTMLHomePageElement;
         "pattern-list": HTMLPatternListElement;
         "pattern-page": HTMLPatternPageElement;
+        "tool-tip": HTMLToolTipElement;
     }
 }
 declare namespace LocalJSX {
@@ -83,6 +94,10 @@ declare namespace LocalJSX {
     interface PatternPage {
         "pattern"?: string;
     }
+    interface ToolTip {
+        "position"?: string;
+        "tip"?: string;
+    }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "click-outside": ClickOutside;
@@ -90,6 +105,7 @@ declare namespace LocalJSX {
         "home-page": HomePage;
         "pattern-list": PatternList;
         "pattern-page": PatternPage;
+        "tool-tip": ToolTip;
     }
 }
 export { LocalJSX as JSX };
@@ -102,6 +118,7 @@ declare module "@stencil/core" {
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
             "pattern-list": LocalJSX.PatternList & JSXBase.HTMLAttributes<HTMLPatternListElement>;
             "pattern-page": LocalJSX.PatternPage & JSXBase.HTMLAttributes<HTMLPatternPageElement>;
+            "tool-tip": LocalJSX.ToolTip & JSXBase.HTMLAttributes<HTMLToolTipElement>;
         }
     }
 }
