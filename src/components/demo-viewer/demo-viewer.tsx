@@ -1,7 +1,8 @@
-import { Component, Prop, State, h } from '@stencil/core';
+import { Component, Prop, State, Watch, h } from '@stencil/core';
 
 import unslugify from '../../utils/unslugify';
 import { ResizeEvent } from '../resize-able/resize-able';
+import { ScreenSize } from '../ScreenSize';
 
 @Component({
     tag: 'demo-viewer',
@@ -9,6 +10,7 @@ import { ResizeEvent } from '../resize-able/resize-able';
 })
 export class DemoViewer {
     @Prop() pattern?: string;
+    @Prop() screenSize?: ScreenSize;
 
     @State() frameWidth?: number;
     @State() frameHeight?: number;
@@ -20,6 +22,11 @@ export class DemoViewer {
     private frameContainer!: HTMLElement;
     private frameContainerWidth: number = 0;
     private frameContainerHeight: number = 0;
+
+    @Watch('screenSize')
+    watchScreenSize(newValue: ScreenSize, _: ScreenSize) {
+        this.switchTo(newValue.width, newValue.height);
+    }
 
     handleResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;

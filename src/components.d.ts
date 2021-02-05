@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ScreenSize } from "./components/ScreenSize";
 import { ResizeEvent } from "./components/resize-able/resize-able";
 export namespace Components {
     interface AppRoot {
@@ -16,6 +17,7 @@ export namespace Components {
     }
     interface DemoViewer {
         "pattern"?: string;
+        "screenSize"?: ScreenSize;
     }
     interface HomePage {
     }
@@ -118,6 +120,7 @@ declare namespace LocalJSX {
     }
     interface DemoViewer {
         "pattern"?: string;
+        "screenSize"?: ScreenSize;
     }
     interface HomePage {
     }
@@ -131,6 +134,7 @@ declare namespace LocalJSX {
         "onResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
     }
     interface ScreenList {
+        "onChooseScreenSizeEvent"?: (event: CustomEvent<ScreenSize>) => void;
     }
     interface ToolTip {
         "position"?: string;

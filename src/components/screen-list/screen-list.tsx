@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, Event, EventEmitter, h } from '@stencil/core';
 
 import { ScreenCategory, ScreenSize, SCREEN_SIZES } from '../ScreenSize';
 
@@ -9,6 +9,12 @@ type GroupByCategory = { [key: number]: ScreenSize[] };
     styleUrl: 'screen-list.css'
 })
 export class ScreenList {
+    @Event() chooseScreenSizeEvent?: EventEmitter<ScreenSize>;
+
+    choose = (size: ScreenSize) => {
+        this.chooseScreenSizeEvent!.emit(size);
+    }
+
     renderCategory = (category: number) => {
         switch (category) {
             case ScreenCategory.ExtraSmall: return 'Extra Small';
@@ -39,14 +45,14 @@ export class ScreenList {
                         {
                             (groups[category] as ScreenSize[]).map(size => (
                                 [
-                                    <button class="screen-list__size">
+                                    <button class="screen-list__size" onClick={() => this.choose(size)}>
                                         <span>{`${size.width} x ${size.height}`}</span>
                                         <span class="screen-list__popularity">{`${size.popularity}%`}</span>
                                     </button>,
                                     <div class="screen-list__devices">
                                     {
                                         size.devices.map(device => (
-                                            <button class="screen-list__device">{device}</button>
+                                            <button class="screen-list__device" onClick={() => this.choose(size)}>{device}</button>
                                         ))
                                     }
                                     </div>
