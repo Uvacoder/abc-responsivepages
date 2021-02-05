@@ -1,41 +1,69 @@
-import { Component, Prop, ComponentInterface, State, h } from '@stencil/core';
+import { Component, Prop, State, h } from '@stencil/core';
 
 import unslugify from '../../utils/unslugify';
+import { ResizeEvent } from '../resize-able/resize-able';
 
 @Component({
     tag: 'demo-viewer',
     styleUrl: 'demo-viewer.css'
 })
-export class DemoViewer implements ComponentInterface {
+export class DemoViewer {
     @Prop() pattern?: string;
 
     @State() frameWidth?: number;
     @State() frameHeight?: number;
     @State() scale: number = 1;
 
-    frameContainer?: HTMLElement;
-    frameContainerWidth: number = 0;
-    frameContainerHeight: number = 0;
+    private browerFrameEle!: HTMLBrowserFrameElement;
+    private frameDemoEle!: HTMLElement;
+
+    private frameContainer!: HTMLElement;
+    private frameContainerWidth: number = 0;
+    private frameContainerHeight: number = 0;
+
+    handleResize = (e: CustomEvent<ResizeEvent>) => {
+        const { height, width } = e.detail;
+
+        this.browerFrameEle.style.height = `${height}px`;
+        this.browerFrameEle.style.width = `${width}px`;
+
+        const scale = this.calculateScale(width, height);
+
+        this.frameDemoEle.style.height = `${height}px`;
+        this.frameDemoEle.style.width = `${width}px`;
+        this.frameDemoEle.style.transform = scale === 1
+                ? 'scale(1)'
+                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
+    }
+
+    handleDidResize = (e: CustomEvent<ResizeEvent>) => {
+        const { height, width } = e.detail;
+        this.switchTo(width, height);
+    }
 
     componentDidLoad() {
-        const rect = this.frameContainer!.getBoundingClientRect();
+        const rect = this.frameContainer.getBoundingClientRect();
         this.frameContainerWidth = rect.width;
         this.frameContainerHeight = rect.height;
         
         // Set the size for container
-        this.frameContainer!.style.width = `${this.frameContainerWidth}px`;
-        this.frameContainer!.style.height = `${this.frameContainerHeight}px`;
+        this.frameContainer.style.width = `${this.frameContainerWidth}px`;
+        this.frameContainer.style.height = `${this.frameContainerHeight}px`;
     }
 
     switchTo(width: number, height: number) {
-        // Calculate the scale to make sure the frame fit best in the container
-        const s = Math.min(this.frameContainerWidth / width, this.frameContainerHeight / height);
-        this.scale = Math.min(s, 1);
+        this.scale = this.calculateScale(width, height);
 
         // Set the frame size
         this.frameWidth = width;
         this.frameHeight = height;
     }
+
+    // Calculate the scale to make sure the frame fit best in the container
+    calculateScale = (w: number, h: number) => {
+        const minScale = Math.min(this.frameContainerWidth / w, this.frameContainerHeight / h);
+        return Math.min(minScale, 1);
+    };
 
     render() {
         const url = `/patterns/${this.pattern!}.html`;
@@ -95,23 +123,30 @@ export class DemoViewer implements ComponentInterface {
                         </button>
                     </tool-tip>
                 </div>
-                <div class="demo-viewer__body" ref={ele => this.frameContainer = ele}>
+                <div class="demo-viewer__body" ref={ele => this.frameContainer = ele as HTMLElement}>
                     <browser-frame
+                        ref={ele => this.browerFrameEle = ele as HTMLBrowserFrameElement}
                         style={{
                             height: this.frameHeight ? `${this.frameHeight * this.scale}px` : '100%',
                             width: this.frameWidth ? `${this.frameWidth * this.scale}px` : '100%',
                         }}
                         browserTitle={title}
                     >
-                        <iframe
-                            class="demo-viewer__frame"
-                            style={{
-                                width: `${this.frameWidth}px`,
-                                height: `${this.frameHeight}px`,
-                                transform: this.scale === 1 ? 'scale(1)' : `translate(${this.frameWidth! * (this.scale - 1) / 2}px, ${this.frameHeight! * (this.scale - 1) / 2}px) scale(${this.scale})`,
-                            }}
-                            src={url}
-                        />
+                        <resize-able
+                            onResizeEvent={this.handleResize}
+                            onDidResizeEvent={this.handleDidResize}
+                        >
+                            <iframe
+                                class="demo-viewer__frame"
+                                ref={ele => this.frameDemoEle = ele as HTMLElement}
+                                style={{
+                                    width: `${this.frameWidth}px`,
+                                    height: `${this.frameHeight}px`,
+                                    transform: this.scale === 1 ? 'scale(1)' : `translate(${this.frameWidth! * (this.scale - 1) / 2}px, ${this.frameHeight! * (this.scale - 1) / 2}px) scale(${this.scale})`,
+                                }}
+                                src={url}
+                            />
+                        </resize-able>
                     </browser-frame>
                 </div>
             </div>

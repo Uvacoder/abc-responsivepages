@@ -22,10 +22,10 @@
     cursor: pointer;
 }
 .demo-viewer__body {
-    align-items: center;
+    /* align-items: center; */
     display: flex;
     flex: 1;
-    justify-content: center;
+    /* justify-content: center; */
     margin: 4em;
 }
 .demo-viewer__frame {

@@ -1,0 +1,37 @@
+.resize-able {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.resize-able__resizer {
+    position: absolute;
+}
+.resize-able__resizer--r {
+    cursor: col-resize;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform: translate(50%, 0);
+    width: 0.5em;
+}
+.resize-able__resizer--b {
+    bottom: 0;
+    cursor: row-resize;
+    height: 0.5em;
+    left: 0;
+    transform: translate(0, 50%);
+    width: 100%;
+}
+.resize-able__resizer--resizing {
+    background-color: #2564eb;
+}
+
+.resize-able__overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
