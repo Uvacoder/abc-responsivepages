@@ -6,32 +6,27 @@ import { Component, Event, EventEmitter, h } from '@stencil/core';
 export class ClickOutside {
     @Event() clickOutSide?: EventEmitter;
 
-    private container?: HTMLElement;
-    private clickEventHandler?: (e: MouseEvent) => void;
+    private container!: HTMLElement;
 
-    constructor() {
-        this.clickEventHandler = this.handleClickEvent.bind(this);
-    }
-
-    handleClickEvent(e: MouseEvent) {
+    handleClickEvent = (e: MouseEvent) => {
         const { target } = e;
-        if (target instanceof HTMLElement && !this.container!.contains(target)) {
+        if (target instanceof HTMLElement && !this.container.contains(target)) {
             this.clickOutSide!.emit();
         }
     }
 
     connectedCallback() {
-        document.body.addEventListener('click', this.clickEventHandler!);
+        document.body.addEventListener('click', this.handleClickEvent!);
     }
 
     disconnectedCallback() {
-        document.body.removeEventListener('click', this.clickEventHandler!);
+        document.body.removeEventListener('click', this.handleClickEvent!);
     }
 
     render() {
         return (
             <div
-                ref={ele => this.container = ele}
+                ref={ele => this.container = ele as HTMLElement}
                 style={{ height: '100%', width: '100%' }}
             >
                 <slot></slot>
