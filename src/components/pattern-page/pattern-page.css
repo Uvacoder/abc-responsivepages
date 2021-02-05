@@ -1,6 +1,7 @@
 .pattern-page {
     display: flex;
     flex-direction: row;
+    height: 100vh;
 }
 .pattern-page__sidebar {
     border-right: 1px solid rgba(0, 0, 0, .3);
@@ -38,4 +39,11 @@
     top: 0;
     width: 100%;
     z-index: 1;
+}
+
+.pattern-page__screens {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    overflow: auto;
+    width: 16em;
 }
