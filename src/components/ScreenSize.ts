@@ -1,4 +1,4 @@
-export enum ScreenGroup {
+export enum ScreenCategory {
     ExtraSmall,
     Small,
     Medium,
@@ -11,7 +11,7 @@ export interface ScreenSize {
     height: number;
     width: number;
     devices: string[];
-    group: ScreenGroup;
+    group: ScreenCategory;
     popularity: number;
 }
 
@@ -26,7 +26,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Apple iPhone 3GS',
             'Apple iPhone 4/4S',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2,
     },
     {
@@ -36,7 +36,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Galaxy S/S2',
             'Samsung Galaxy S3 mini',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2,
     },
     {
@@ -45,7 +45,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Apple iPhone 5c/5s',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2,
     },
     {
@@ -55,7 +55,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Samsung S3/S4',
             'Samsung Galaxy Note',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 19.89,
     },
     {
@@ -70,7 +70,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'LG Optimus L9 P760',
             'Motorola RAZR MAXX',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2.35,
     },
     {
@@ -79,7 +79,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Apple iPhone 6/7/8',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 5,
     },
     {
@@ -92,7 +92,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Nokia Lumia 920',
             'Nokia Lumia 925',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2,
     },
     {
@@ -101,7 +101,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Samsung Galaxy Note',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2,
     },
     {
@@ -110,7 +110,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Apple iPhone Plus 6/7/8',
         ],
-        group: ScreenGroup.ExtraSmall,
+        group: ScreenCategory.ExtraSmall,
         popularity: 2.38,
     },
     // Small
@@ -121,7 +121,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Alcatel One Touch T10',
             'Panasonic T44',
         ],
-        group: ScreenGroup.Small,
+        group: ScreenCategory.Small,
         popularity: 2,
     },
     {
@@ -131,7 +131,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Motorola Moto E, VIVO Y51L',
             'HTC Evo 3D',
         ],
-        group: ScreenGroup.Small,
+        group: ScreenCategory.Small,
         popularity: 2,
     },
     {
@@ -141,7 +141,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Nexus 7',
             'Barnes & Noble Nook HD',
         ],
-        group: ScreenGroup.Small,
+        group: ScreenCategory.Small,
         popularity: 2,
     },
     {
@@ -151,7 +151,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Amazon Kindle Fire 1st Gen',
             'Samsung Galaxy Tab 2',
         ],
-        group: ScreenGroup.Small,
+        group: ScreenCategory.Small,
         popularity: 2,
     },
     // Medium
@@ -166,7 +166,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'LG Phoenix 2',
             'Sony Xperia M4',
         ],
-        group: ScreenGroup.Medium,
+        group: ScreenCategory.Medium,
         popularity: 2,
     },
     {
@@ -176,7 +176,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Apple iPad Mini',
             'Apple iPad 1/2/3/4',
         ],
-        group: ScreenGroup.Medium,
+        group: ScreenCategory.Medium,
         popularity: 2.5,
     },
     {
@@ -185,7 +185,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Panasonic BT-LH1850',
         ],
-        group: ScreenGroup.Medium,
+        group: ScreenCategory.Medium,
         popularity: 2,
     },
     {
@@ -195,7 +195,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Dell Venue 8',
             'Samsung Galaxy Tab 10',
         ],
-        group: ScreenGroup.Medium,
+        group: ScreenCategory.Medium,
         popularity: 2,
     },
     // Large 
@@ -206,7 +206,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Sony Xperia C4',
             'Sony Xperia Z Ultra',
         ],
-        group: ScreenGroup.Large,
+        group: ScreenCategory.Large,
         popularity: 2,
     },
     {
@@ -216,7 +216,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Amazon Fire 7-Tablet',
             'Tablet Huawei Mediapad T3',
         ],
-        group: ScreenGroup.Large,
+        group: ScreenCategory.Large,
         popularity: 2,
     },
     {
@@ -226,7 +226,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Apple iPad Mini',
             'Apple iPad 1/2/3/4',
         ],
-        group: ScreenGroup.Large,
+        group: ScreenCategory.Large,
         popularity: 2,
     },
     // ExtraLarge
@@ -238,7 +238,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Lenovo IdeaPad',
             'HP x2 210 G2',
         ],
-        group: ScreenGroup.ExtraLarge,
+        group: ScreenCategory.ExtraLarge,
         popularity: 2.07,
     },
     {
@@ -247,7 +247,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Apple Macbook 13"',
         ],
-        group: ScreenGroup.ExtraLarge,
+        group: ScreenCategory.ExtraLarge,
         popularity: 10.95,
     },
     {
@@ -257,7 +257,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'Apple Macbook Pro 15"',
             'HP Notebook 17"',
         ],
-        group: ScreenGroup.ExtraLarge,
+        group: ScreenCategory.ExtraLarge,
         popularity: 2.9,
     },
     // SuperLarge
@@ -268,7 +268,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
             'IBM ThinkPad',
             'HP Notebook 17"',
         ],
-        group: ScreenGroup.SuperLarge,
+        group: ScreenCategory.SuperLarge,
         popularity: 2.4,
     },
     {
@@ -277,7 +277,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Desktop monitors in 14" to 19"',
         ],
-        group: ScreenGroup.SuperLarge,
+        group: ScreenCategory.SuperLarge,
         popularity: 2.21,
     },
     {
@@ -286,7 +286,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Desktop monitors in 20" to 22"',
         ],
-        group: ScreenGroup.SuperLarge,
+        group: ScreenCategory.SuperLarge,
         popularity: 2,
     },
     {
@@ -295,7 +295,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Desktop monitors in 24" to 27"',
         ],
-        group: ScreenGroup.SuperLarge,
+        group: ScreenCategory.SuperLarge,
         popularity: 8.51,
     },
     {
@@ -304,7 +304,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Desktop monitors in 24" to 27"',
         ],
-        group: ScreenGroup.SuperLarge,
+        group: ScreenCategory.SuperLarge,
         popularity: 2,
     },
     {
@@ -313,7 +313,7 @@ export const SCREEN_SIZES: ScreenSize[] = [
         devices: [
             'Apple iMac 27-inch (5K)',
         ],
-        group: ScreenGroup.SuperLarge,
+        group: ScreenCategory.SuperLarge,
         popularity: 2,
     },
 ];

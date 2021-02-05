@@ -55,6 +55,9 @@ export class PatternPage {
                     {this.isNavigationOpen && <div class="pattern-page__overlay" />}
                     <demo-viewer pattern={this.pattern!}></demo-viewer>
                 </div>
+                <div class="pattern-page__screens">
+                    <screen-list></screen-list>
+                </div>
             </div>
         );
     }

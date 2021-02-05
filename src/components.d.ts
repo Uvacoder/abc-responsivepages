@@ -26,6 +26,8 @@ export namespace Components {
     }
     interface ResizeAble {
     }
+    interface ScreenList {
+    }
     interface ToolTip {
         "position": string;
         "tip"?: string;
@@ -80,6 +82,12 @@ declare global {
         prototype: HTMLResizeAbleElement;
         new (): HTMLResizeAbleElement;
     };
+    interface HTMLScreenListElement extends Components.ScreenList, HTMLStencilElement {
+    }
+    var HTMLScreenListElement: {
+        prototype: HTMLScreenListElement;
+        new (): HTMLScreenListElement;
+    };
     interface HTMLToolTipElement extends Components.ToolTip, HTMLStencilElement {
     }
     var HTMLToolTipElement: {
@@ -95,6 +103,7 @@ declare global {
         "pattern-list": HTMLPatternListElement;
         "pattern-page": HTMLPatternPageElement;
         "resize-able": HTMLResizeAbleElement;
+        "screen-list": HTMLScreenListElement;
         "tool-tip": HTMLToolTipElement;
     }
 }
@@ -121,6 +130,8 @@ declare namespace LocalJSX {
         "onDidResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
         "onResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
     }
+    interface ScreenList {
+    }
     interface ToolTip {
         "position"?: string;
         "tip"?: string;
@@ -134,6 +145,7 @@ declare namespace LocalJSX {
         "pattern-list": PatternList;
         "pattern-page": PatternPage;
         "resize-able": ResizeAble;
+        "screen-list": ScreenList;
         "tool-tip": ToolTip;
     }
 }
@@ -149,6 +161,7 @@ declare module "@stencil/core" {
             "pattern-list": LocalJSX.PatternList & JSXBase.HTMLAttributes<HTMLPatternListElement>;
             "pattern-page": LocalJSX.PatternPage & JSXBase.HTMLAttributes<HTMLPatternPageElement>;
             "resize-able": LocalJSX.ResizeAble & JSXBase.HTMLAttributes<HTMLResizeAbleElement>;
+            "screen-list": LocalJSX.ScreenList & JSXBase.HTMLAttributes<HTMLScreenListElement>;
             "tool-tip": LocalJSX.ToolTip & JSXBase.HTMLAttributes<HTMLToolTipElement>;
         }
     }
