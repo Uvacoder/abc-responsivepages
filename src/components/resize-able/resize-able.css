@@ -1,0 +1,22 @@
+.resize-able {
+    position: relative;
+}
+
+.resize-able__resizer {
+    position: absolute;
+}
+.resize-able__resizer--r {
+    cursor: col-resize;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform: translate(100%, 0);
+    width: 0.5em;
+}
+.resize-able__resizer--b {
+    bottom: 0;
+    cursor: row-resize;
+    height: 5px;
+    left: 0;
+    width: 100%;
+}
