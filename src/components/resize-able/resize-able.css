@@ -23,9 +23,8 @@
     transform: translate(0, 50%);
     width: 100%;
 }
-.resize-able__resizer--b:hover,
-.resize-able__resizer--r:hover {
-    background-color: blue;
+.resize-able__resizer--resizing {
+    background-color: #2564eb;
 }
 
 .resize-able__overlay {

@@ -44,6 +44,8 @@ export class ResizeAble {
         document.addEventListener('mouseup', this.handleMouseUp);
 
         this.overlayEle.classList.add('resize-able__overlay');
+
+        (e.target as HTMLElement).classList.add('resize-able__resizer--resizing');
     }
 
     handleMouseMove = (e: MouseEvent) => {
@@ -66,6 +68,8 @@ export class ResizeAble {
     handleMouseUp = () => {
         this.container.style.removeProperty('user-select');
         this.overlayEle.classList.remove('resize-able__overlay');
+
+        this.container.querySelector('.resize-able__resizer--resizing')?.classList.remove('resize-able__resizer--resizing');
 
         this.didResizeEvent!.emit({
             height: this.newHeight,
