@@ -1,8 +1,6 @@
 import { Component, Listen, Prop, State, h } from '@stencil/core';
 import { href } from 'stencil-router-v2';
 
-import { ScreenSize } from '../ScreenSize';
-
 @Component({
     tag: 'pattern-page',
     styleUrl: 'pattern-page.css'
@@ -10,16 +8,10 @@ import { ScreenSize } from '../ScreenSize';
 export class PatternPage {
     @Prop() pattern?: string;
     @State() isNavigationOpen: boolean = false;
-    @State() currentSize?: ScreenSize;
 
     @Listen('clickOutSide')
     clickOutSideHandler() {
         this.isNavigationOpen = false;
-    }
-
-    @Listen('chooseScreenSizeEvent')
-    handleChangeScreenSize(e: CustomEvent<ScreenSize>) {
-        this.currentSize = e.detail;
     }
 
     render() {
@@ -61,13 +53,7 @@ export class PatternPage {
                     of it if user clicks on the iframe. Creating an overlay will fix the issue.
                     */}
                     {this.isNavigationOpen && <div class="pattern-page__overlay" />}
-                    <demo-viewer
-                        pattern={this.pattern!}
-                        screenSize={this.currentSize}
-                    />
-                </div>
-                <div class="pattern-page__screens">
-                    <screen-list />
+                    <demo-viewer pattern={this.pattern!} />
                 </div>
             </div>
         );
