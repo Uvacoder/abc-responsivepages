@@ -4,8 +4,13 @@
     grid-template-rows: 2.5em 1fr;
     height: 100vh;
 }
+
+/* With sidebar */
 .demo-viewer--withsidebar {
     grid-template-columns: 1fr 16em;
+}
+.demo-viewer--withsidebar .demo-viewer__body {
+    overflow: hidden;
 }
 
 .demo-viewer__toolbar {
