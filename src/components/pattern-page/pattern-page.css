@@ -40,10 +40,3 @@
     width: 100%;
     z-index: 1;
 }
-
-.pattern-page__screens {
-    background-color: rgba(0, 0, 0, 0.02);
-    border-left: 1px solid rgba(0, 0, 0, .2);
-    overflow: auto;
-    width: 16em;
-}
