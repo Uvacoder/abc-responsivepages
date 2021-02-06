@@ -49,7 +49,7 @@ export class DemoViewer {
     @State() scale: number = 1;
     @State() isScreenListOpen: boolean = false;
 
-    private browerFrameEle!: HTMLBrowserFrameElement;
+    private resizeAbleEle!: HTMLResizeAbleElement;
     private frameDemoEle!: HTMLElement;
 
     private frameContainer!: HTMLElement;
@@ -65,16 +65,19 @@ export class DemoViewer {
     handleResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
 
-        this.browerFrameEle.style.height = `${height}px`;
-        this.browerFrameEle.style.width = `${width}px`;
+        this.resizeAbleEle.style.height = `${height}px`;
+        this.resizeAbleEle.style.width = `${width}px`;
 
-        const scale = this.calculateScale(width, height);
+        this.frameDemoEle.style.removeProperty('height');
+        this.frameDemoEle.style.removeProperty('width');
 
-        this.frameDemoEle.style.height = `${height}px`;
-        this.frameDemoEle.style.width = `${width}px`;
-        this.frameDemoEle.style.transform = scale === 1
-                ? 'scale(1)'
-                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
+        // const scale = this.calculateScale(width, height);
+
+        // this.frameDemoEle.style.height = `${height}px`;
+        // this.frameDemoEle.style.width = `${width}px`;
+        // this.frameDemoEle.style.transform = scale === 1
+        //         ? 'scale(1)'
+        //         : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
     }
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
@@ -206,19 +209,14 @@ export class DemoViewer {
                     </tool-tip>
                 </div>
 
-                <div class="demo-viewer__body" ref={ele => this.frameContainer = ele as HTMLElement}>
-                    <browser-frame
-                        ref={ele => this.browerFrameEle = ele as HTMLBrowserFrameElement}
-                        style={{
-                            height: this.frameHeight ? `${this.frameHeight * this.scale}px` : '100%',
-                            width: this.frameWidth ? `${this.frameWidth * this.scale}px` : '100%',
-                        }}
-                        browserTitle={title}
+                <div class="demo-viewer__main" ref={ele => this.frameContainer = ele as HTMLElement}>
+                    <resize-able
+                        ref={ele => this.resizeAbleEle = ele as HTMLResizeAbleElement}
+                        onResizeEvent={this.handleResize}
+                        onDidResizeEvent={this.handleDidResize}
                     >
-                        <resize-able
-                            onResizeEvent={this.handleResize}
-                            onDidResizeEvent={this.handleDidResize}
-                        >
+                        <div class="demo-viewer__body">
+                            <browser-frame browserTitle={title} />
                             <iframe
                                 class="demo-viewer__frame"
                                 ref={ele => this.frameDemoEle = ele as HTMLElement}
@@ -229,8 +227,8 @@ export class DemoViewer {
                                 }}
                                 src={url}
                             />
-                        </resize-able>
-                    </browser-frame>
+                        </div>
+                    </resize-able>
                 </div>
 
                 {this.isScreenListOpen && (

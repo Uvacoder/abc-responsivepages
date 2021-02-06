@@ -1,6 +1,8 @@
 .resize-able {
+    position: relative;    
+}
+.resize-able--resizing {
     height: 100%;
-    position: relative;
     width: 100%;
 }
 

@@ -58,6 +58,8 @@ export class ResizeAble {
         this.newHeight = this.h + dy;
         this.newWidth = this.w + dx;
 
+        this.container.classList.add('resize-able--resizing');
+
         // Emit the event with new dimension of element
         this.resizeEvent!.emit({
             height: this.newHeight,
@@ -69,6 +71,7 @@ export class ResizeAble {
         this.container.style.removeProperty('user-select');
         this.overlayEle.classList.remove('resize-able__overlay');
 
+        this.container.classList.remove('resize-able--resizing');
         this.container.querySelector('.resize-able__resizer--resizing')?.classList.remove('resize-able__resizer--resizing');
 
         this.didResizeEvent!.emit({
