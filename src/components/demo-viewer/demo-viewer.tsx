@@ -82,6 +82,11 @@ export class DemoViewer {
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
+
+        // Remove the size from the resizable element
+        this.resizeAbleEle.style.removeProperty('height');
+        this.resizeAbleEle.style.removeProperty('width');
+
         this.switchTo(width, height);
     }
 
