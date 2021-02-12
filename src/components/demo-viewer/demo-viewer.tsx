@@ -221,7 +221,9 @@ export class DemoViewer {
                         onDidResizeEvent={this.handleDidResize}
                     >
                         <div class="demo-viewer__body">
-                            <browser-frame browserTitle={title} />
+                            <div class="demo-viewer__browser">
+                                <browser-frame browserTitle={title} />
+                            </div>
                             <iframe
                                 class="demo-viewer__frame"
                                 ref={ele => this.frameDemoEle = ele as HTMLElement}
