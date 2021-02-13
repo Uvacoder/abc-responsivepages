@@ -4,6 +4,10 @@ export interface ResizeEvent {
     height: number;
     width: number;
 }
+enum ResizeDirection {
+    Horizontal = 'Horizontal',
+    Vertical = 'Vertical',
+}
 
 @Component({
     tag: 'resize-able',
@@ -27,9 +31,13 @@ export class ResizeAble {
     private newWidth: number = 0;
     private newHeight: number = 0;
 
+    private direction?: ResizeDirection;
+
     // Handle the mousedown event
     // that's triggered when user drags the resizer
-    handleMouseDown = (e: MouseEvent) => {
+    handleMouseDown = (e: MouseEvent, direction: ResizeDirection) => {
+        this.direction = direction;
+
         // Get the current mouse position
         this.x = e.clientX;
         this.y = e.clientY;
@@ -50,8 +58,8 @@ export class ResizeAble {
 
     handleMouseMove = (e: MouseEvent) => {
         // How far the mouse has been moved
-        const dx = e.clientX - this.x;
-        const dy = e.clientY - this.y;
+        const dx = this.direction === ResizeDirection.Horizontal ? 0 : e.clientX - this.x;
+        const dy = this.direction === ResizeDirection.Vertical ? 0 : e.clientY - this.y;
 
         this.container.style.userSelect = 'none';
 
@@ -87,8 +95,8 @@ export class ResizeAble {
     render() {
         return (
             <div class="resize-able" ref={ele => this.container = ele as HTMLElement}>
-                <div class="resize-able__resizer resize-able__resizer--r" onMouseDown={this.handleMouseDown}></div>
-                <div class="resize-able__resizer resize-able__resizer--b" onMouseDown={this.handleMouseDown}></div>
+                <div class="resize-able__resizer resize-able__resizer--r" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Vertical)}></div>
+                <div class="resize-able__resizer resize-able__resizer--b" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Horizontal)}></div>
                 <slot></slot>
                 <div ref={ele => this.overlayEle = ele as HTMLElement}></div>
             </div>
