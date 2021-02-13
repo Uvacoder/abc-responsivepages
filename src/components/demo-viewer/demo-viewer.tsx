@@ -9,6 +9,7 @@ import { Component, Prop, State, h } from '@stencil/core';
 import slugify from '../../utils/slugify';
 import unslugify from '../../utils/unslugify';
 import { ResizeEvent } from '../resize-able/resize-able';
+import Orientation from '../Orientation';
 import PATTERNS from '../Patterns';
 import { ScreenSize } from '../ScreenSize';
 
@@ -53,10 +54,12 @@ export class DemoViewer {
     @Prop() pattern?: string;
 
     @State() isScreenListOpen: boolean = false;
+    @State() orientation: Orientation = Orientation.Portrait;
 
     private resizeAbleEle!: HTMLResizeAbleElement;
     private frameDemoEle!: HTMLElement;
     private viewerBodyEle!: HTMLElement;
+    private browserFrameEle!: HTMLElement;
 
     private frameContainer!: HTMLElement;
     private frameContainerWidth: number = 0;
@@ -80,6 +83,10 @@ export class DemoViewer {
         this.resizeAbleEle.style.width = `${width}px`;
         this.resizeAbleEle.style.height = `${height}px`;
 
+        this.orientation == Orientation.Landscape
+            ? (this.browserFrameEle.style.width = `${height}px`)
+            : this.browserFrameEle.style.removeProperty('width');
+
         this.frameDemoEle.style.removeProperty('height');
         this.frameDemoEle.style.removeProperty('width');
         this.frameDemoEle.style.removeProperty('transform');
@@ -91,6 +98,7 @@ export class DemoViewer {
     }
 
     handleRotate = () => {
+        this.orientation = this.orientation === Orientation.Portrait ? Orientation.Landscape : Orientation.Portrait;
         this.switchTo(this.demoHeight, this.demoWidth);
     }
 
@@ -127,11 +135,19 @@ export class DemoViewer {
         this.demoWidth = width;
 
         // Set the size for resizable element
-        this.viewerBodyEle.style.width = `${width * scale}px`;
-        this.viewerBodyEle.style.height = `${height * scale}px`;
+        const newHeight = height * scale;
+        const newWidth = width * scale;
 
-        this.resizeAbleEle.style.width = `${width * scale}px`;
-        this.resizeAbleEle.style.height = `${height * scale}px`;
+        this.viewerBodyEle.style.height = `${newHeight}px`;
+        this.viewerBodyEle.style.width = `${newWidth}px`;
+
+        this.resizeAbleEle.style.height = `${newHeight}px`;
+        this.resizeAbleEle.style.width = `${newWidth}px`;
+
+        // Update the size of the browser frame
+        this.orientation == Orientation.Landscape
+            ? (this.browserFrameEle.style.width = `${newHeight}px`)
+            : this.browserFrameEle.style.removeProperty('width');
 
         // Set the frame size
         this.frameDemoEle.style.width = `${width}px`;
@@ -232,14 +248,23 @@ export class DemoViewer {
                     </tool-tip>
                 </div>
 
-                <div class="demo-viewer__main" ref={ele => this.frameContainer = ele as HTMLElement}>
+                <div
+                    class="demo-viewer__main"
+                    ref={ele => this.frameContainer = ele as HTMLElement}
+                >
                     <resize-able
                         ref={ele => this.resizeAbleEle = ele as HTMLResizeAbleElement}
                         onResizeEvent={this.handleResize}
                         onDidResizeEvent={this.handleDidResize}
                     >
-                        <div class="demo-viewer__body" ref={ele => this.viewerBodyEle = ele as HTMLElement}>
-                            <div class="demo-viewer__browser">
+                        <div
+                            class="demo-viewer__body"
+                            ref={ele => this.viewerBodyEle = ele as HTMLElement}
+                        >
+                            <div
+                                class={`demo-viewer__browser ${this.orientation === Orientation.Portrait ? 'demo-viewer__browser--portrait' : 'demo-viewer__browser--landscape'}`}
+                                ref={ele => this.browserFrameEle = ele as HTMLElement}
+                            >
                                 <browser-frame
                                     browserTitle={title}
                                     backUrl={previousPattern}
