@@ -50,9 +50,6 @@ declare var ResizeObserver: {
 export class DemoViewer {
     @Prop() pattern?: string;
 
-    @State() frameWidth?: number;
-    @State() frameHeight?: number;
-    @State() scale: number = 1;
     @State() isScreenListOpen: boolean = false;
 
     private resizeAbleEle!: HTMLResizeAbleElement;
@@ -126,17 +123,14 @@ export class DemoViewer {
     }
 
     switchTo(width: number, height: number) {
-        this.scale = this.calculateScale(width, height);
+        const scale = this.calculateScale(width, height);
 
         // Set the frame size
-        this.frameWidth = width;
-        this.frameHeight = height;
-
         this.frameDemoEle.style.width = `${width}px`;
         this.frameDemoEle.style.height = `${height}px`;
-        this.frameDemoEle.style.transform = this.scale === 1
+        this.frameDemoEle.style.transform = scale === 1
                 ? 'scale(1)'
-                : `translate(${width * (this.scale - 1) / 2}px, ${height * (this.scale - 1) / 2}px) scale(${this.scale})`;
+                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
     }
 
     // Calculate the scale to make sure the frame fit best in the container
