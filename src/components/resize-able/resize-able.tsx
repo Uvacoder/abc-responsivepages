@@ -4,7 +4,7 @@
  * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
  */
 
-import { Component, Event, EventEmitter, h } from '@stencil/core';
+import { Component, Event, EventEmitter, State, h } from '@stencil/core';
 
 export interface ResizeEvent {
     height: number;
@@ -23,6 +23,8 @@ enum ResizeDirection {
 export class ResizeAble {
     @Event() resizeEvent?: EventEmitter<ResizeEvent>;
     @Event() didResizeEvent?: EventEmitter<ResizeEvent>;
+    @State() newWidth: number = 0;
+    @State() newHeight: number = 0;
 
     private container!: HTMLElement;
     private overlayEle!: HTMLElement;
@@ -34,9 +36,6 @@ export class ResizeAble {
     // The dimension of the element
     private w: number = 0;
     private h: number = 0;
-
-    private newWidth: number = 0;
-    private newHeight: number = 0;
 
     private direction?: ResizeDirection;
 
@@ -98,6 +97,7 @@ export class ResizeAble {
     handleMouseUp = () => {
         this.container.style.removeProperty('user-select');
         this.overlayEle.classList.remove('resize-able__overlay');
+        this.overlayEle.innerHTML = '';
 
         this.container.classList.remove('resize-able--resizing');
         this.container.querySelector('.resize-able__resizer--resizing')?.classList.remove('resize-able__resizer--resizing');
@@ -107,6 +107,9 @@ export class ResizeAble {
             height: this.newHeight,
             width: this.newWidth,
         });
+
+        this.newWidth = 0;
+        this.newHeight = 0;
 
         // Remove the handlers of `mousemove` and `mouseup`
         document.removeEventListener('mousemove', this.handleMouseMove);
@@ -118,9 +121,11 @@ export class ResizeAble {
             <div class="resize-able" ref={ele => this.container = ele as HTMLElement}>
                 <div class="resize-able__r">
                     <div class="resize-able__resizer--r" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Vertical)}></div>
+                    <div class="resize-able__width">{this.newWidth > 0 ? this.newWidth : ''}</div>
                 </div>
                 <div class="resize-able__b">
                     <div class="resize-able__resizer--b" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Horizontal)}></div>
+                    <div class="resize-able__height">{this.newHeight > 0 ? this.newHeight : ''}</div>
                 </div>
                 <div class="resize-able__resizer--rb" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Both)}></div>
                 <slot></slot>
