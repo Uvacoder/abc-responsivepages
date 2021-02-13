@@ -36,7 +36,6 @@ export class BrowserFrame {
                         <div class="browser-frame__title">{this.browserTitle!}</div>
                     </div>
                 </div>
-                <div class="browser-frame__bottom"></div>
                 <div class="browser-frame__bar">
                     <tool-tip tip="Previous pattern" position="bottom">
                         <a class={`browser-frame__action ${!this.backUrl! && 'browser-frame__action--disabled'}`} {...href(this.backUrl!)}>
@@ -68,6 +67,7 @@ export class BrowserFrame {
                             </svg>
                         </button>
                     </tool-tip>
+                    <div class="browser-frame__address"></div>
                 </div>
             </div>
         );
