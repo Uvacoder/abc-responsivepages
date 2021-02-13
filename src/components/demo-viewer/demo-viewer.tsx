@@ -73,14 +73,6 @@ export class DemoViewer {
 
         this.frameDemoEle.style.removeProperty('height');
         this.frameDemoEle.style.removeProperty('width');
-
-        // const scale = this.calculateScale(width, height);
-
-        // this.frameDemoEle.style.height = `${height}px`;
-        // this.frameDemoEle.style.width = `${width}px`;
-        // this.frameDemoEle.style.transform = scale === 1
-        //         ? 'scale(1)'
-        //         : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
     }
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
@@ -89,25 +81,22 @@ export class DemoViewer {
     }
 
     componentDidLoad() {
-        const { height, width }  = this.frameContainer.getBoundingClientRect();
-        this.frameContainerWidth = width;
-        this.frameContainerHeight = height;
+        const padding = parseInt(window.getComputedStyle(this.frameContainer).padding);
+        const { height, width } = this.frameContainer.getBoundingClientRect();
+        const containerHeight = height - padding * 2;
+        const containerWidth = width - padding * 2;
 
-        this.switchTo(width, height);
+        this.frameContainerHeight = containerHeight;
+        this.frameContainerWidth = containerWidth;
+
+        this.switchTo(containerWidth, containerHeight);
 
         // Automatically update the size of container
         this.resizeObserver = new ResizeObserver(entries => {
             entries.forEach(entry => {
-                // const { height, width } = entry.contentRect;
-
-                // this.frameContainerWidth = width;
-                // this.frameContainerHeight = height;
-
-                // this.frameContainer.style.width = `${width}px`;
-                // this.frameContainer.style.height = `${height}px`;
-
-                // console.log(height, width);
-                // this.switchTo(width, height);
+                const { height, width } = entry.contentRect;
+                this.frameContainerHeight = height;
+                this.frameContainerWidth = width;
             });
         });
         this.resizeObserver.observe(this.frameContainer);
