@@ -82,17 +82,18 @@
 }
 
 /* Browser frame */
-.demo-viewer__browser--portrait {
+.demo-viewer__browser {
     left: 0;
     position: absolute;
+    transition: transform 0.2s ease-in-out;
+}
+.demo-viewer__browser--portrait {
     top: 0;
     transform: translateY(-100%);
     width: 100%;
 }
 .demo-viewer__browser--landscape {
     bottom: 0;
-    left: 0;
-    position: absolute;
     transform: rotate(-90deg);
     transform-origin: 0% 100%;
 }

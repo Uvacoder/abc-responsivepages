@@ -262,7 +262,7 @@ export class DemoViewer {
                             ref={ele => this.viewerBodyEle = ele as HTMLElement}
                         >
                             <div
-                                class={this.orientation === Orientation.Portrait ? 'demo-viewer__browser--portrait' : 'demo-viewer__browser--landscape'}
+                                class={`demo-viewer__browser ${this.orientation === Orientation.Portrait ? 'demo-viewer__browser--portrait' : 'demo-viewer__browser--landscape'}`}
                                 ref={ele => this.browserFrameEle = ele as HTMLElement}
                             >
                                 <browser-frame
