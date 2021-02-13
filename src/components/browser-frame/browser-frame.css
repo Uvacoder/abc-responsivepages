@@ -21,14 +21,11 @@
     flex: 1;
     height: 2.5em;
 }
-.browser-frame__bottom {
-    background: #fff;
-    height: 0.25em;
-}
 .browser-frame__bar {
     align-items: center;
     background: #fff;
     display: flex;
+    padding: 0.125em;
 }
 
 /* Buttons */
@@ -116,9 +113,20 @@
     border: none;
     border-radius: 0.25em;
     cursor: pointer;
+    display: block;
     margin: 0.25em;
     padding: 0.25em;
 }
 .browser-frame__action:hover {
     background-color: rgba(0, 0, 0, .2);
+}
+.browser-frame__action--disabled {
+    color:rgba(0, 0, 0, .3);
+}
+.browser-frame__address {
+    background: #f1f3f4;
+    border-radius: 1em;
+    flex: 1;
+    height: 2em;
+    margin: 0 0.25em;
 }
