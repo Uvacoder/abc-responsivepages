@@ -65,8 +65,8 @@ export class DemoViewer {
     handleResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
 
-        this.resizeAbleEle.style.height = `${height}px`;
         this.resizeAbleEle.style.width = `${width}px`;
+        this.resizeAbleEle.style.height = `${height}px`;
 
         this.frameDemoEle.style.removeProperty('height');
         this.frameDemoEle.style.removeProperty('width');
@@ -83,7 +83,7 @@ export class DemoViewer {
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
 
-        // Remove the size from the resizable element
+        // // Remove the size from the resizable element
         this.resizeAbleEle.style.removeProperty('height');
         this.resizeAbleEle.style.removeProperty('width');
 
@@ -100,10 +100,10 @@ export class DemoViewer {
         // Automatically update the size of container
         this.resizeObserver = new ResizeObserver(entries => {
             entries.forEach(entry => {
-                const { height, width } = entry.contentRect;
+                // const { height, width } = entry.contentRect;
 
-                this.frameContainerWidth = width;
-                this.frameContainerHeight = height;
+                // this.frameContainerWidth = width;
+                // this.frameContainerHeight = height;
 
                 // this.frameContainer.style.width = `${width}px`;
                 // this.frameContainer.style.height = `${height}px`;
@@ -125,6 +125,12 @@ export class DemoViewer {
         // Set the frame size
         this.frameWidth = width;
         this.frameHeight = height;
+
+        this.frameDemoEle.style.width = `${width}px`;
+        this.frameDemoEle.style.height = `${height}px`;
+        this.frameDemoEle.style.transform = this.scale === 1
+                ? 'scale(1)'
+                : `translate(${width * (this.scale - 1) / 2}px, ${height * (this.scale - 1) / 2}px) scale(${this.scale})`;
     }
 
     // Calculate the scale to make sure the frame fit best in the container
@@ -227,11 +233,6 @@ export class DemoViewer {
                             <iframe
                                 class="demo-viewer__frame"
                                 ref={ele => this.frameDemoEle = ele as HTMLElement}
-                                style={{
-                                    width: `${this.frameWidth}px`,
-                                    height: `${this.frameHeight}px`,
-                                    transform: this.scale === 1 ? 'scale(1)' : `translate(${this.frameWidth! * (this.scale - 1) / 2}px, ${this.frameHeight! * (this.scale - 1) / 2}px) scale(${this.scale})`,
-                                }}
                                 src={url}
                             />
                         </div>
