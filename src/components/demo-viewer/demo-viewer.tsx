@@ -10,7 +10,7 @@ import slugify from '../../utils/slugify';
 import unslugify from '../../utils/unslugify';
 import { ResizeEvent } from '../resize-able/resize-able';
 import Orientation from '../Orientation';
-import PATTERNS from '../Patterns';
+import { PATTERNS } from '../Patterns';
 import { ScreenSize } from '../ScreenSize';
 
 interface DOMRectReadOnly {
@@ -174,9 +174,9 @@ export class DemoViewer {
         const url = `/patterns/${this.pattern!}.html`;
         const title = unslugify(this.pattern!);
 
-        const currentIndex = PATTERNS.findIndex(p => slugify(p) === this.pattern);
-        const previousPattern = currentIndex === 0 ? '' : `/${slugify(PATTERNS[currentIndex - 1])}`;
-        const nextPattern = currentIndex >= PATTERNS.length - 1 ? '' : `/${slugify(PATTERNS[currentIndex + 1])}`;
+        const currentIndex = PATTERNS.findIndex(p => slugify(p.name) === this.pattern);
+        const previousPattern = currentIndex === 0 ? '' : `/${slugify(PATTERNS[currentIndex - 1].name)}`;
+        const nextPattern = currentIndex >= PATTERNS.length - 1 ? '' : `/${slugify(PATTERNS[currentIndex + 1].name)}`;
 
         return (
             <div class={`demo-viewer ${this.isScreenListOpen ? 'demo-viewer--withsidebar' : ''}`}>

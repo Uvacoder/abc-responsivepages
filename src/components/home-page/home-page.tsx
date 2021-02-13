@@ -6,7 +6,7 @@
 
 import { Component, h } from '@stencil/core';
 import { href } from 'stencil-router-v2';
-import PATTERNS from '../Patterns';
+import { PATTERNS } from '../Patterns';
 import slugify from '../../utils/slugify';
 
 @Component({
@@ -24,7 +24,7 @@ export class HomePage {
                 <ul>
                 {
                     PATTERNS.map(pattern => (
-                        <li><a {...href(`/${slugify(pattern)}`)}>{pattern}</a></li>
+                        <li><a {...href(`/${slugify(pattern.name)}`)}>{pattern.name}</a></li>
                     ))
                 }
                 </ul>

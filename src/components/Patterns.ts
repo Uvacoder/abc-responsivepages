@@ -4,11 +4,22 @@
  * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
  */
 
-const PATTERNS = [
-    'Column drop',
-    'Layout shifter',
-    'Mostly fluid',
-    'Tiny tweaks',
+export enum Category {
+    Navigation,
+}
+
+export interface Pattern {
+    name: string;
+    category: Category;
+}
+
+const PATTERNS: Pattern[] = [
+    { name: 'Column drop', category: Category.Navigation },
+    { name: 'Layout shifter', category: Category.Navigation },
+    { name: 'Mostly fluid', category: Category.Navigation },
+    { name: 'Tiny tweaks', category: Category.Navigation },
 ];
 
-export default PATTERNS;
+export {
+    PATTERNS,
+};
