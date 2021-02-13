@@ -7,24 +7,49 @@
 import { Component, h } from '@stencil/core';
 import { href } from 'stencil-router-v2';
 
-import { PATTERNS } from '../Patterns';
+import { PATTERNS, Category, Pattern } from '../Patterns';
 import slugify from '../../utils/slugify';
+
+type GroupByCategory = { [key: number]: Pattern[] };
 
 @Component({
     tag: 'pattern-list',
     styleUrl: 'pattern-list.css'
 })
 export class PatternList {
+    renderCategory = (category: number) => {
+        switch (category) {
+            case Category.Layout: return 'Layout';
+            case Category.Navigation: return 'Navigation';
+            default: return 'Uncategoried';
+        }
+    }
+
     render() {
+        const groups = PATTERNS.reduce(
+            (acc, item) => {
+                acc[item.category] = [...(acc[item.category] || []), item];
+                return acc;
+            },
+            {} as GroupByCategory
+        );
+
         return (
             <div class="pattern-list">
-                <ul>
-                {
-                    PATTERNS.map(pattern => (
-                        <li><a class="pattern-list__link" {...href(`/${slugify(pattern.name)}`)}>{pattern.name}</a></li>
-                    ))
-                }
-                </ul>
+            {
+                Object.keys(groups).map((_, category) => (
+                    <div>
+                        <div class="pattern-list__category">{this.renderCategory(category)}</div>
+                        <ul>
+                        {
+                            (groups[category] as Pattern[]).map(pattern => (
+                                <li><a class="pattern-list__link" {...href(`/${slugify(pattern.name)}`)}>{pattern.name}</a></li>
+                            ))
+                        }
+                        </ul>
+                    </div>
+                ))
+            }
             </div>
         );
     }

@@ -5,6 +5,7 @@
  */
 
 export enum Category {
+    Layout,
     Navigation,
 }
 
@@ -14,10 +15,10 @@ export interface Pattern {
 }
 
 const PATTERNS: Pattern[] = [
-    { name: 'Column drop', category: Category.Navigation },
-    { name: 'Layout shifter', category: Category.Navigation },
-    { name: 'Mostly fluid', category: Category.Navigation },
-    { name: 'Tiny tweaks', category: Category.Navigation },
+    { name: 'Column drop', category: Category.Layout },
+    { name: 'Layout shifter', category: Category.Layout },
+    { name: 'Mostly fluid', category: Category.Layout },
+    { name: 'Tiny tweaks', category: Category.Layout },
 ];
 
 export {
