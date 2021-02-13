@@ -113,6 +113,7 @@ declare namespace LocalJSX {
     }
     interface BrowserFrame {
         "browserTitle"?: string;
+        "onRotateEvent"?: (event: CustomEvent<any>) => void;
     }
     interface ClickOutside {
         "onClickOutSide"?: (event: CustomEvent<any>) => void;

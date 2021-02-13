@@ -12,7 +12,6 @@
     border-top-right-radius: 0.5em;
     display: flex;
     flex-direction: column;
-    height: 2.5em;
     padding-top: 0.25em;
 }
 
@@ -20,10 +19,16 @@
     align-items: center;
     display: flex;
     flex: 1;
+    height: 2.5em;
 }
 .browser-frame__bottom {
     background: #fff;
     height: 0.25em;
+}
+.browser-frame__bar {
+    align-items: center;
+    background: #fff;
+    display: flex;
 }
 
 /* Buttons */
@@ -103,4 +108,17 @@
     padding: 0 0.5em;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+/* Action buttons in address bar */
+.browser-frame__action {
+    background: none;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.browser-frame__action:hover {
+    background-color: rgba(0, 0, 0, .2);
 }
