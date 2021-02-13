@@ -11,6 +11,12 @@
     height: 100%;
     width: 100%;
 }
+.resize-able__body--r {
+    cursor: col-resize;
+}
+.resize-able__body--b {
+    cursor: row-resize;
+}
 
 .resize-able__resizer {
     position: absolute;
