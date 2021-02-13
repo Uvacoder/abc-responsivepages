@@ -60,6 +60,9 @@ export class DemoViewer {
     private frameContainerHeight: number = 0;
     private resizeObserver!: ResizeObserver;
 
+    private demoHeight: number = 0;
+    private demoWidth: number = 0;
+
     handleChangeScreenSize = (e: CustomEvent<ScreenSize>) => {
         const { height, width } = e.detail;
         this.switchTo(width, height);
@@ -78,6 +81,10 @@ export class DemoViewer {
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
         this.switchTo(width, height);
+    }
+
+    handleRotate = () => {
+        this.switchTo(this.demoHeight, this.demoWidth);
     }
 
     componentDidLoad() {
@@ -108,6 +115,9 @@ export class DemoViewer {
 
     switchTo(width: number, height: number) {
         const scale = this.calculateScale(width, height);
+
+        this.demoHeight = height;
+        this.demoWidth = width;
 
         // Set the size for resizable element
         this.resizeAbleEle.style.width = `${width * scale}px`;
@@ -216,7 +226,10 @@ export class DemoViewer {
                     >
                         <div class="demo-viewer__body">
                             <div class="demo-viewer__browser">
-                                <browser-frame browserTitle={title} />
+                                <browser-frame
+                                    browserTitle={title}
+                                    onRotateEvent={this.handleRotate}
+                                />
                             </div>
                             <iframe
                                 class="demo-viewer__frame"

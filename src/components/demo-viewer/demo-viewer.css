@@ -37,7 +37,7 @@
     grid-column-start: 1;
     grid-row-end: auto;
     grid-column-end: auto;
-    padding: 4em;
+    padding: 6em;
 }
 .demo-viewer__screens {
     background-color: rgba(0, 0, 0, 0.02);
