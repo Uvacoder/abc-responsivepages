@@ -11,6 +11,7 @@ export namespace Components {
     interface AppRoot {
     }
     interface BrowserFrame {
+        "backUrl"?: string;
         "browserTitle"?: string;
     }
     interface ClickOutside {
@@ -112,6 +113,7 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface BrowserFrame {
+        "backUrl"?: string;
         "browserTitle"?: string;
         "onRotateEvent"?: (event: CustomEvent<any>) => void;
     }
