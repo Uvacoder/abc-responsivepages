@@ -85,11 +85,6 @@ export class DemoViewer {
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
-
-        // // Remove the size from the resizable element
-        this.resizeAbleEle.style.removeProperty('height');
-        this.resizeAbleEle.style.removeProperty('width');
-
         this.switchTo(width, height);
     }
 
@@ -124,6 +119,10 @@ export class DemoViewer {
 
     switchTo(width: number, height: number) {
         const scale = this.calculateScale(width, height);
+
+        // Set the size for resizable element
+        this.resizeAbleEle.style.width = `${width * scale}px`;
+        this.resizeAbleEle.style.height = `${height * scale}px`;
 
         // Set the frame size
         this.frameDemoEle.style.width = `${width}px`;
