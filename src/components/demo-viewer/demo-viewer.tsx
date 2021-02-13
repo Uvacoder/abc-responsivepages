@@ -152,6 +152,7 @@ export class DemoViewer {
 
         const currentIndex = PATTERNS.findIndex(p => slugify(p) === this.pattern);
         const previousPattern = currentIndex === 0 ? '' : `/${slugify(PATTERNS[currentIndex - 1])}`;
+        const nextPattern = currentIndex >= PATTERNS.length - 1 ? '' : `/${slugify(PATTERNS[currentIndex + 1])}`;
 
         return (
             <div class={`demo-viewer ${this.isScreenListOpen ? 'demo-viewer--withsidebar' : ''}`}>
@@ -234,6 +235,7 @@ export class DemoViewer {
                                 <browser-frame
                                     browserTitle={title}
                                     backUrl={previousPattern}
+                                    forwardUrl={nextPattern}
                                     onRotateEvent={this.handleRotate}
                                 />
                             </div>

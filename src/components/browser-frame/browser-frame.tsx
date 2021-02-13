@@ -14,6 +14,7 @@ import { href } from 'stencil-router-v2';
 export class BrowserFrame {
     @Event() rotateEvent?: EventEmitter;
     @Prop() backUrl?: string;
+    @Prop() forwardUrl?: string;
     @Prop() browserTitle?: string;
 
     rotate = () => {
@@ -42,6 +43,14 @@ export class BrowserFrame {
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
                                 <path d="M0.757 12L23.243 12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
                                 <path d="M12.743,1,1.1,11.249a1,1,0,0,0,0,1.5L12.743,23" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </a>
+                    </tool-tip>
+                    <tool-tip tip="Next pattern" position="bottom">
+                        <a class={`browser-frame__action ${!this.forwardUrl! && 'browser-frame__action--disabled'}`} {...href(this.forwardUrl!)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                <path d="M23.243 12L0.757 12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11.257,23,22.9,12.751a1,1,0,0,0,0-1.5L11.257,1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </a>
                     </tool-tip>

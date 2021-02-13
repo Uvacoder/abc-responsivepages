@@ -13,6 +13,7 @@ export namespace Components {
     interface BrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
+        "forwardUrl"?: string;
     }
     interface ClickOutside {
     }
@@ -115,6 +116,7 @@ declare namespace LocalJSX {
     interface BrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
+        "forwardUrl"?: string;
         "onRotateEvent"?: (event: CustomEvent<any>) => void;
     }
     interface ClickOutside {
