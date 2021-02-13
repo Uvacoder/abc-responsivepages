@@ -56,6 +56,7 @@ export class DemoViewer {
 
     private resizeAbleEle!: HTMLResizeAbleElement;
     private frameDemoEle!: HTMLElement;
+    private viewerBodyEle!: HTMLElement;
 
     private frameContainer!: HTMLElement;
     private frameContainerWidth: number = 0;
@@ -73,11 +74,15 @@ export class DemoViewer {
     handleResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
 
+        this.viewerBodyEle.style.width = `${width}px`;
+        this.viewerBodyEle.style.height = `${height}px`;
+
         this.resizeAbleEle.style.width = `${width}px`;
         this.resizeAbleEle.style.height = `${height}px`;
 
         this.frameDemoEle.style.removeProperty('height');
         this.frameDemoEle.style.removeProperty('width');
+        this.frameDemoEle.style.removeProperty('transform');
     }
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
@@ -122,6 +127,9 @@ export class DemoViewer {
         this.demoWidth = width;
 
         // Set the size for resizable element
+        this.viewerBodyEle.style.width = `${width * scale}px`;
+        this.viewerBodyEle.style.height = `${height * scale}px`;
+
         this.resizeAbleEle.style.width = `${width * scale}px`;
         this.resizeAbleEle.style.height = `${height * scale}px`;
 
@@ -230,7 +238,7 @@ export class DemoViewer {
                         onResizeEvent={this.handleResize}
                         onDidResizeEvent={this.handleDidResize}
                     >
-                        <div class="demo-viewer__body">
+                        <div class="demo-viewer__body" ref={ele => this.viewerBodyEle = ele as HTMLElement}>
                             <div class="demo-viewer__browser">
                                 <browser-frame
                                     browserTitle={title}
