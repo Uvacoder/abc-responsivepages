@@ -73,6 +73,7 @@ export class ResizeAble {
         this.newWidth = this.w + dx;
 
         this.container.classList.add('resize-able--resizing');
+        document.body.classList.add(this.direction === ResizeDirection.Vertical ? 'resize-able__body--r' : 'resize-able__body--b');
 
         // Emit the event with new dimension of element
         this.resizeEvent!.emit({
@@ -87,6 +88,7 @@ export class ResizeAble {
 
         this.container.classList.remove('resize-able--resizing');
         this.container.querySelector('.resize-able__resizer--resizing')?.classList.remove('resize-able__resizer--resizing');
+        document.body.classList.remove(this.direction === ResizeDirection.Vertical ? 'resize-able__body--r' : 'resize-able__body--b');
 
         this.didResizeEvent!.emit({
             height: this.newHeight,
