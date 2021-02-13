@@ -21,21 +21,47 @@
 .resize-able__resizer {
     position: absolute;
 }
-.resize-able__resizer--r {
-    cursor: col-resize;
+.resize-able__r {
     height: 100%;
+    position: absolute;
     right: 0;
     top: 0;
-    transform: translate(50%, 0);
+    transform: translate(50%, 0px);
     width: 0.5em;
 }
+.resize-able__r:hover .resize-able__resizer--r {
+    display: block;
+}
+.resize-able__resizer--r {
+    border: 1px solid #2564eb;
+    cursor: col-resize;
+    display: none;
+    height: 2em;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 0.5em;
+}
+
+.resize-able__b {
+    bottom: 0;
+    height: 0.5em;
+    position: absolute;
+    transform: translate(0px, 50%);
+    width: 100%;
+}
+.resize-able__b:hover .resize-able__resizer--b {
+    display: block;
+}
 .resize-able__resizer--b {
+    border: 1px solid #2564eb;
     bottom: 0;
     cursor: row-resize;
+    display: none;
     height: 0.5em;
-    left: 0;
-    transform: translate(0, 50%);
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 2em;
 }
 .resize-able__resizer--resizing {
     background-color: #2564eb;

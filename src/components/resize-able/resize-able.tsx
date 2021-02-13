@@ -103,8 +103,12 @@ export class ResizeAble {
     render() {
         return (
             <div class="resize-able" ref={ele => this.container = ele as HTMLElement}>
-                <div class="resize-able__resizer resize-able__resizer--r" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Vertical)}></div>
-                <div class="resize-able__resizer resize-able__resizer--b" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Horizontal)}></div>
+                <div class="resize-able__r">
+                    <div class="resize-able__resizer resize-able__resizer--r" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Vertical)}></div>
+                </div>
+                <div class="resize-able__b">
+                    <div class="resize-able__resizer resize-able__resizer--b" onMouseDown={(e) => this.handleMouseDown(e, ResizeDirection.Horizontal)}></div>
+                </div>
                 <slot></slot>
                 <div ref={ele => this.overlayEle = ele as HTMLElement}></div>
             </div>
