@@ -89,11 +89,15 @@ export class DemoViewer {
     }
 
     componentDidLoad() {
-        const { height, width }  = this.frameContainer.getBoundingClientRect();
-        this.frameContainerWidth = width;
-        this.frameContainerHeight = height;
+        const padding = parseInt(window.getComputedStyle(this.frameContainer).padding);
+        const { height, width } = this.frameContainer.getBoundingClientRect();
+        const containerWHeight = height - padding * 2;
+        const containerWidth = width - padding * 2;
 
-        this.switchTo(width, height);
+        this.frameContainerHeight = containerWHeight;
+        this.frameContainerWidth = containerWidth;
+
+        this.switchTo(containerWidth, containerWHeight);
 
         // Automatically update the size of container
         this.resizeObserver = new ResizeObserver(entries => {
