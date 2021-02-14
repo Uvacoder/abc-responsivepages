@@ -4,7 +4,7 @@
  * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
  */
 
-import { Component, Prop, State, h } from '@stencil/core';
+import { Build, Component, Prop, State, h } from '@stencil/core';
 
 import slugify from '../../utils/slugify';
 import unslugify from '../../utils/unslugify';
@@ -34,7 +34,7 @@ export class DemoViewer {
     private frameContainer!: HTMLElement;
     private frameContainerWidth: number = 0;
     private frameContainerHeight: number = 0;
-    private resizeObserver!: ResizeObserver;
+    private resizeObserver?: ResizeObserver;
     private setInitialSize: boolean = false;
 
     handleChangeScreenSize = (e: CustomEvent<ScreenSize>) => {
@@ -75,6 +75,11 @@ export class DemoViewer {
     }
 
     componentDidLoad() {
+        if (!Build.isBrowser) {
+            // Because `ResizeObserver` isn't available in prerendering mode
+            return;
+        }
+
         // Automatically update the size of container
         this.resizeObserver = new ResizeObserver(entries => {
             entries.forEach(entry => {
@@ -92,7 +97,7 @@ export class DemoViewer {
     }
 
     disconnectedCallback() {
-        this.resizeObserver.disconnect();
+        this.resizeObserver?.disconnect();
     }
 
     switchTo(width: number, height: number) {

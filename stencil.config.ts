@@ -5,12 +5,13 @@ export const config: Config = {
     outputTargets: [
         {
             type: 'www',
-            baseUrl: '/',
+            baseUrl: 'https://responsive.page',
             prerenderConfig: './prerender.config.ts',
             serviceWorker: {
                 unregister: true,
             },
             copy: [
+                { src: '../assets', dest: 'assets' },
                 { src: '../patterns', dest: 'patterns' },
             ],
         },
