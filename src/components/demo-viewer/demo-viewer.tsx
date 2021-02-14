@@ -34,7 +34,7 @@ export class DemoViewer {
     private frameContainer!: HTMLElement;
     private frameContainerWidth: number = 0;
     private frameContainerHeight: number = 0;
-    private resizeObserver!: ResizeObserver;
+    private resizeObserver?: ResizeObserver;
     private setInitialSize: boolean = false;
 
     handleChangeScreenSize = (e: CustomEvent<ScreenSize>) => {
@@ -97,7 +97,7 @@ export class DemoViewer {
     }
 
     disconnectedCallback() {
-        this.resizeObserver.disconnect();
+        this.resizeObserver?.disconnect();
     }
 
     switchTo(width: number, height: number) {
