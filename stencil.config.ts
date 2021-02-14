@@ -5,7 +5,7 @@ export const config: Config = {
     outputTargets: [
         {
             type: 'www',
-            baseUrl: '/',
+            baseUrl: 'https://responsive.page',
             prerenderConfig: './prerender.config.ts',
             serviceWorker: {
                 unregister: true,
