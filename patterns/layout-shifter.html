@@ -4,10 +4,14 @@
     <meta charset="utf-8">
     <title>Responsive Patterns | Layout shifter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://unpkg.com/@placeholders/core@0.0.3/dist/esm/placeholders.js"></script>
     <style>
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         margin: 0;
+    }
+    * {
+        box-sizing: border-box;
     }
     .container {
         display: flex;
@@ -19,12 +23,10 @@
     }
     .b1, .b2, .b3 {
         /* Center */
-        align-items: center;
-        display: flex;
-        justify-content: center;
+        text-align: center;
         
         /* Size */
-        min-height: 150px;
+        padding: 0.5em;
         width: 100%;
 
         /* Font */
@@ -32,13 +34,13 @@
         font-size: 2rem;
     }
     .b1 {
-        background-color: rgba(0, 0, 0, .05);
+        color: #E5E7EB;
     }
     .b2 {
-        background-color: rgba(0, 0, 0, .10);
+        color: #FECACA;
     }
     .b3 {
-        background-color: rgba(0, 0, 0, .15);
+        color: #FDE68A;
     }
 
     @media (min-width: 600px) {
@@ -53,10 +55,19 @@
 </head>
 <body>
     <div class="container">
-        <div class="b1">1</div>
+        <div class="b1">
+            <h2>1</h2>
+            <placeholder-lines size="50" />
+        </div>
         <div class="child">
-            <div class="b2">2</div>
-            <div class="b3">3</div>
+            <div class="b2">
+                <h2>2</h2>
+                <placeholder-lines size="20" />
+            </div>
+            <div class="b3">
+                <h2>3</h2>
+                <placeholder-lines size="20" />
+            </div>
         </div>
     </div>
 </body>
