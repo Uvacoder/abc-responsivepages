@@ -24,7 +24,7 @@ export class HomePage {
                 </div>
 
                 <div class="home-page__cta">
-                    <a {...href(slugify(PATTERNS[0].name))}>Explore</a>
+                    <a {...href(`/${slugify(PATTERNS[0].name)}`)}>Explore</a>
                 </div>
             </div>
         );
