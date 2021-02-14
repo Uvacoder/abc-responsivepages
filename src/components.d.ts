@@ -22,6 +22,26 @@ export namespace Components {
     }
     interface HomePage {
     }
+    interface IconDesktop {
+    }
+    interface IconLaptop {
+    }
+    interface IconLayout {
+    }
+    interface IconList {
+    }
+    interface IconMobile {
+    }
+    interface IconNext {
+    }
+    interface IconPrevious {
+    }
+    interface IconRotate {
+    }
+    interface IconScreens {
+    }
+    interface IconTablet {
+    }
     interface PatternList {
     }
     interface PatternPage {
@@ -67,6 +87,66 @@ declare global {
         prototype: HTMLHomePageElement;
         new (): HTMLHomePageElement;
     };
+    interface HTMLIconDesktopElement extends Components.IconDesktop, HTMLStencilElement {
+    }
+    var HTMLIconDesktopElement: {
+        prototype: HTMLIconDesktopElement;
+        new (): HTMLIconDesktopElement;
+    };
+    interface HTMLIconLaptopElement extends Components.IconLaptop, HTMLStencilElement {
+    }
+    var HTMLIconLaptopElement: {
+        prototype: HTMLIconLaptopElement;
+        new (): HTMLIconLaptopElement;
+    };
+    interface HTMLIconLayoutElement extends Components.IconLayout, HTMLStencilElement {
+    }
+    var HTMLIconLayoutElement: {
+        prototype: HTMLIconLayoutElement;
+        new (): HTMLIconLayoutElement;
+    };
+    interface HTMLIconListElement extends Components.IconList, HTMLStencilElement {
+    }
+    var HTMLIconListElement: {
+        prototype: HTMLIconListElement;
+        new (): HTMLIconListElement;
+    };
+    interface HTMLIconMobileElement extends Components.IconMobile, HTMLStencilElement {
+    }
+    var HTMLIconMobileElement: {
+        prototype: HTMLIconMobileElement;
+        new (): HTMLIconMobileElement;
+    };
+    interface HTMLIconNextElement extends Components.IconNext, HTMLStencilElement {
+    }
+    var HTMLIconNextElement: {
+        prototype: HTMLIconNextElement;
+        new (): HTMLIconNextElement;
+    };
+    interface HTMLIconPreviousElement extends Components.IconPrevious, HTMLStencilElement {
+    }
+    var HTMLIconPreviousElement: {
+        prototype: HTMLIconPreviousElement;
+        new (): HTMLIconPreviousElement;
+    };
+    interface HTMLIconRotateElement extends Components.IconRotate, HTMLStencilElement {
+    }
+    var HTMLIconRotateElement: {
+        prototype: HTMLIconRotateElement;
+        new (): HTMLIconRotateElement;
+    };
+    interface HTMLIconScreensElement extends Components.IconScreens, HTMLStencilElement {
+    }
+    var HTMLIconScreensElement: {
+        prototype: HTMLIconScreensElement;
+        new (): HTMLIconScreensElement;
+    };
+    interface HTMLIconTabletElement extends Components.IconTablet, HTMLStencilElement {
+    }
+    var HTMLIconTabletElement: {
+        prototype: HTMLIconTabletElement;
+        new (): HTMLIconTabletElement;
+    };
     interface HTMLPatternListElement extends Components.PatternList, HTMLStencilElement {
     }
     var HTMLPatternListElement: {
@@ -103,6 +183,16 @@ declare global {
         "click-outside": HTMLClickOutsideElement;
         "demo-viewer": HTMLDemoViewerElement;
         "home-page": HTMLHomePageElement;
+        "icon-desktop": HTMLIconDesktopElement;
+        "icon-laptop": HTMLIconLaptopElement;
+        "icon-layout": HTMLIconLayoutElement;
+        "icon-list": HTMLIconListElement;
+        "icon-mobile": HTMLIconMobileElement;
+        "icon-next": HTMLIconNextElement;
+        "icon-previous": HTMLIconPreviousElement;
+        "icon-rotate": HTMLIconRotateElement;
+        "icon-screens": HTMLIconScreensElement;
+        "icon-tablet": HTMLIconTabletElement;
         "pattern-list": HTMLPatternListElement;
         "pattern-page": HTMLPatternPageElement;
         "resize-able": HTMLResizeAbleElement;
@@ -127,6 +217,26 @@ declare namespace LocalJSX {
     }
     interface HomePage {
     }
+    interface IconDesktop {
+    }
+    interface IconLaptop {
+    }
+    interface IconLayout {
+    }
+    interface IconList {
+    }
+    interface IconMobile {
+    }
+    interface IconNext {
+    }
+    interface IconPrevious {
+    }
+    interface IconRotate {
+    }
+    interface IconScreens {
+    }
+    interface IconTablet {
+    }
     interface PatternList {
     }
     interface PatternPage {
@@ -149,6 +259,16 @@ declare namespace LocalJSX {
         "click-outside": ClickOutside;
         "demo-viewer": DemoViewer;
         "home-page": HomePage;
+        "icon-desktop": IconDesktop;
+        "icon-laptop": IconLaptop;
+        "icon-layout": IconLayout;
+        "icon-list": IconList;
+        "icon-mobile": IconMobile;
+        "icon-next": IconNext;
+        "icon-previous": IconPrevious;
+        "icon-rotate": IconRotate;
+        "icon-screens": IconScreens;
+        "icon-tablet": IconTablet;
         "pattern-list": PatternList;
         "pattern-page": PatternPage;
         "resize-able": ResizeAble;
@@ -165,6 +285,16 @@ declare module "@stencil/core" {
             "click-outside": LocalJSX.ClickOutside & JSXBase.HTMLAttributes<HTMLClickOutsideElement>;
             "demo-viewer": LocalJSX.DemoViewer & JSXBase.HTMLAttributes<HTMLDemoViewerElement>;
             "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
+            "icon-desktop": LocalJSX.IconDesktop & JSXBase.HTMLAttributes<HTMLIconDesktopElement>;
+            "icon-laptop": LocalJSX.IconLaptop & JSXBase.HTMLAttributes<HTMLIconLaptopElement>;
+            "icon-layout": LocalJSX.IconLayout & JSXBase.HTMLAttributes<HTMLIconLayoutElement>;
+            "icon-list": LocalJSX.IconList & JSXBase.HTMLAttributes<HTMLIconListElement>;
+            "icon-mobile": LocalJSX.IconMobile & JSXBase.HTMLAttributes<HTMLIconMobileElement>;
+            "icon-next": LocalJSX.IconNext & JSXBase.HTMLAttributes<HTMLIconNextElement>;
+            "icon-previous": LocalJSX.IconPrevious & JSXBase.HTMLAttributes<HTMLIconPreviousElement>;
+            "icon-rotate": LocalJSX.IconRotate & JSXBase.HTMLAttributes<HTMLIconRotateElement>;
+            "icon-screens": LocalJSX.IconScreens & JSXBase.HTMLAttributes<HTMLIconScreensElement>;
+            "icon-tablet": LocalJSX.IconTablet & JSXBase.HTMLAttributes<HTMLIconTabletElement>;
             "pattern-list": LocalJSX.PatternList & JSXBase.HTMLAttributes<HTMLPatternListElement>;
             "pattern-page": LocalJSX.PatternPage & JSXBase.HTMLAttributes<HTMLPatternPageElement>;
             "resize-able": LocalJSX.ResizeAble & JSXBase.HTMLAttributes<HTMLResizeAbleElement>;
