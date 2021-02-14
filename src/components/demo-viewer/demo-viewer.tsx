@@ -20,9 +20,9 @@ import { ScreenSize } from '../ScreenSize';
 })
 export class DemoViewer {
     @Prop() pattern?: string;
-
     @State() isScreenListOpen: boolean = false;
     @State() orientation: Orientation = Orientation.Portrait;
+    @State() scale: number = 1;
 
     private resizeAbleEle!: HTMLResizeAbleElement;
     private frameDemoEle!: HTMLElement;
@@ -45,6 +45,7 @@ export class DemoViewer {
     handleResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
 
+        this.scale = 1;
         this.viewerBodyEle.style.width = `${width}px`;
         this.viewerBodyEle.style.height = `${height}px`;
 
@@ -99,6 +100,7 @@ export class DemoViewer {
     switchTo(width: number, height: number) {
         const scale = this.calculateScale(width, height);
 
+        this.scale = scale;
         this.demoHeight = height;
         this.demoWidth = width;
 
@@ -206,6 +208,7 @@ export class DemoViewer {
                                     onRotateEvent={this.handleRotate}
                                 />
                             </div>
+                            {this.scale !== 1 && <div class="demo_viewer__zoom">Zoom: {Math.floor(this.scale * 100)}%</div>}
                             <iframe
                                 class="demo-viewer__frame"
                                 ref={ele => this.frameDemoEle = ele as HTMLElement}
