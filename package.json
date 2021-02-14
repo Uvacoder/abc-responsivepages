@@ -20,10 +20,10 @@
     },
     "license": "MIT",
     "scripts": {
-        "build": "stencil build --prerender",
+        "build": "rm -rf www && stencil build --prerender",
         "prerender": "stencil build --prerender",
         "start": "stencil build --dev --watch --serve",
-        "deploy": "npm run build && netlify deploy --dir=dist --prod"
+        "deploy": "npm run build && netlify deploy --dir=www --prod"
     },
     "devDependencies": {
         "@stencil/core": "^2.4.0",
