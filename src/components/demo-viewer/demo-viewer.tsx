@@ -20,9 +20,11 @@ import { ScreenSize } from '../ScreenSize';
 })
 export class DemoViewer {
     @Prop() pattern?: string;
-
     @State() isScreenListOpen: boolean = false;
     @State() orientation: Orientation = Orientation.Portrait;
+    @State() scale: number = 1;
+    @State() demoHeight: number = 0;
+    @State() demoWidth: number = 0;    
 
     private resizeAbleEle!: HTMLResizeAbleElement;
     private frameDemoEle!: HTMLElement;
@@ -33,9 +35,7 @@ export class DemoViewer {
     private frameContainerWidth: number = 0;
     private frameContainerHeight: number = 0;
     private resizeObserver!: ResizeObserver;
-
-    private demoHeight: number = 0;
-    private demoWidth: number = 0;
+    private setInitialSize: boolean = false;
 
     handleChangeScreenSize = (e: CustomEvent<ScreenSize>) => {
         const { height, width } = e.detail;
@@ -44,6 +44,10 @@ export class DemoViewer {
 
     handleResize = (e: CustomEvent<ResizeEvent>) => {
         const { height, width } = e.detail;
+
+        this.scale = 1;
+        this.demoHeight = height;
+        this.demoWidth = width;
 
         this.viewerBodyEle.style.width = `${width}px`;
         this.viewerBodyEle.style.height = `${height}px`;
@@ -71,22 +75,17 @@ export class DemoViewer {
     }
 
     componentDidLoad() {
-        const padding = parseInt(window.getComputedStyle(this.frameContainer).padding);
-        const { height, width } = this.frameContainer.getBoundingClientRect();
-        const containerHeight = height - padding * 2;
-        const containerWidth = width - padding * 2;
-
-        this.frameContainerHeight = containerHeight;
-        this.frameContainerWidth = containerWidth;
-
-        this.switchTo(containerWidth, containerHeight);
-
         // Automatically update the size of container
         this.resizeObserver = new ResizeObserver(entries => {
             entries.forEach(entry => {
                 const { height, width } = entry.contentRect;
                 this.frameContainerHeight = height;
                 this.frameContainerWidth = width;
+
+                if (!this.setInitialSize) {
+                    this.setInitialSize = true;
+                    this.switchTo(width, height);
+                }
             });
         });
         this.resizeObserver.observe(this.frameContainer);
@@ -99,6 +98,7 @@ export class DemoViewer {
     switchTo(width: number, height: number) {
         const scale = this.calculateScale(width, height);
 
+        this.scale = scale;
         this.demoHeight = height;
         this.demoWidth = width;
 
@@ -138,6 +138,8 @@ export class DemoViewer {
         this.isScreenListOpen = !this.isScreenListOpen;
     }
 
+    isSelectedSize = (height: number, width: number) => (this.demoHeight === height && this.demoWidth === width) || (this.demoHeight === width && this.demoWidth === height)
+
     render() {
         const url = `/patterns/${this.pattern!}.html`;
         const title = unslugify(this.pattern!);
@@ -150,25 +152,37 @@ export class DemoViewer {
             <div class={`demo-viewer ${this.isScreenListOpen ? 'demo-viewer--withsidebar' : ''}`}>
                 <div class="demo-viewer__toolbar">
                     <tool-tip tip="Mobile screen (375x667)" position="bottom">
-                        <button class="demo-viewer__button" onClick={() => this.switchTo(375, 667)}>
+                        <button
+                            class={`demo-viewer__button ${this.isSelectedSize(375, 667) ? 'demo-viewer__button--selected' : ''}`}
+                            onClick={() => this.switchTo(375, 667)}
+                        >
                             <icon-mobile />
                         </button>
                     </tool-tip>
 
                     <tool-tip tip="Tablet screen (1024x768)" position="bottom">
-                        <button class="demo-viewer__button" onClick={() => this.switchTo(1024, 768)}>
+                        <button
+                            class={`demo-viewer__button ${this.isSelectedSize(1024, 768) ? 'demo-viewer__button--selected' : ''}`}
+                            onClick={() => this.switchTo(1024, 768)}
+                        >
                             <icon-tablet />
                         </button>
                     </tool-tip>
 
                     <tool-tip tip="Laptop screen (1366x768)" position="bottom">
-                        <button class="demo-viewer__button" onClick={() => this.switchTo(1366, 768)}>
+                        <button
+                            class={`demo-viewer__button ${this.isSelectedSize(1366, 768) ? 'demo-viewer__button--selected' : ''}`}
+                            onClick={() => this.switchTo(1366, 768)}
+                        >
                             <icon-laptop />
                         </button>
                     </tool-tip>
 
                     <tool-tip tip="Desktop screen (1920x1080)" position="bottom">
-                        <button class="demo-viewer__button" onClick={() => this.switchTo(1920, 1080)}>
+                        <button
+                            class={`demo-viewer__button ${this.isSelectedSize(1920, 1080) ? 'demo-viewer__button--selected' : ''}`}
+                            onClick={() => this.switchTo(1920, 1080)}
+                        >
                             <icon-desktop />
                         </button>
                     </tool-tip>
@@ -206,6 +220,7 @@ export class DemoViewer {
                                     onRotateEvent={this.handleRotate}
                                 />
                             </div>
+                            {this.scale !== 1 && <div class="demo_viewer__zoom">Zoom: {Math.floor(this.scale * 100)}%</div>}
                             <iframe
                                 class="demo-viewer__frame"
                                 ref={ele => this.frameDemoEle = ele as HTMLElement}
