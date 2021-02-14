@@ -11,6 +11,7 @@ export const config: Config = {
                 unregister: true,
             },
             copy: [
+                { src: '../assets', dest: 'assets' },
                 { src: '../patterns', dest: 'patterns' },
             ],
         },
