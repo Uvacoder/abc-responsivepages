@@ -11,12 +11,16 @@ export namespace Components {
     interface RpBrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
+        "currentTab": number;
         "forwardUrl"?: string;
     }
     interface RpClickOutside {
     }
     interface RpDemoViewer {
         "pattern"?: string;
+    }
+    interface RpHighlightCode {
+        "source"?: string;
     }
     interface RpIconCode {
     }
@@ -43,6 +47,9 @@ export namespace Components {
     interface RpIndexPage {
     }
     interface RpPatternPage {
+        "pattern"?: string;
+    }
+    interface RpPatternSource {
         "pattern"?: string;
     }
     interface RpPatterns {
@@ -76,6 +83,12 @@ declare global {
     var HTMLRpDemoViewerElement: {
         prototype: HTMLRpDemoViewerElement;
         new (): HTMLRpDemoViewerElement;
+    };
+    interface HTMLRpHighlightCodeElement extends Components.RpHighlightCode, HTMLStencilElement {
+    }
+    var HTMLRpHighlightCodeElement: {
+        prototype: HTMLRpHighlightCodeElement;
+        new (): HTMLRpHighlightCodeElement;
     };
     interface HTMLRpIconCodeElement extends Components.RpIconCode, HTMLStencilElement {
     }
@@ -155,6 +168,12 @@ declare global {
         prototype: HTMLRpPatternPageElement;
         new (): HTMLRpPatternPageElement;
     };
+    interface HTMLRpPatternSourceElement extends Components.RpPatternSource, HTMLStencilElement {
+    }
+    var HTMLRpPatternSourceElement: {
+        prototype: HTMLRpPatternSourceElement;
+        new (): HTMLRpPatternSourceElement;
+    };
     interface HTMLRpPatternsElement extends Components.RpPatterns, HTMLStencilElement {
     }
     var HTMLRpPatternsElement: {
@@ -189,6 +208,7 @@ declare global {
         "rp-browser-frame": HTMLRpBrowserFrameElement;
         "rp-click-outside": HTMLRpClickOutsideElement;
         "rp-demo-viewer": HTMLRpDemoViewerElement;
+        "rp-highlight-code": HTMLRpHighlightCodeElement;
         "rp-icon-code": HTMLRpIconCodeElement;
         "rp-icon-desktop": HTMLRpIconDesktopElement;
         "rp-icon-laptop": HTMLRpIconLaptopElement;
@@ -202,6 +222,7 @@ declare global {
         "rp-icon-tablet": HTMLRpIconTabletElement;
         "rp-index-page": HTMLRpIndexPageElement;
         "rp-pattern-page": HTMLRpPatternPageElement;
+        "rp-pattern-source": HTMLRpPatternSourceElement;
         "rp-patterns": HTMLRpPatternsElement;
         "rp-resizable": HTMLRpResizableElement;
         "rp-root": HTMLRpRootElement;
@@ -213,7 +234,9 @@ declare namespace LocalJSX {
     interface RpBrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
+        "currentTab"?: number;
         "forwardUrl"?: string;
+        "onActivateTabEvent"?: (event: CustomEvent<number>) => void;
         "onRotateEvent"?: (event: CustomEvent<any>) => void;
     }
     interface RpClickOutside {
@@ -221,6 +244,9 @@ declare namespace LocalJSX {
     }
     interface RpDemoViewer {
         "pattern"?: string;
+    }
+    interface RpHighlightCode {
+        "source"?: string;
     }
     interface RpIconCode {
     }
@@ -249,6 +275,9 @@ declare namespace LocalJSX {
     interface RpPatternPage {
         "pattern"?: string;
     }
+    interface RpPatternSource {
+        "pattern"?: string;
+    }
     interface RpPatterns {
     }
     interface RpResizable {
@@ -268,6 +297,7 @@ declare namespace LocalJSX {
         "rp-browser-frame": RpBrowserFrame;
         "rp-click-outside": RpClickOutside;
         "rp-demo-viewer": RpDemoViewer;
+        "rp-highlight-code": RpHighlightCode;
         "rp-icon-code": RpIconCode;
         "rp-icon-desktop": RpIconDesktop;
         "rp-icon-laptop": RpIconLaptop;
@@ -281,6 +311,7 @@ declare namespace LocalJSX {
         "rp-icon-tablet": RpIconTablet;
         "rp-index-page": RpIndexPage;
         "rp-pattern-page": RpPatternPage;
+        "rp-pattern-source": RpPatternSource;
         "rp-patterns": RpPatterns;
         "rp-resizable": RpResizable;
         "rp-root": RpRoot;
@@ -295,6 +326,7 @@ declare module "@stencil/core" {
             "rp-browser-frame": LocalJSX.RpBrowserFrame & JSXBase.HTMLAttributes<HTMLRpBrowserFrameElement>;
             "rp-click-outside": LocalJSX.RpClickOutside & JSXBase.HTMLAttributes<HTMLRpClickOutsideElement>;
             "rp-demo-viewer": LocalJSX.RpDemoViewer & JSXBase.HTMLAttributes<HTMLRpDemoViewerElement>;
+            "rp-highlight-code": LocalJSX.RpHighlightCode & JSXBase.HTMLAttributes<HTMLRpHighlightCodeElement>;
             "rp-icon-code": LocalJSX.RpIconCode & JSXBase.HTMLAttributes<HTMLRpIconCodeElement>;
             "rp-icon-desktop": LocalJSX.RpIconDesktop & JSXBase.HTMLAttributes<HTMLRpIconDesktopElement>;
             "rp-icon-laptop": LocalJSX.RpIconLaptop & JSXBase.HTMLAttributes<HTMLRpIconLaptopElement>;
@@ -308,6 +340,7 @@ declare module "@stencil/core" {
             "rp-icon-tablet": LocalJSX.RpIconTablet & JSXBase.HTMLAttributes<HTMLRpIconTabletElement>;
             "rp-index-page": LocalJSX.RpIndexPage & JSXBase.HTMLAttributes<HTMLRpIndexPageElement>;
             "rp-pattern-page": LocalJSX.RpPatternPage & JSXBase.HTMLAttributes<HTMLRpPatternPageElement>;
+            "rp-pattern-source": LocalJSX.RpPatternSource & JSXBase.HTMLAttributes<HTMLRpPatternSourceElement>;
             "rp-patterns": LocalJSX.RpPatterns & JSXBase.HTMLAttributes<HTMLRpPatternsElement>;
             "rp-resizable": LocalJSX.RpResizable & JSXBase.HTMLAttributes<HTMLRpResizableElement>;
             "rp-root": LocalJSX.RpRoot & JSXBase.HTMLAttributes<HTMLRpRootElement>;
