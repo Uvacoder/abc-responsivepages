@@ -1,0 +1,34 @@
+/**
+ * A collection of patterns to create a responsive web page
+ * https://responsive.page
+ * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
+ */
+
+.rp-index-page {
+    margin: 0 auto;
+    max-width: 94em;
+}
+.rp-index-page__hero {
+    margin: 4em;
+    text-align: center;
+}
+.rp-index-page__hero h1 {
+    font-size: 6rem;
+    margin: 0.5em;
+}
+.rp-index-page__hero h2 {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.rp-index-page__cta {
+    text-align: center;
+}
+.rp-index-page__cta a {
+    background: #2563EB;
+    border-radius: 0.25em;
+    color: #fff;
+    font-size: 2em;
+    padding: 0.5em;
+    text-decoration: none;
+}

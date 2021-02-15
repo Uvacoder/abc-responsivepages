@@ -5,301 +5,301 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ResizeEvent } from "./components/resize-able/resize-able";
+import { ResizeEvent } from "./components/rp-resizable/rp-resizable";
 import { ScreenSize } from "./components/ScreenSize";
 export namespace Components {
-    interface AppRoot {
-    }
-    interface BrowserFrame {
+    interface RpBrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
         "forwardUrl"?: string;
     }
-    interface ClickOutside {
+    interface RpClickOutside {
     }
-    interface DemoViewer {
+    interface RpDemoViewer {
         "pattern"?: string;
     }
-    interface HomePage {
+    interface RpIconDesktop {
     }
-    interface IconDesktop {
+    interface RpIconLaptop {
     }
-    interface IconLaptop {
+    interface RpIconLayout {
     }
-    interface IconLayout {
+    interface RpIconList {
     }
-    interface IconList {
+    interface RpIconMobile {
     }
-    interface IconMobile {
+    interface RpIconNext {
     }
-    interface IconNext {
+    interface RpIconPrevious {
     }
-    interface IconPrevious {
+    interface RpIconRotate {
     }
-    interface IconRotate {
+    interface RpIconScreens {
     }
-    interface IconScreens {
+    interface RpIconTablet {
     }
-    interface IconTablet {
+    interface RpIndexPage {
     }
-    interface PatternList {
-    }
-    interface PatternPage {
+    interface RpPatternPage {
         "pattern"?: string;
     }
-    interface ResizeAble {
+    interface RpPatterns {
     }
-    interface ScreenList {
+    interface RpResizable {
     }
-    interface ToolTip {
+    interface RpRoot {
+    }
+    interface RpScreens {
+    }
+    interface RpTooltip {
         "position": string;
         "tip"?: string;
     }
 }
 declare global {
-    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
+    interface HTMLRpBrowserFrameElement extends Components.RpBrowserFrame, HTMLStencilElement {
     }
-    var HTMLAppRootElement: {
-        prototype: HTMLAppRootElement;
-        new (): HTMLAppRootElement;
+    var HTMLRpBrowserFrameElement: {
+        prototype: HTMLRpBrowserFrameElement;
+        new (): HTMLRpBrowserFrameElement;
     };
-    interface HTMLBrowserFrameElement extends Components.BrowserFrame, HTMLStencilElement {
+    interface HTMLRpClickOutsideElement extends Components.RpClickOutside, HTMLStencilElement {
     }
-    var HTMLBrowserFrameElement: {
-        prototype: HTMLBrowserFrameElement;
-        new (): HTMLBrowserFrameElement;
+    var HTMLRpClickOutsideElement: {
+        prototype: HTMLRpClickOutsideElement;
+        new (): HTMLRpClickOutsideElement;
     };
-    interface HTMLClickOutsideElement extends Components.ClickOutside, HTMLStencilElement {
+    interface HTMLRpDemoViewerElement extends Components.RpDemoViewer, HTMLStencilElement {
     }
-    var HTMLClickOutsideElement: {
-        prototype: HTMLClickOutsideElement;
-        new (): HTMLClickOutsideElement;
+    var HTMLRpDemoViewerElement: {
+        prototype: HTMLRpDemoViewerElement;
+        new (): HTMLRpDemoViewerElement;
     };
-    interface HTMLDemoViewerElement extends Components.DemoViewer, HTMLStencilElement {
+    interface HTMLRpIconDesktopElement extends Components.RpIconDesktop, HTMLStencilElement {
     }
-    var HTMLDemoViewerElement: {
-        prototype: HTMLDemoViewerElement;
-        new (): HTMLDemoViewerElement;
+    var HTMLRpIconDesktopElement: {
+        prototype: HTMLRpIconDesktopElement;
+        new (): HTMLRpIconDesktopElement;
     };
-    interface HTMLHomePageElement extends Components.HomePage, HTMLStencilElement {
+    interface HTMLRpIconLaptopElement extends Components.RpIconLaptop, HTMLStencilElement {
     }
-    var HTMLHomePageElement: {
-        prototype: HTMLHomePageElement;
-        new (): HTMLHomePageElement;
+    var HTMLRpIconLaptopElement: {
+        prototype: HTMLRpIconLaptopElement;
+        new (): HTMLRpIconLaptopElement;
     };
-    interface HTMLIconDesktopElement extends Components.IconDesktop, HTMLStencilElement {
+    interface HTMLRpIconLayoutElement extends Components.RpIconLayout, HTMLStencilElement {
     }
-    var HTMLIconDesktopElement: {
-        prototype: HTMLIconDesktopElement;
-        new (): HTMLIconDesktopElement;
+    var HTMLRpIconLayoutElement: {
+        prototype: HTMLRpIconLayoutElement;
+        new (): HTMLRpIconLayoutElement;
     };
-    interface HTMLIconLaptopElement extends Components.IconLaptop, HTMLStencilElement {
+    interface HTMLRpIconListElement extends Components.RpIconList, HTMLStencilElement {
     }
-    var HTMLIconLaptopElement: {
-        prototype: HTMLIconLaptopElement;
-        new (): HTMLIconLaptopElement;
+    var HTMLRpIconListElement: {
+        prototype: HTMLRpIconListElement;
+        new (): HTMLRpIconListElement;
     };
-    interface HTMLIconLayoutElement extends Components.IconLayout, HTMLStencilElement {
+    interface HTMLRpIconMobileElement extends Components.RpIconMobile, HTMLStencilElement {
     }
-    var HTMLIconLayoutElement: {
-        prototype: HTMLIconLayoutElement;
-        new (): HTMLIconLayoutElement;
+    var HTMLRpIconMobileElement: {
+        prototype: HTMLRpIconMobileElement;
+        new (): HTMLRpIconMobileElement;
     };
-    interface HTMLIconListElement extends Components.IconList, HTMLStencilElement {
+    interface HTMLRpIconNextElement extends Components.RpIconNext, HTMLStencilElement {
     }
-    var HTMLIconListElement: {
-        prototype: HTMLIconListElement;
-        new (): HTMLIconListElement;
+    var HTMLRpIconNextElement: {
+        prototype: HTMLRpIconNextElement;
+        new (): HTMLRpIconNextElement;
     };
-    interface HTMLIconMobileElement extends Components.IconMobile, HTMLStencilElement {
+    interface HTMLRpIconPreviousElement extends Components.RpIconPrevious, HTMLStencilElement {
     }
-    var HTMLIconMobileElement: {
-        prototype: HTMLIconMobileElement;
-        new (): HTMLIconMobileElement;
+    var HTMLRpIconPreviousElement: {
+        prototype: HTMLRpIconPreviousElement;
+        new (): HTMLRpIconPreviousElement;
     };
-    interface HTMLIconNextElement extends Components.IconNext, HTMLStencilElement {
+    interface HTMLRpIconRotateElement extends Components.RpIconRotate, HTMLStencilElement {
     }
-    var HTMLIconNextElement: {
-        prototype: HTMLIconNextElement;
-        new (): HTMLIconNextElement;
+    var HTMLRpIconRotateElement: {
+        prototype: HTMLRpIconRotateElement;
+        new (): HTMLRpIconRotateElement;
     };
-    interface HTMLIconPreviousElement extends Components.IconPrevious, HTMLStencilElement {
+    interface HTMLRpIconScreensElement extends Components.RpIconScreens, HTMLStencilElement {
     }
-    var HTMLIconPreviousElement: {
-        prototype: HTMLIconPreviousElement;
-        new (): HTMLIconPreviousElement;
+    var HTMLRpIconScreensElement: {
+        prototype: HTMLRpIconScreensElement;
+        new (): HTMLRpIconScreensElement;
     };
-    interface HTMLIconRotateElement extends Components.IconRotate, HTMLStencilElement {
+    interface HTMLRpIconTabletElement extends Components.RpIconTablet, HTMLStencilElement {
     }
-    var HTMLIconRotateElement: {
-        prototype: HTMLIconRotateElement;
-        new (): HTMLIconRotateElement;
+    var HTMLRpIconTabletElement: {
+        prototype: HTMLRpIconTabletElement;
+        new (): HTMLRpIconTabletElement;
     };
-    interface HTMLIconScreensElement extends Components.IconScreens, HTMLStencilElement {
+    interface HTMLRpIndexPageElement extends Components.RpIndexPage, HTMLStencilElement {
     }
-    var HTMLIconScreensElement: {
-        prototype: HTMLIconScreensElement;
-        new (): HTMLIconScreensElement;
+    var HTMLRpIndexPageElement: {
+        prototype: HTMLRpIndexPageElement;
+        new (): HTMLRpIndexPageElement;
     };
-    interface HTMLIconTabletElement extends Components.IconTablet, HTMLStencilElement {
+    interface HTMLRpPatternPageElement extends Components.RpPatternPage, HTMLStencilElement {
     }
-    var HTMLIconTabletElement: {
-        prototype: HTMLIconTabletElement;
-        new (): HTMLIconTabletElement;
+    var HTMLRpPatternPageElement: {
+        prototype: HTMLRpPatternPageElement;
+        new (): HTMLRpPatternPageElement;
     };
-    interface HTMLPatternListElement extends Components.PatternList, HTMLStencilElement {
+    interface HTMLRpPatternsElement extends Components.RpPatterns, HTMLStencilElement {
     }
-    var HTMLPatternListElement: {
-        prototype: HTMLPatternListElement;
-        new (): HTMLPatternListElement;
+    var HTMLRpPatternsElement: {
+        prototype: HTMLRpPatternsElement;
+        new (): HTMLRpPatternsElement;
     };
-    interface HTMLPatternPageElement extends Components.PatternPage, HTMLStencilElement {
+    interface HTMLRpResizableElement extends Components.RpResizable, HTMLStencilElement {
     }
-    var HTMLPatternPageElement: {
-        prototype: HTMLPatternPageElement;
-        new (): HTMLPatternPageElement;
+    var HTMLRpResizableElement: {
+        prototype: HTMLRpResizableElement;
+        new (): HTMLRpResizableElement;
     };
-    interface HTMLResizeAbleElement extends Components.ResizeAble, HTMLStencilElement {
+    interface HTMLRpRootElement extends Components.RpRoot, HTMLStencilElement {
     }
-    var HTMLResizeAbleElement: {
-        prototype: HTMLResizeAbleElement;
-        new (): HTMLResizeAbleElement;
+    var HTMLRpRootElement: {
+        prototype: HTMLRpRootElement;
+        new (): HTMLRpRootElement;
     };
-    interface HTMLScreenListElement extends Components.ScreenList, HTMLStencilElement {
+    interface HTMLRpScreensElement extends Components.RpScreens, HTMLStencilElement {
     }
-    var HTMLScreenListElement: {
-        prototype: HTMLScreenListElement;
-        new (): HTMLScreenListElement;
+    var HTMLRpScreensElement: {
+        prototype: HTMLRpScreensElement;
+        new (): HTMLRpScreensElement;
     };
-    interface HTMLToolTipElement extends Components.ToolTip, HTMLStencilElement {
+    interface HTMLRpTooltipElement extends Components.RpTooltip, HTMLStencilElement {
     }
-    var HTMLToolTipElement: {
-        prototype: HTMLToolTipElement;
-        new (): HTMLToolTipElement;
+    var HTMLRpTooltipElement: {
+        prototype: HTMLRpTooltipElement;
+        new (): HTMLRpTooltipElement;
     };
     interface HTMLElementTagNameMap {
-        "app-root": HTMLAppRootElement;
-        "browser-frame": HTMLBrowserFrameElement;
-        "click-outside": HTMLClickOutsideElement;
-        "demo-viewer": HTMLDemoViewerElement;
-        "home-page": HTMLHomePageElement;
-        "icon-desktop": HTMLIconDesktopElement;
-        "icon-laptop": HTMLIconLaptopElement;
-        "icon-layout": HTMLIconLayoutElement;
-        "icon-list": HTMLIconListElement;
-        "icon-mobile": HTMLIconMobileElement;
-        "icon-next": HTMLIconNextElement;
-        "icon-previous": HTMLIconPreviousElement;
-        "icon-rotate": HTMLIconRotateElement;
-        "icon-screens": HTMLIconScreensElement;
-        "icon-tablet": HTMLIconTabletElement;
-        "pattern-list": HTMLPatternListElement;
-        "pattern-page": HTMLPatternPageElement;
-        "resize-able": HTMLResizeAbleElement;
-        "screen-list": HTMLScreenListElement;
-        "tool-tip": HTMLToolTipElement;
+        "rp-browser-frame": HTMLRpBrowserFrameElement;
+        "rp-click-outside": HTMLRpClickOutsideElement;
+        "rp-demo-viewer": HTMLRpDemoViewerElement;
+        "rp-icon-desktop": HTMLRpIconDesktopElement;
+        "rp-icon-laptop": HTMLRpIconLaptopElement;
+        "rp-icon-layout": HTMLRpIconLayoutElement;
+        "rp-icon-list": HTMLRpIconListElement;
+        "rp-icon-mobile": HTMLRpIconMobileElement;
+        "rp-icon-next": HTMLRpIconNextElement;
+        "rp-icon-previous": HTMLRpIconPreviousElement;
+        "rp-icon-rotate": HTMLRpIconRotateElement;
+        "rp-icon-screens": HTMLRpIconScreensElement;
+        "rp-icon-tablet": HTMLRpIconTabletElement;
+        "rp-index-page": HTMLRpIndexPageElement;
+        "rp-pattern-page": HTMLRpPatternPageElement;
+        "rp-patterns": HTMLRpPatternsElement;
+        "rp-resizable": HTMLRpResizableElement;
+        "rp-root": HTMLRpRootElement;
+        "rp-screens": HTMLRpScreensElement;
+        "rp-tooltip": HTMLRpTooltipElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppRoot {
-    }
-    interface BrowserFrame {
+    interface RpBrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
         "forwardUrl"?: string;
         "onRotateEvent"?: (event: CustomEvent<any>) => void;
     }
-    interface ClickOutside {
+    interface RpClickOutside {
         "onClickOutSide"?: (event: CustomEvent<any>) => void;
     }
-    interface DemoViewer {
+    interface RpDemoViewer {
         "pattern"?: string;
     }
-    interface HomePage {
+    interface RpIconDesktop {
     }
-    interface IconDesktop {
+    interface RpIconLaptop {
     }
-    interface IconLaptop {
+    interface RpIconLayout {
     }
-    interface IconLayout {
+    interface RpIconList {
     }
-    interface IconList {
+    interface RpIconMobile {
     }
-    interface IconMobile {
+    interface RpIconNext {
     }
-    interface IconNext {
+    interface RpIconPrevious {
     }
-    interface IconPrevious {
+    interface RpIconRotate {
     }
-    interface IconRotate {
+    interface RpIconScreens {
     }
-    interface IconScreens {
+    interface RpIconTablet {
     }
-    interface IconTablet {
+    interface RpIndexPage {
     }
-    interface PatternList {
-    }
-    interface PatternPage {
+    interface RpPatternPage {
         "pattern"?: string;
     }
-    interface ResizeAble {
+    interface RpPatterns {
+    }
+    interface RpResizable {
         "onDidResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
         "onResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
     }
-    interface ScreenList {
+    interface RpRoot {
+    }
+    interface RpScreens {
         "onChooseScreenSizeEvent"?: (event: CustomEvent<ScreenSize>) => void;
     }
-    interface ToolTip {
+    interface RpTooltip {
         "position"?: string;
         "tip"?: string;
     }
     interface IntrinsicElements {
-        "app-root": AppRoot;
-        "browser-frame": BrowserFrame;
-        "click-outside": ClickOutside;
-        "demo-viewer": DemoViewer;
-        "home-page": HomePage;
-        "icon-desktop": IconDesktop;
-        "icon-laptop": IconLaptop;
-        "icon-layout": IconLayout;
-        "icon-list": IconList;
-        "icon-mobile": IconMobile;
-        "icon-next": IconNext;
-        "icon-previous": IconPrevious;
-        "icon-rotate": IconRotate;
-        "icon-screens": IconScreens;
-        "icon-tablet": IconTablet;
-        "pattern-list": PatternList;
-        "pattern-page": PatternPage;
-        "resize-able": ResizeAble;
-        "screen-list": ScreenList;
-        "tool-tip": ToolTip;
+        "rp-browser-frame": RpBrowserFrame;
+        "rp-click-outside": RpClickOutside;
+        "rp-demo-viewer": RpDemoViewer;
+        "rp-icon-desktop": RpIconDesktop;
+        "rp-icon-laptop": RpIconLaptop;
+        "rp-icon-layout": RpIconLayout;
+        "rp-icon-list": RpIconList;
+        "rp-icon-mobile": RpIconMobile;
+        "rp-icon-next": RpIconNext;
+        "rp-icon-previous": RpIconPrevious;
+        "rp-icon-rotate": RpIconRotate;
+        "rp-icon-screens": RpIconScreens;
+        "rp-icon-tablet": RpIconTablet;
+        "rp-index-page": RpIndexPage;
+        "rp-pattern-page": RpPatternPage;
+        "rp-patterns": RpPatterns;
+        "rp-resizable": RpResizable;
+        "rp-root": RpRoot;
+        "rp-screens": RpScreens;
+        "rp-tooltip": RpTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "browser-frame": LocalJSX.BrowserFrame & JSXBase.HTMLAttributes<HTMLBrowserFrameElement>;
-            "click-outside": LocalJSX.ClickOutside & JSXBase.HTMLAttributes<HTMLClickOutsideElement>;
-            "demo-viewer": LocalJSX.DemoViewer & JSXBase.HTMLAttributes<HTMLDemoViewerElement>;
-            "home-page": LocalJSX.HomePage & JSXBase.HTMLAttributes<HTMLHomePageElement>;
-            "icon-desktop": LocalJSX.IconDesktop & JSXBase.HTMLAttributes<HTMLIconDesktopElement>;
-            "icon-laptop": LocalJSX.IconLaptop & JSXBase.HTMLAttributes<HTMLIconLaptopElement>;
-            "icon-layout": LocalJSX.IconLayout & JSXBase.HTMLAttributes<HTMLIconLayoutElement>;
-            "icon-list": LocalJSX.IconList & JSXBase.HTMLAttributes<HTMLIconListElement>;
-            "icon-mobile": LocalJSX.IconMobile & JSXBase.HTMLAttributes<HTMLIconMobileElement>;
-            "icon-next": LocalJSX.IconNext & JSXBase.HTMLAttributes<HTMLIconNextElement>;
-            "icon-previous": LocalJSX.IconPrevious & JSXBase.HTMLAttributes<HTMLIconPreviousElement>;
-            "icon-rotate": LocalJSX.IconRotate & JSXBase.HTMLAttributes<HTMLIconRotateElement>;
-            "icon-screens": LocalJSX.IconScreens & JSXBase.HTMLAttributes<HTMLIconScreensElement>;
-            "icon-tablet": LocalJSX.IconTablet & JSXBase.HTMLAttributes<HTMLIconTabletElement>;
-            "pattern-list": LocalJSX.PatternList & JSXBase.HTMLAttributes<HTMLPatternListElement>;
-            "pattern-page": LocalJSX.PatternPage & JSXBase.HTMLAttributes<HTMLPatternPageElement>;
-            "resize-able": LocalJSX.ResizeAble & JSXBase.HTMLAttributes<HTMLResizeAbleElement>;
-            "screen-list": LocalJSX.ScreenList & JSXBase.HTMLAttributes<HTMLScreenListElement>;
-            "tool-tip": LocalJSX.ToolTip & JSXBase.HTMLAttributes<HTMLToolTipElement>;
+            "rp-browser-frame": LocalJSX.RpBrowserFrame & JSXBase.HTMLAttributes<HTMLRpBrowserFrameElement>;
+            "rp-click-outside": LocalJSX.RpClickOutside & JSXBase.HTMLAttributes<HTMLRpClickOutsideElement>;
+            "rp-demo-viewer": LocalJSX.RpDemoViewer & JSXBase.HTMLAttributes<HTMLRpDemoViewerElement>;
+            "rp-icon-desktop": LocalJSX.RpIconDesktop & JSXBase.HTMLAttributes<HTMLRpIconDesktopElement>;
+            "rp-icon-laptop": LocalJSX.RpIconLaptop & JSXBase.HTMLAttributes<HTMLRpIconLaptopElement>;
+            "rp-icon-layout": LocalJSX.RpIconLayout & JSXBase.HTMLAttributes<HTMLRpIconLayoutElement>;
+            "rp-icon-list": LocalJSX.RpIconList & JSXBase.HTMLAttributes<HTMLRpIconListElement>;
+            "rp-icon-mobile": LocalJSX.RpIconMobile & JSXBase.HTMLAttributes<HTMLRpIconMobileElement>;
+            "rp-icon-next": LocalJSX.RpIconNext & JSXBase.HTMLAttributes<HTMLRpIconNextElement>;
+            "rp-icon-previous": LocalJSX.RpIconPrevious & JSXBase.HTMLAttributes<HTMLRpIconPreviousElement>;
+            "rp-icon-rotate": LocalJSX.RpIconRotate & JSXBase.HTMLAttributes<HTMLRpIconRotateElement>;
+            "rp-icon-screens": LocalJSX.RpIconScreens & JSXBase.HTMLAttributes<HTMLRpIconScreensElement>;
+            "rp-icon-tablet": LocalJSX.RpIconTablet & JSXBase.HTMLAttributes<HTMLRpIconTabletElement>;
+            "rp-index-page": LocalJSX.RpIndexPage & JSXBase.HTMLAttributes<HTMLRpIndexPageElement>;
+            "rp-pattern-page": LocalJSX.RpPatternPage & JSXBase.HTMLAttributes<HTMLRpPatternPageElement>;
+            "rp-patterns": LocalJSX.RpPatterns & JSXBase.HTMLAttributes<HTMLRpPatternsElement>;
+            "rp-resizable": LocalJSX.RpResizable & JSXBase.HTMLAttributes<HTMLRpResizableElement>;
+            "rp-root": LocalJSX.RpRoot & JSXBase.HTMLAttributes<HTMLRpRootElement>;
+            "rp-screens": LocalJSX.RpScreens & JSXBase.HTMLAttributes<HTMLRpScreensElement>;
+            "rp-tooltip": LocalJSX.RpTooltip & JSXBase.HTMLAttributes<HTMLRpTooltipElement>;
         }
     }
 }
