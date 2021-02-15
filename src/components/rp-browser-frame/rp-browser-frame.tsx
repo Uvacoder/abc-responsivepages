@@ -18,6 +18,7 @@ export class RpBrowserFrame {
     @Prop() browserTitle?: string;
     @Prop() currentTab: number = 0;
     @Prop() forwardUrl?: string;
+    @Prop() url?: string;
 
     rotate = () => this.rotateEvent!.emit();    
     viewDemo = () => this.activateTabEvent!.emit(0);
@@ -68,7 +69,9 @@ export class RpBrowserFrame {
                             <rp-icon-code />
                         </button>
                     </rp-tooltip>
-                    <div class="rp-browser-frame__address"></div>
+                    <div class="rp-browser-frame__address">
+                        {this.url && <a href={this.url} target="_blank">{this.url}</a>}
+                    </div>
                 </div>
             </div>
         );

@@ -14,6 +14,8 @@ import Orientation from '../Orientation';
 import { PATTERNS } from '../Patterns';
 import { ScreenSize } from '../ScreenSize';
 
+const PATTERN_URL_PREFIX = 'https://github.com/phuoc-ng/responsive-page/blob/main';
+
 @Component({
     tag: 'rp-demo-viewer',
     styleUrl: 'rp-demo-viewer.css'
@@ -228,6 +230,7 @@ export class RpDemoViewer {
                                     backUrl={previousPattern}
                                     currentTab={this.currentTab}
                                     forwardUrl={nextPattern}
+                                    url={this.currentTab === 0 ? '' : `${PATTERN_URL_PREFIX}${url}`}
                                     onRotateEvent={this.handleRotate}
                                     onActivateTabEvent={this.handleActivateTab}
                                 />

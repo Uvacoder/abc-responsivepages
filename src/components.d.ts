@@ -13,6 +13,7 @@ export namespace Components {
         "browserTitle"?: string;
         "currentTab": number;
         "forwardUrl"?: string;
+        "url"?: string;
     }
     interface RpClickOutside {
     }
@@ -238,6 +239,7 @@ declare namespace LocalJSX {
         "forwardUrl"?: string;
         "onActivateTabEvent"?: (event: CustomEvent<number>) => void;
         "onRotateEvent"?: (event: CustomEvent<any>) => void;
+        "url"?: string;
     }
     interface RpClickOutside {
         "onClickOutSide"?: (event: CustomEvent<any>) => void;
