@@ -1,0 +1,98 @@
+/**
+ * A collection of patterns to create a responsive web page
+ * https://responsive.page
+ * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
+ */
+
+.rp-tooltip {
+    position: relative;
+}
+
+.rp-tooltip:after,
+.rp-tooltip:before {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    transition: .4s opacity;
+    z-index: 10;
+}
+
+.rp-tooltip:after {
+    border: 0.25em solid #000;
+    content: "";
+}
+
+.rp-tooltip:before {
+    background: #000;
+    border-radius: 0.125em;
+    color: #fff;
+    content: attr(data-text);
+    min-width: 6em;
+    padding: 0.25em 0.5em;
+    text-align: center;
+}
+
+.rp-tooltip:hover:after,
+.rp-tooltip:hover:before {
+    display: block;
+    opacity: 1;
+}
+
+/* Arrows */
+.rp-tooltip--bottom:after {
+    border-color: transparent transparent #000 transparent;
+    left: 50%;
+    margin-top: -0.25em;
+    top: 100%;
+    transform: translateX(-50%);
+}
+.rp-tooltip--bottom:before {
+    left: 50%;
+    margin-top: 0.25em;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.rp-tooltip--left:after {
+    border-color: transparent transparent transparent #000;
+    left: 0;
+    margin-left: -0.25em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.rp-tooltip--left:before {
+    margin-right: 0.25em;
+    right: 100%;
+    transform: translate(0, -50%);
+    top: 50%;
+}
+
+.rp-tooltip--right:after {
+    border-color: transparent #000 transparent transparent;
+    margin-right: -0.25em;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.rp-tooltip--right:before {
+    left: 100%;
+    margin-left: 0.25em;
+    transform: translate(0, -50%);
+    top: 50%;
+}
+
+.rp-tooltip--top:after {
+    border-color: #000 transparent transparent transparent;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: -0.25em;
+    
+    transform: translateX(-50%);
+}
+.rp-tooltip--top:before {
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 0.25em;
+    transform: translateX(-50%);
+}
+

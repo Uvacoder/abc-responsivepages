@@ -1,0 +1,46 @@
+/**
+ * A collection of patterns to create a responsive web page
+ * https://responsive.page
+ * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
+ */
+
+.rp-screens__category {
+    background-color: #ccc;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    font-size: 1.25rem;
+    padding: 0.25em 0.5em;
+    position: sticky;
+    text-align: center;
+    top: 0;
+}
+.rp-screens__size {
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    padding: 0.5em 1em 0.5em 0.5em;
+    width: 100%;
+}
+.rp-screens__popularity {
+    font-size: 0.75rem;
+}
+.rp-screens__devices {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.rp-screens__device {
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: 0.75rem;
+    padding: 0.5em 1em;
+    text-align: left;
+    width: 100%;
+}
+.rp-screens__device:hover {
+    background: rgba(0, 0, 0, .3);
+}
