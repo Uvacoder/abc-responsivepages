@@ -51,16 +51,19 @@
 /* Tab */
 .rp-browser-frame__tab {
     align-items: center;
+    display: flex;
+    height: 100%;
+    margin: 0 0.5em;
+    position: relative;
+}
+.rp-browser-frame__tab--active {
     background: #fff;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
-    display: flex;
-    height: 100%;
     min-width: 12em;
-    position: relative;
+    z-index: 1;
 }
 .rp-browser-frame__round--left {
-    background: #fff;
     bottom: 0;
     height: 1em;
     left: 0;
@@ -79,7 +82,6 @@
     width: 100%;
 }
 .rp-browser-frame__round--right {
-    background: #fff;
     bottom: 0;
     height: 1em;
     position: absolute;
@@ -97,11 +99,23 @@
     top: 0;
     width: 100%;
 }
+.rp-browser-frame__tab--active .rp-browser-frame__round--left,
+.rp-browser-frame__tab--active .rp-browser-frame__round--right {
+    background: #fff;
+}
+
 .rp-browser-frame__title {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 100%;
     overflow: hidden;
-    padding: 0 0.5em;
+    margin: 0 1px;
+    padding: 0 1em;
+    text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
 }
 
 /* Action buttons in address bar */
@@ -120,10 +134,21 @@
 .rp-browser-frame__action--disabled {
     color:rgba(0, 0, 0, .3);
 }
+
 .rp-browser-frame__address {
+    align-items: center;
     background: #f1f3f4;
     border-radius: 1em;
+    display: flex;
     flex: 1;
     height: 2em;
     margin: 0 0.25em;
+    padding: 0 1em;
+}
+.rp-browser-frame__address a {
+    color: #000;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

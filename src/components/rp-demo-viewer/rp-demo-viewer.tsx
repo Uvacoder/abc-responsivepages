@@ -14,6 +14,8 @@ import Orientation from '../Orientation';
 import { PATTERNS } from '../Patterns';
 import { ScreenSize } from '../ScreenSize';
 
+const PATTERN_URL_PREFIX = 'https://github.com/phuoc-ng/responsive-page/blob/main';
+
 @Component({
     tag: 'rp-demo-viewer',
     styleUrl: 'rp-demo-viewer.css'
@@ -25,6 +27,7 @@ export class RpDemoViewer {
     @State() scale: number = 1;
     @State() demoHeight: number = 0;
     @State() demoWidth: number = 0;    
+    @State() currentTab: number = 0;
 
     private resizableEle!: HTMLRpResizableElement;
     private frameDemoEle!: HTMLElement;
@@ -72,6 +75,10 @@ export class RpDemoViewer {
     handleRotate = () => {
         this.orientation = this.orientation === Orientation.Portrait ? Orientation.Landscape : Orientation.Portrait;
         this.switchTo(this.demoHeight, this.demoWidth);
+    }
+
+    handleActivateTab = (e: CustomEvent<number>) => {
+        this.currentTab = e.detail;
     }
 
     componentDidLoad() {
@@ -221,16 +228,28 @@ export class RpDemoViewer {
                                 <rp-browser-frame
                                     browserTitle={title}
                                     backUrl={previousPattern}
+                                    currentTab={this.currentTab}
                                     forwardUrl={nextPattern}
+                                    url={this.currentTab === 0 ? '' : `${PATTERN_URL_PREFIX}${url}`}
                                     onRotateEvent={this.handleRotate}
+                                    onActivateTabEvent={this.handleActivateTab}
                                 />
                             </div>
-                            {this.scale !== 1 && <div class="demo_viewer__zoom">Zoom: {Math.floor(this.scale * 100)}%</div>}
-                            <iframe
-                                class="rp-demo-viewer__frame"
-                                ref={ele => this.frameDemoEle = ele as HTMLElement}
-                                src={url}
-                            />
+                            {
+                                this.currentTab === 0 && [
+                                    this.scale !== 1 && <div class="demo_viewer__zoom">Zoom: {Math.floor(this.scale * 100)}%</div>,
+                                    <iframe
+                                        class="rp-demo-viewer__frame"
+                                        ref={ele => this.frameDemoEle = ele as HTMLElement}
+                                        src={url}
+                                    />
+                                ]
+                            }
+                            {
+                                this.currentTab === 1 && <div class="rp-demo-viewer__code">
+                                    <rp-pattern-source pattern={this.pattern} />
+                                </div>
+                            }
                         </div>
                     </rp-resizable>
                 </div>

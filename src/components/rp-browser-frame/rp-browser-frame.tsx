@@ -13,13 +13,16 @@ import { href } from 'stencil-router-v2';
 })
 export class RpBrowserFrame {
     @Event() rotateEvent?: EventEmitter;
+    @Event() activateTabEvent?: EventEmitter<number>;
     @Prop() backUrl?: string;
     @Prop() browserTitle?: string;
+    @Prop() currentTab: number = 0;
     @Prop() forwardUrl?: string;
+    @Prop() url?: string;
 
-    rotate = () => {
-        this.rotateEvent!.emit();
-    }
+    rotate = () => this.rotateEvent!.emit();    
+    viewDemo = () => this.activateTabEvent!.emit(0);
+    viewSource = () => this.activateTabEvent!.emit(1);
 
     render() {
         return (
@@ -30,10 +33,19 @@ export class RpBrowserFrame {
                         <div class="rp-browser-frame__button rp-browser-frame__button--min"></div>
                         <div class="rp-browser-frame__button rp-browser-frame__button--full"></div>
                     </div>
-                    <div class="rp-browser-frame__tab">
+                    <div class={`rp-browser-frame__tab ${this.currentTab === 0 ? 'rp-browser-frame__tab--active' : ''}`}>
                         <div class="rp-browser-frame__round--left"></div>
                         <div class="rp-browser-frame__round--right"></div>
-                        <div class="rp-browser-frame__title">{this.browserTitle!}</div>
+                        <button class="rp-browser-frame__title" onClick={this.viewDemo}>
+                            {this.browserTitle!}
+                        </button>
+                    </div>
+                    <div class={`rp-browser-frame__tab ${this.currentTab === 1 ? 'rp-browser-frame__tab--active' : ''}`}>
+                        <div class="rp-browser-frame__round--left"></div>
+                        <div class="rp-browser-frame__round--right"></div>
+                        <button class="rp-browser-frame__title" onClick={this.viewSource}>
+                            Source
+                        </button>
                     </div>
                 </div>
                 <div class="rp-browser-frame__bar">
@@ -52,7 +64,14 @@ export class RpBrowserFrame {
                             <rp-icon-rotate />
                         </button>
                     </rp-tooltip>
-                    <div class="rp-browser-frame__address"></div>
+                    <rp-tooltip tip="View source" position="bottom">
+                        <button class="rp-browser-frame__action" onClick={this.viewSource}>
+                            <rp-icon-code />
+                        </button>
+                    </rp-tooltip>
+                    <div class="rp-browser-frame__address">
+                        {this.url && <a href={this.url} target="_blank">{this.url}</a>}
+                    </div>
                 </div>
             </div>
         );
