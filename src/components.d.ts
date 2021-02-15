@@ -18,6 +18,8 @@ export namespace Components {
     interface RpDemoViewer {
         "pattern"?: string;
     }
+    interface RpIconCode {
+    }
     interface RpIconDesktop {
     }
     interface RpIconLaptop {
@@ -74,6 +76,12 @@ declare global {
     var HTMLRpDemoViewerElement: {
         prototype: HTMLRpDemoViewerElement;
         new (): HTMLRpDemoViewerElement;
+    };
+    interface HTMLRpIconCodeElement extends Components.RpIconCode, HTMLStencilElement {
+    }
+    var HTMLRpIconCodeElement: {
+        prototype: HTMLRpIconCodeElement;
+        new (): HTMLRpIconCodeElement;
     };
     interface HTMLRpIconDesktopElement extends Components.RpIconDesktop, HTMLStencilElement {
     }
@@ -181,6 +189,7 @@ declare global {
         "rp-browser-frame": HTMLRpBrowserFrameElement;
         "rp-click-outside": HTMLRpClickOutsideElement;
         "rp-demo-viewer": HTMLRpDemoViewerElement;
+        "rp-icon-code": HTMLRpIconCodeElement;
         "rp-icon-desktop": HTMLRpIconDesktopElement;
         "rp-icon-laptop": HTMLRpIconLaptopElement;
         "rp-icon-layout": HTMLRpIconLayoutElement;
@@ -212,6 +221,8 @@ declare namespace LocalJSX {
     }
     interface RpDemoViewer {
         "pattern"?: string;
+    }
+    interface RpIconCode {
     }
     interface RpIconDesktop {
     }
@@ -257,6 +268,7 @@ declare namespace LocalJSX {
         "rp-browser-frame": RpBrowserFrame;
         "rp-click-outside": RpClickOutside;
         "rp-demo-viewer": RpDemoViewer;
+        "rp-icon-code": RpIconCode;
         "rp-icon-desktop": RpIconDesktop;
         "rp-icon-laptop": RpIconLaptop;
         "rp-icon-layout": RpIconLayout;
@@ -283,6 +295,7 @@ declare module "@stencil/core" {
             "rp-browser-frame": LocalJSX.RpBrowserFrame & JSXBase.HTMLAttributes<HTMLRpBrowserFrameElement>;
             "rp-click-outside": LocalJSX.RpClickOutside & JSXBase.HTMLAttributes<HTMLRpClickOutsideElement>;
             "rp-demo-viewer": LocalJSX.RpDemoViewer & JSXBase.HTMLAttributes<HTMLRpDemoViewerElement>;
+            "rp-icon-code": LocalJSX.RpIconCode & JSXBase.HTMLAttributes<HTMLRpIconCodeElement>;
             "rp-icon-desktop": LocalJSX.RpIconDesktop & JSXBase.HTMLAttributes<HTMLRpIconDesktopElement>;
             "rp-icon-laptop": LocalJSX.RpIconLaptop & JSXBase.HTMLAttributes<HTMLRpIconLaptopElement>;
             "rp-icon-layout": LocalJSX.RpIconLayout & JSXBase.HTMLAttributes<HTMLRpIconLayoutElement>;
