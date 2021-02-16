@@ -31,7 +31,7 @@ export class RpDemoViewer {
     @State() currentTab: BrowserTab = BrowserTab.Demo;
 
     private resizableEle!: HTMLRpResizableElement;
-    private frameDemoEle!: HTMLElement;
+    private frameDemoEle?: HTMLElement;
     private viewerBodyEle!: HTMLElement;
     private browserFrameEle!: HTMLElement;
 
@@ -63,9 +63,9 @@ export class RpDemoViewer {
             ? (this.browserFrameEle.style.width = `${height}px`)
             : this.browserFrameEle.style.removeProperty('width');
 
-        this.frameDemoEle.style.removeProperty('height');
-        this.frameDemoEle.style.removeProperty('width');
-        this.frameDemoEle.style.removeProperty('transform');
+        this.frameDemoEle?.style.removeProperty('height');
+        this.frameDemoEle?.style.removeProperty('width');
+        this.frameDemoEle?.style.removeProperty('transform');
     }
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
@@ -131,11 +131,13 @@ export class RpDemoViewer {
             : this.browserFrameEle.style.removeProperty('width');
 
         // Set the frame size
-        this.frameDemoEle.style.width = `${width}px`;
-        this.frameDemoEle.style.height = `${height}px`;
-        this.frameDemoEle.style.transform = scale === 1
+        this.frameDemoEle?.style.setProperty('width', `${width}px`);
+        this.frameDemoEle?.style.setProperty('height', `${height}px`);
+        this.frameDemoEle?.style.setProperty('transform', 
+            scale === 1
                 ? 'scale(1)'
-                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
+                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`
+        );
     }
 
     // Calculate the scale to make sure the frame fit best in the container
