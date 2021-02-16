@@ -6,6 +6,7 @@
 
 import { Build, Component, Prop, State, h } from '@stencil/core';
 
+import BrowserTab from '../BrowserTab';
 import { ResizeEvent } from '../rp-resizable/rp-resizable';
 import slugify from '../../utils/slugify';
 import unslugify from '../../utils/unslugify';
@@ -27,10 +28,10 @@ export class RpDemoViewer {
     @State() scale: number = 1;
     @State() demoHeight: number = 0;
     @State() demoWidth: number = 0;    
-    @State() currentTab: number = 0;
+    @State() currentTab: BrowserTab = BrowserTab.Demo;
 
     private resizableEle!: HTMLRpResizableElement;
-    private frameDemoEle!: HTMLElement;
+    private frameDemoEle?: HTMLElement;
     private viewerBodyEle!: HTMLElement;
     private browserFrameEle!: HTMLElement;
 
@@ -62,9 +63,9 @@ export class RpDemoViewer {
             ? (this.browserFrameEle.style.width = `${height}px`)
             : this.browserFrameEle.style.removeProperty('width');
 
-        this.frameDemoEle.style.removeProperty('height');
-        this.frameDemoEle.style.removeProperty('width');
-        this.frameDemoEle.style.removeProperty('transform');
+        this.frameDemoEle?.style.removeProperty('height');
+        this.frameDemoEle?.style.removeProperty('width');
+        this.frameDemoEle?.style.removeProperty('transform');
     }
 
     handleDidResize = (e: CustomEvent<ResizeEvent>) => {
@@ -130,11 +131,13 @@ export class RpDemoViewer {
             : this.browserFrameEle.style.removeProperty('width');
 
         // Set the frame size
-        this.frameDemoEle.style.width = `${width}px`;
-        this.frameDemoEle.style.height = `${height}px`;
-        this.frameDemoEle.style.transform = scale === 1
+        this.frameDemoEle?.style.setProperty('width', `${width}px`);
+        this.frameDemoEle?.style.setProperty('height', `${height}px`);
+        this.frameDemoEle?.style.setProperty('transform', 
+            scale === 1
                 ? 'scale(1)'
-                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`;
+                : `translate(${width * (scale - 1) / 2}px, ${height * (scale - 1) / 2}px) scale(${scale})`
+        );
     }
 
     // Calculate the scale to make sure the frame fit best in the container
@@ -230,13 +233,13 @@ export class RpDemoViewer {
                                     backUrl={previousPattern}
                                     currentTab={this.currentTab}
                                     forwardUrl={nextPattern}
-                                    url={this.currentTab === 0 ? '' : `${PATTERN_URL_PREFIX}${url}`}
+                                    url={this.currentTab === BrowserTab.Demo ? '' : `${PATTERN_URL_PREFIX}${url}`}
                                     onRotateEvent={this.handleRotate}
                                     onActivateTabEvent={this.handleActivateTab}
                                 />
                             </div>
                             {
-                                this.currentTab === 0 && [
+                                this.currentTab === BrowserTab.Demo && [
                                     this.scale !== 1 && <div class="demo_viewer__zoom">Zoom: {Math.floor(this.scale * 100)}%</div>,
                                     <iframe
                                         class="rp-demo-viewer__frame"
@@ -246,9 +249,11 @@ export class RpDemoViewer {
                                 ]
                             }
                             {
-                                this.currentTab === 1 && <div class="rp-demo-viewer__code">
-                                    <rp-pattern-source pattern={this.pattern} />
-                                </div>
+                                this.currentTab === BrowserTab.Source && (
+                                    <div class="rp-demo-viewer__code">
+                                        <rp-pattern-source pattern={this.pattern} />
+                                    </div>
+                                )
                             }
                         </div>
                     </rp-resizable>

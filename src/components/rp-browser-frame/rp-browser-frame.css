@@ -17,6 +17,7 @@
     align-items: center;
     display: flex;
     height: 2.5em;
+    overflow: auto;
 }
 .rp-browser-frame__bar {
     align-items: center;
@@ -60,7 +61,6 @@
     background: #fff;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
-    min-width: 12em;
     z-index: 1;
 }
 .rp-browser-frame__round--left {
@@ -105,9 +105,11 @@
 }
 
 .rp-browser-frame__title {
+    align-items: center;
     background: none;
     border: none;
     cursor: pointer;
+    display: flex;
     height: 100%;
     overflow: hidden;
     margin: 0 1px;
@@ -116,6 +118,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+}
+.rp-browser-frame__title span {
+    margin-left: 0.5em;
 }
 
 /* Action buttons in address bar */
@@ -143,6 +148,7 @@
     flex: 1;
     height: 2em;
     margin: 0 0.25em;
+    overflow: hidden;
     padding: 0 1em;
 }
 .rp-browser-frame__address a {

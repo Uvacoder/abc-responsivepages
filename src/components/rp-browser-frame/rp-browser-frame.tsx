@@ -7,6 +7,8 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 import { href } from 'stencil-router-v2';
 
+import BrowserTab from '../BrowserTab';
+
 @Component({
     tag: 'rp-browser-frame',
     styleUrl: 'rp-browser-frame.css'
@@ -16,7 +18,7 @@ export class RpBrowserFrame {
     @Event() activateTabEvent?: EventEmitter<number>;
     @Prop() backUrl?: string;
     @Prop() browserTitle?: string;
-    @Prop() currentTab: number = 0;
+    @Prop() currentTab?: number;
     @Prop() forwardUrl?: string;
     @Prop() url?: string;
 
@@ -33,18 +35,20 @@ export class RpBrowserFrame {
                         <div class="rp-browser-frame__button rp-browser-frame__button--min"></div>
                         <div class="rp-browser-frame__button rp-browser-frame__button--full"></div>
                     </div>
-                    <div class={`rp-browser-frame__tab ${this.currentTab === 0 ? 'rp-browser-frame__tab--active' : ''}`}>
+                    <div class={`rp-browser-frame__tab ${this.currentTab === BrowserTab.Demo ? 'rp-browser-frame__tab--active' : ''}`}>
                         <div class="rp-browser-frame__round--left"></div>
                         <div class="rp-browser-frame__round--right"></div>
                         <button class="rp-browser-frame__title" onClick={this.viewDemo}>
-                            {this.browserTitle!}
+                            <rp-icon-live />
+                            <span>{this.browserTitle!}</span>
                         </button>
                     </div>
-                    <div class={`rp-browser-frame__tab ${this.currentTab === 1 ? 'rp-browser-frame__tab--active' : ''}`}>
+                    <div class={`rp-browser-frame__tab ${this.currentTab === BrowserTab.Source ? 'rp-browser-frame__tab--active' : ''}`}>
                         <div class="rp-browser-frame__round--left"></div>
                         <div class="rp-browser-frame__round--right"></div>
                         <button class="rp-browser-frame__title" onClick={this.viewSource}>
-                            Source
+                            <rp-icon-code />
+                            <span>Source</span>
                         </button>
                     </div>
                 </div>
@@ -62,11 +66,6 @@ export class RpBrowserFrame {
                     <rp-tooltip tip="Rotate screen" position="bottom">
                         <button class="rp-browser-frame__action" onClick={this.rotate}>
                             <rp-icon-rotate />
-                        </button>
-                    </rp-tooltip>
-                    <rp-tooltip tip="View source" position="bottom">
-                        <button class="rp-browser-frame__action" onClick={this.viewSource}>
-                            <rp-icon-code />
                         </button>
                     </rp-tooltip>
                     <div class="rp-browser-frame__address">
