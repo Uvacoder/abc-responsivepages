@@ -17,6 +17,7 @@
     align-items: center;
     display: flex;
     height: 2.5em;
+    overflow: auto;
 }
 .rp-browser-frame__bar {
     align-items: center;
@@ -147,6 +148,7 @@
     flex: 1;
     height: 2em;
     margin: 0 0.25em;
+    overflow: hidden;
     padding: 0 1em;
 }
 .rp-browser-frame__address a {
