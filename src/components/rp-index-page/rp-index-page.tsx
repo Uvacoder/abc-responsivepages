@@ -5,8 +5,6 @@
  */
 
 import { Component, h } from '@stencil/core';
-import { href } from 'stencil-router-v2';
-
 import { PATTERNS } from '../Patterns';
 import slugify from '../../utils/slugify';
 
@@ -16,17 +14,25 @@ import slugify from '../../utils/slugify';
 })
 export class RpIndexPage {
     render() {
+        const pattern = slugify(PATTERNS[0].name);
         return (
-            <div class="rp-index-page">
-                <div class="rp-index-page__hero">
-                    <h1>responsive design patterns</h1>
-                    <h2>A collection of patterns to create a responsive web page</h2>
-                </div>
+            <rp-layout>
+                <rp-demo-viewer pattern={pattern!} />
+                <div class="rp-layout__overlay">
+                    <div class="rp-index-page__hero">
+                        <h1 class="rp-index-page__heading">
+                            Responsive Design Patterns
+                        </h1>
+                        <div class="rp-index-page__desc">
+                            A collection of patterns to create a responsive web page
+                        </div>
 
-                <div class="rp-index-page__cta">
-                    <a {...href(`/${slugify(PATTERNS[0].name)}`)}>Explore</a>
+                        <div class="rp-index-page__cta">
+                            <a href="https://github.com/phuoc-ng/responsive-page" target="_blank">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </rp-layout>
         );
     }
 }
