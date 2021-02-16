@@ -16,6 +16,7 @@ export interface Pattern {
 
 const PATTERNS: Pattern[] = [
     { name: 'Column drop', category: Category.Layout },
+    { name: 'CSS grid', category: Category.Layout },
     { name: 'Layout shifter', category: Category.Layout },
     { name: 'Mostly fluid', category: Category.Layout },
     { name: 'Tiny tweaks', category: Category.Layout },
