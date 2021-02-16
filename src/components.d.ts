@@ -11,7 +11,7 @@ export namespace Components {
     interface RpBrowserFrame {
         "backUrl"?: string;
         "browserTitle"?: string;
-        "currentTab": number;
+        "currentTab"?: number;
         "forwardUrl"?: string;
         "url"?: string;
     }

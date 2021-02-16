@@ -6,6 +6,7 @@
 
 import { Build, Component, Prop, State, h } from '@stencil/core';
 
+import BrowserTab from '../BrowserTab';
 import { ResizeEvent } from '../rp-resizable/rp-resizable';
 import slugify from '../../utils/slugify';
 import unslugify from '../../utils/unslugify';
@@ -27,7 +28,7 @@ export class RpDemoViewer {
     @State() scale: number = 1;
     @State() demoHeight: number = 0;
     @State() demoWidth: number = 0;    
-    @State() currentTab: number = 0;
+    @State() currentTab: BrowserTab = BrowserTab.Demo;
 
     private resizableEle!: HTMLRpResizableElement;
     private frameDemoEle!: HTMLElement;
@@ -230,13 +231,13 @@ export class RpDemoViewer {
                                     backUrl={previousPattern}
                                     currentTab={this.currentTab}
                                     forwardUrl={nextPattern}
-                                    url={this.currentTab === 0 ? '' : `${PATTERN_URL_PREFIX}${url}`}
+                                    url={this.currentTab === BrowserTab.Demo ? '' : `${PATTERN_URL_PREFIX}${url}`}
                                     onRotateEvent={this.handleRotate}
                                     onActivateTabEvent={this.handleActivateTab}
                                 />
                             </div>
                             {
-                                this.currentTab === 0 && [
+                                this.currentTab === BrowserTab.Demo && [
                                     this.scale !== 1 && <div class="demo_viewer__zoom">Zoom: {Math.floor(this.scale * 100)}%</div>,
                                     <iframe
                                         class="rp-demo-viewer__frame"
@@ -246,9 +247,11 @@ export class RpDemoViewer {
                                 ]
                             }
                             {
-                                this.currentTab === 1 && <div class="rp-demo-viewer__code">
-                                    <rp-pattern-source pattern={this.pattern} />
-                                </div>
+                                this.currentTab === BrowserTab.Source && (
+                                    <div class="rp-demo-viewer__code">
+                                        <rp-pattern-source pattern={this.pattern} />
+                                    </div>
+                                )
                             }
                         </div>
                     </rp-resizable>
