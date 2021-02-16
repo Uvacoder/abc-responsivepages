@@ -59,6 +59,8 @@ export namespace Components {
     }
     interface RpPatterns {
     }
+    interface RpPulse {
+    }
     interface RpResizable {
     }
     interface RpRoot {
@@ -197,6 +199,12 @@ declare global {
         prototype: HTMLRpPatternsElement;
         new (): HTMLRpPatternsElement;
     };
+    interface HTMLRpPulseElement extends Components.RpPulse, HTMLStencilElement {
+    }
+    var HTMLRpPulseElement: {
+        prototype: HTMLRpPulseElement;
+        new (): HTMLRpPulseElement;
+    };
     interface HTMLRpResizableElement extends Components.RpResizable, HTMLStencilElement {
     }
     var HTMLRpResizableElement: {
@@ -243,6 +251,7 @@ declare global {
         "rp-pattern-page": HTMLRpPatternPageElement;
         "rp-pattern-source": HTMLRpPatternSourceElement;
         "rp-patterns": HTMLRpPatternsElement;
+        "rp-pulse": HTMLRpPulseElement;
         "rp-resizable": HTMLRpResizableElement;
         "rp-root": HTMLRpRootElement;
         "rp-screens": HTMLRpScreensElement;
@@ -304,6 +313,8 @@ declare namespace LocalJSX {
     }
     interface RpPatterns {
     }
+    interface RpPulse {
+    }
     interface RpResizable {
         "onDidResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
         "onResizeEvent"?: (event: CustomEvent<ResizeEvent>) => void;
@@ -339,6 +350,7 @@ declare namespace LocalJSX {
         "rp-pattern-page": RpPatternPage;
         "rp-pattern-source": RpPatternSource;
         "rp-patterns": RpPatterns;
+        "rp-pulse": RpPulse;
         "rp-resizable": RpResizable;
         "rp-root": RpRoot;
         "rp-screens": RpScreens;
@@ -370,6 +382,7 @@ declare module "@stencil/core" {
             "rp-pattern-page": LocalJSX.RpPatternPage & JSXBase.HTMLAttributes<HTMLRpPatternPageElement>;
             "rp-pattern-source": LocalJSX.RpPatternSource & JSXBase.HTMLAttributes<HTMLRpPatternSourceElement>;
             "rp-patterns": LocalJSX.RpPatterns & JSXBase.HTMLAttributes<HTMLRpPatternsElement>;
+            "rp-pulse": LocalJSX.RpPulse & JSXBase.HTMLAttributes<HTMLRpPulseElement>;
             "rp-resizable": LocalJSX.RpResizable & JSXBase.HTMLAttributes<HTMLRpResizableElement>;
             "rp-root": LocalJSX.RpRoot & JSXBase.HTMLAttributes<HTMLRpRootElement>;
             "rp-screens": LocalJSX.RpScreens & JSXBase.HTMLAttributes<HTMLRpScreensElement>;

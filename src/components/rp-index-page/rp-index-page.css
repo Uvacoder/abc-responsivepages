@@ -28,3 +28,46 @@
     padding: 0.5em;
     text-decoration: none;
 }
+
+/* Introduction */
+.rp-index-page__navigate {
+    left: 8em;
+    position: absolute;
+    top: 8em;
+}
+.rp-index-page__rotate {
+    left: 12em;
+    position: absolute;
+    top: 8em;
+}
+.rp-index-page__source {
+    left: 24em;
+    position: absolute;
+    top: 6em;
+}
+.rp-index-page__screen {
+    left: 50%;
+    position: absolute;
+    top: 2em;
+}
+.rp-index-page__screens {
+    left: 50%;
+    position: absolute;
+    top: 2em;
+    transform: translateX(6em);
+}
+.rp-index-page__resize--r {
+    position: absolute;
+    right: 6em;
+    top: 50%;
+}
+.rp-index-page__resize--b {
+    bottom: 6em;
+    left: 50%;
+    position: absolute;
+}
+.rp-index-page__resize--rb {
+    bottom: 6em;
+    position: absolute;
+    right: 6em;
+}

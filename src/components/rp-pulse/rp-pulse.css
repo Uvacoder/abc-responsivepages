@@ -1,0 +1,45 @@
+/**
+ * A collection of patterns to create a responsive web page
+ * https://responsive.page
+ * (c) 2021 Nguyen Huu Phuoc (https://twitter.com/nghuuphuoc)
+ */
+
+.rp-pulse {
+    position: relative;
+}
+
+.rp-pulse__circle {
+    border-radius: 50%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.rp-pulse__circle--outer {
+    animation: rp-pulse 1s ease-out;
+    animation-iteration-count: infinite; 
+    border: 0.125em solid #DC2626;
+    height: 1.5em;
+    opacity: 0.0;
+    width: 1.5em;
+}
+
+.rp-pulse__circle--inner {
+    background-color: #DC2626;
+    height: 1em;
+    width: 1em;
+}
+
+@keyframes rp-pulse {
+    0% {
+        opacity: 0.0;
+        transform: translate(-50%, -50%) scale(0.1);
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.0;
+        transform: translate(-50%, -50%) scale(1.3); 
+    }
+}
