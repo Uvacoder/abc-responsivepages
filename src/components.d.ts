@@ -33,6 +33,8 @@ export namespace Components {
     }
     interface RpIconList {
     }
+    interface RpIconLive {
+    }
     interface RpIconMobile {
     }
     interface RpIconNext {
@@ -120,6 +122,12 @@ declare global {
     var HTMLRpIconListElement: {
         prototype: HTMLRpIconListElement;
         new (): HTMLRpIconListElement;
+    };
+    interface HTMLRpIconLiveElement extends Components.RpIconLive, HTMLStencilElement {
+    }
+    var HTMLRpIconLiveElement: {
+        prototype: HTMLRpIconLiveElement;
+        new (): HTMLRpIconLiveElement;
     };
     interface HTMLRpIconMobileElement extends Components.RpIconMobile, HTMLStencilElement {
     }
@@ -215,6 +223,7 @@ declare global {
         "rp-icon-laptop": HTMLRpIconLaptopElement;
         "rp-icon-layout": HTMLRpIconLayoutElement;
         "rp-icon-list": HTMLRpIconListElement;
+        "rp-icon-live": HTMLRpIconLiveElement;
         "rp-icon-mobile": HTMLRpIconMobileElement;
         "rp-icon-next": HTMLRpIconNextElement;
         "rp-icon-previous": HTMLRpIconPreviousElement;
@@ -259,6 +268,8 @@ declare namespace LocalJSX {
     interface RpIconLayout {
     }
     interface RpIconList {
+    }
+    interface RpIconLive {
     }
     interface RpIconMobile {
     }
@@ -305,6 +316,7 @@ declare namespace LocalJSX {
         "rp-icon-laptop": RpIconLaptop;
         "rp-icon-layout": RpIconLayout;
         "rp-icon-list": RpIconList;
+        "rp-icon-live": RpIconLive;
         "rp-icon-mobile": RpIconMobile;
         "rp-icon-next": RpIconNext;
         "rp-icon-previous": RpIconPrevious;
@@ -334,6 +346,7 @@ declare module "@stencil/core" {
             "rp-icon-laptop": LocalJSX.RpIconLaptop & JSXBase.HTMLAttributes<HTMLRpIconLaptopElement>;
             "rp-icon-layout": LocalJSX.RpIconLayout & JSXBase.HTMLAttributes<HTMLRpIconLayoutElement>;
             "rp-icon-list": LocalJSX.RpIconList & JSXBase.HTMLAttributes<HTMLRpIconListElement>;
+            "rp-icon-live": LocalJSX.RpIconLive & JSXBase.HTMLAttributes<HTMLRpIconLiveElement>;
             "rp-icon-mobile": LocalJSX.RpIconMobile & JSXBase.HTMLAttributes<HTMLRpIconMobileElement>;
             "rp-icon-next": LocalJSX.RpIconNext & JSXBase.HTMLAttributes<HTMLRpIconNextElement>;
             "rp-icon-previous": LocalJSX.RpIconPrevious & JSXBase.HTMLAttributes<HTMLRpIconPreviousElement>;
