@@ -49,6 +49,8 @@ export namespace Components {
     }
     interface RpIndexPage {
     }
+    interface RpLayout {
+    }
     interface RpPatternPage {
         "pattern"?: string;
     }
@@ -171,6 +173,12 @@ declare global {
         prototype: HTMLRpIndexPageElement;
         new (): HTMLRpIndexPageElement;
     };
+    interface HTMLRpLayoutElement extends Components.RpLayout, HTMLStencilElement {
+    }
+    var HTMLRpLayoutElement: {
+        prototype: HTMLRpLayoutElement;
+        new (): HTMLRpLayoutElement;
+    };
     interface HTMLRpPatternPageElement extends Components.RpPatternPage, HTMLStencilElement {
     }
     var HTMLRpPatternPageElement: {
@@ -231,6 +239,7 @@ declare global {
         "rp-icon-screens": HTMLRpIconScreensElement;
         "rp-icon-tablet": HTMLRpIconTabletElement;
         "rp-index-page": HTMLRpIndexPageElement;
+        "rp-layout": HTMLRpLayoutElement;
         "rp-pattern-page": HTMLRpPatternPageElement;
         "rp-pattern-source": HTMLRpPatternSourceElement;
         "rp-patterns": HTMLRpPatternsElement;
@@ -285,6 +294,8 @@ declare namespace LocalJSX {
     }
     interface RpIndexPage {
     }
+    interface RpLayout {
+    }
     interface RpPatternPage {
         "pattern"?: string;
     }
@@ -324,6 +335,7 @@ declare namespace LocalJSX {
         "rp-icon-screens": RpIconScreens;
         "rp-icon-tablet": RpIconTablet;
         "rp-index-page": RpIndexPage;
+        "rp-layout": RpLayout;
         "rp-pattern-page": RpPatternPage;
         "rp-pattern-source": RpPatternSource;
         "rp-patterns": RpPatterns;
@@ -354,6 +366,7 @@ declare module "@stencil/core" {
             "rp-icon-screens": LocalJSX.RpIconScreens & JSXBase.HTMLAttributes<HTMLRpIconScreensElement>;
             "rp-icon-tablet": LocalJSX.RpIconTablet & JSXBase.HTMLAttributes<HTMLRpIconTabletElement>;
             "rp-index-page": LocalJSX.RpIndexPage & JSXBase.HTMLAttributes<HTMLRpIndexPageElement>;
+            "rp-layout": LocalJSX.RpLayout & JSXBase.HTMLAttributes<HTMLRpLayoutElement>;
             "rp-pattern-page": LocalJSX.RpPatternPage & JSXBase.HTMLAttributes<HTMLRpPatternPageElement>;
             "rp-pattern-source": LocalJSX.RpPatternSource & JSXBase.HTMLAttributes<HTMLRpPatternSourceElement>;
             "rp-patterns": LocalJSX.RpPatterns & JSXBase.HTMLAttributes<HTMLRpPatternsElement>;
