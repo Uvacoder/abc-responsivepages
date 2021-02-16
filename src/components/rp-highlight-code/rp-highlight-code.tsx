@@ -14,7 +14,7 @@ export class RpHighlightCode {
     @Prop() source?: string;
     private codeEle!: HTMLElement;
 
-    componentDidLoad() {
+    componentDidRender() {
         this.codeEle.innerHTML = Prism.highlight(this.source!, Prism.languages.html, 'html');
     }
 
