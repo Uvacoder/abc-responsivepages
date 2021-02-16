@@ -6,6 +6,7 @@
 
 import { Component, h } from '@stencil/core';
 import { PATTERNS } from '../Patterns';
+import randomFromArray from '../../utils/randomFromArray';
 import slugify from '../../utils/slugify';
 
 @Component({
@@ -14,7 +15,7 @@ import slugify from '../../utils/slugify';
 })
 export class RpIndexPage {
     render() {
-        const pattern = slugify(PATTERNS[0].name);
+        const pattern = slugify(randomFromArray(PATTERNS).name);
         return (
             <rp-layout>
                 <rp-demo-viewer pattern={pattern!} />
