@@ -45,7 +45,7 @@ export class RpIndexPage {
                         </rp-tooltip>
                     </div>
                     <div class="rp-index-page__source">
-                        <rp-tooltip tip="View pattern implementation" position="bottom">
+                        <rp-tooltip tip="View pattern implementation" position="left">
                             <rp-pulse />
                         </rp-tooltip>
                     </div>
@@ -60,17 +60,17 @@ export class RpIndexPage {
                         </rp-tooltip>
                     </div>
                     <div class="rp-index-page__resize--r">
-                        <rp-tooltip tip="Resize the screen" position="bottom">
+                        <rp-tooltip tip="Resize the screen" position="left">
                             <rp-pulse />
                         </rp-tooltip>
                     </div>
                     <div class="rp-index-page__resize--b">
-                        <rp-tooltip tip="Resize the screen" position="bottom">
+                        <rp-tooltip tip="Resize the screen" position="top">
                             <rp-pulse />
                         </rp-tooltip>
                     </div>
                     <div class="rp-index-page__resize--rb">
-                        <rp-tooltip tip="Resize the screen" position="bottom">
+                        <rp-tooltip tip="Resize the screen" position="left">
                             <rp-pulse />
                         </rp-tooltip>
                     </div>

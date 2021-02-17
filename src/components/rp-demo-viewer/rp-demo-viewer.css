@@ -7,14 +7,12 @@
 .rp-demo-viewer {
     display: grid;
     grid-template-columns: 1fr 0;
-    grid-template-rows: 2.5em 1fr;
+    grid-template-rows: 2.5rem 1fr;
     height: 100vh;
+    position: relative;
 }
 
 /* With sidebar */
-.rp-demo-viewer--withsidebar {
-    grid-template-columns: 1fr 16em;
-}
 .rp-demo-viewer--withsidebar .rp-demo-viewer__main {
     overflow: hidden;
 }
@@ -28,7 +26,7 @@
     grid-row-end: auto;
     grid-column-end: span 2;
     justify-content: center;
-    padding: 0.25em 2em;
+    padding: 0.25rem 2rem;
 }
 .rp-demo-viewer__main {
     display: flex;
@@ -37,32 +35,27 @@
     grid-column-start: 1;
     grid-row-end: auto;
     grid-column-end: auto;
-    padding: 6em;
+    padding: 6rem 2rem 2rem 2rem;
 }
 .rp-demo-viewer__screens {
     background-color: rgba(0, 0, 0, 0.02);
     border-left: 1px solid rgba(0, 0, 0, .2);
-    grid-row-start: 2;
-    grid-column-start: 2;
-    grid-row-end: auto;
-    grid-column-end: auto;
-    overflow: auto;
 }
 
 /* Toolbar */
 .rp-demo-viewer__divider {
     background-color: rgba(0, 0, 0, .3);
-    height: 1.5em;
-    margin: 0.5em;
+    height: 1.5rem;
+    margin: 0.5rem;
     width: 1px;
 }
 .rp-demo-viewer__button {
     background: none;
     border: none;
-    border-radius: 0.25em;
+    border-radius: 0.25rem;
     cursor: pointer;
-    margin: 0.25em;
-    padding: 0.25em;
+    margin: 0.25rem;
+    padding: 0.25rem;
 }
 .rp-demo-viewer__button:hover {
     background: rgba(0, 0, 0, .1);
@@ -86,7 +79,7 @@
     width: 100%;
 }
 .demo_viewer__zoom {
-    padding: 0.5em;
+    padding: 0.5rem;
     position: absolute;
     right: 0;
     top: 0;
@@ -116,4 +109,28 @@
     height: 100%;
     overflow: auto;
     width: 100%;
+}
+
+@media (max-width: 640px) {
+    .rp-demo-viewer__screens {
+        bottom: 0;
+        overflow: auto;
+        position: absolute;
+        right: 0;
+        top: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .rp-demo-viewer--withsidebar {
+        grid-template-columns: 1fr 16rem;
+    }
+
+    .rp-demo-viewer__screens {
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-row-end: auto;
+        grid-column-end: auto;
+        overflow: auto;
+    }
 }

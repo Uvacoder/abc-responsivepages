@@ -7,10 +7,9 @@
 .rp-screens__category {
     background-color: #ccc;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
-    font-size: 1.25rem;
-    padding: 0.25em 0.5em;
+    font-size: 1rem;
+    padding: 0.5rem;
     position: sticky;
-    text-align: center;
     top: 0;
 }
 .rp-screens__size {
@@ -20,7 +19,7 @@
     display: flex;
     font-size: 1rem;
     justify-content: space-between;
-    padding: 0.5em 1em 0.5em 0.5em;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     width: 100%;
 }
 .rp-screens__popularity {
@@ -37,7 +36,7 @@
     cursor: pointer;
     display: block;
     font-size: 0.75rem;
-    padding: 0.5em 1em;
+    padding: 0.25rem 0.5rem;
     text-align: left;
     width: 100%;
 }
