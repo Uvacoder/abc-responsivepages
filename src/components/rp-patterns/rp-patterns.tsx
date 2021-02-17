@@ -19,6 +19,7 @@ type GroupByCategory = { [key: number]: Pattern[] };
 export class RpPatterns {
     renderCategory = (category: number) => {
         switch (category) {
+            case Category.Data: return 'Data';
             case Category.Layout: return 'Layout';
             case Category.Navigation: return 'Navigation';
             default: return 'Uncategoried';
