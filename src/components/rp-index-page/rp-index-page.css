@@ -9,12 +9,7 @@
     padding: 2rem;
     text-align: center;
 }
-.rp-index-page__heading {
-    font-size: 1rem;
-    margin: 1rem;
-}
 .rp-index-page__desc {
-    font-size: 0.75rem;
     font-weight: normal;
 }
 
@@ -25,8 +20,6 @@
 .rp-index-page__cta a {
     background: #2563EB;
     color: #fff;
-    font-size: 1rem;
-    padding: 0.25rem;
     text-decoration: none;
 }
 
@@ -71,4 +64,32 @@
     bottom: 2rem;
     position: absolute;
     right: 2rem;
+}
+
+@media (max-width: 640px) {
+    .rp-index-page__heading {
+        font-size: 1rem;
+        margin: 1rem;
+    }
+    .rp-index-page__desc {
+        font-size: 0.75rem;
+    }
+    .rp-index-page__cta a {
+        font-size: 1rem;
+        padding: 0.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .rp-index-page__heading {
+        font-size: 2rem;
+        margin: 1.5rem;
+    }
+    .rp-index-page__desc {
+        font-size: 1.5rem;
+    }
+    .rp-index-page__cta a {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
 }
