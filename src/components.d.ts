@@ -30,6 +30,7 @@ export namespace Components {
     interface RpIconLaptop {
     }
     interface RpIconLayout {
+        "size"?: number;
     }
     interface RpIconList {
     }
@@ -284,6 +285,7 @@ declare namespace LocalJSX {
     interface RpIconLaptop {
     }
     interface RpIconLayout {
+        "size"?: number;
     }
     interface RpIconList {
     }

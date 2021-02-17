@@ -21,6 +21,7 @@ export class RpIndexPage {
                 <rp-demo-viewer pattern={pattern!} />
                 <div class="rp-layout__overlay">
                     <div class="rp-index-page__hero">
+                        <rp-icon-layout size={128} />
                         <h1 class="rp-index-page__heading">
                             Responsive Design Patterns
                         </h1>
