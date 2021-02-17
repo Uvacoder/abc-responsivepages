@@ -6,68 +6,69 @@
 
 .rp-index-page__hero {
     color: #fff;
+    padding: 2rem;
     text-align: center;
 }
 .rp-index-page__heading {
-    font-size: 6rem;
-    margin: 0.5em;
+    font-size: 1rem;
+    margin: 1rem;
 }
 .rp-index-page__desc {
-    font-size: 2rem;
+    font-size: 0.75rem;
     font-weight: normal;
 }
 
 .rp-index-page__cta {
-    margin: 4em 0;
+    margin: 2rem 0;
     text-align: center;
 }
 .rp-index-page__cta a {
     background: #2563EB;
     color: #fff;
-    font-size: 2em;
-    padding: 0.5em;
+    font-size: 1rem;
+    padding: 0.25rem;
     text-decoration: none;
 }
 
 /* Introduction */
 .rp-index-page__navigate {
-    left: 8em;
+    left: 3.5rem;
     position: absolute;
-    top: 8em;
+    top: 8rem;
 }
 .rp-index-page__rotate {
-    left: 12em;
+    left: 7.5rem;
     position: absolute;
-    top: 8em;
+    top: 8rem;
 }
 .rp-index-page__source {
-    left: 24em;
+    left: 18rem;
     position: absolute;
-    top: 6em;
+    top: 6rem;
 }
 .rp-index-page__screen {
     left: 50%;
     position: absolute;
-    top: 2em;
+    top: 2rem;
 }
 .rp-index-page__screens {
     left: 50%;
     position: absolute;
-    top: 2em;
+    top: 2rem;
     transform: translateX(6em);
 }
 .rp-index-page__resize--r {
     position: absolute;
-    right: 6em;
+    right: 2rem;
     top: 50%;
 }
 .rp-index-page__resize--b {
-    bottom: 6em;
+    bottom: 2rem;
     left: 50%;
     position: absolute;
 }
 .rp-index-page__resize--rb {
-    bottom: 6em;
+    bottom: 2rem;
     position: absolute;
-    right: 6em;
+    right: 2rem;
 }

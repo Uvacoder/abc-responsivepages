@@ -7,10 +7,9 @@
  .rp-patterns__category {
     background-color: #ccc;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
-    font-size: 1.25rem;
-    padding: 0.25em 0.5em;
+    font-size: 1rem;
+    padding: 0.5rem;
     position: sticky;
-    text-align: center;
     top: 0;
 }
 
@@ -22,7 +21,8 @@
 .rp-patterns__link {
     color: #333;
     display: block;
-    padding: 0.25em 1em;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
     text-decoration: none;
 }
 .rp-patterns__link:hover {

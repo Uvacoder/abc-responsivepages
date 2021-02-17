@@ -12,7 +12,7 @@ import { href } from 'stencil-router-v2';
     styleUrl: 'rp-layout.css'
 })
 export class RpLayout {
-    @State() isNavigationOpen: boolean = true;
+    @State() isNavigationOpen: boolean = false;
 
     render() {
         return (
@@ -32,7 +32,7 @@ export class RpLayout {
                         </rp-tooltip>
                     </div>
                 </div>
-                <div class={`rp-layout__patterns ${this.isNavigationOpen ? '' : 'rp-layout__patterns--hidden'}`}>
+                <div class={`rp-layout__patterns ${this.isNavigationOpen ? 'rp-layout__patterns--open' : ''}`}>
                     <rp-click-outside>
                         <rp-patterns />
                     </rp-click-outside>
