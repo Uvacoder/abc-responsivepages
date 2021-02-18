@@ -30,6 +30,7 @@ export class RpIndexPage {
                         </div>
 
                         <div class="rp-index-page__cta">
+                            <a href={`/${slugify(PATTERNS[0].name)}`}>Explore</a>
                             <a href="https://github.com/phuoc-ng/responsive-page" target="_blank">GitHub</a>
                         </div>
                     </div>
