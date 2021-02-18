@@ -30,10 +30,16 @@ export class RpIndexPage {
                         </div>
 
                         <div class="rp-index-page__cta">
+                            <a href={`/${slugify(PATTERNS[0].name)}`}>Explore</a>
                             <a href="https://github.com/phuoc-ng/responsive-page" target="_blank">GitHub</a>
                         </div>
                     </div>
 
+                    <div class="rp-index-page__patterns">
+                        <rp-tooltip tip="Switch patterns" position="right">
+                            <rp-pulse />
+                        </rp-tooltip>
+                    </div>
                     <div class="rp-index-page__navigate">
                         <rp-tooltip tip="Navigate between patterns" position="bottom">
                             <rp-pulse />

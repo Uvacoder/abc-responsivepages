@@ -21,9 +21,15 @@
     background: #2563EB;
     color: #fff;
     text-decoration: none;
+    margin: 0.25rem 0.5rem;
 }
 
 /* Introduction */
+.rp-index-page__patterns {
+    left: 1rem;
+    position: absolute;
+    top: 3.5rem;
+}
 .rp-index-page__navigate {
     left: 3.5rem;
     position: absolute;
