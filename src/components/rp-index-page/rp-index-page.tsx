@@ -35,6 +35,11 @@ export class RpIndexPage {
                         </div>
                     </div>
 
+                    <div class="rp-index-page__patterns">
+                        <rp-tooltip tip="Switch patterns" position="right">
+                            <rp-pulse />
+                        </rp-tooltip>
+                    </div>
                     <div class="rp-index-page__navigate">
                         <rp-tooltip tip="Navigate between patterns" position="bottom">
                             <rp-pulse />
