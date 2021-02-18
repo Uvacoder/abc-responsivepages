@@ -166,49 +166,55 @@ export class RpDemoViewer {
         return (
             <div class={`rp-demo-viewer ${this.isScreenListOpen ? 'rp-demo-viewer--withsidebar' : ''}`}>
                 <div class="rp-demo-viewer__toolbar">
-                    <rp-tooltip tip="Mobile screen (375x667)" position="bottom">
-                        <button
-                            class={`rp-demo-viewer__button ${this.isSelectedSize(375, 667) ? 'rp-demo-viewer__button--selected' : ''}`}
-                            onClick={() => this.switchTo(375, 667)}
-                        >
-                            <rp-icon-mobile />
-                        </button>
-                    </rp-tooltip>
+                    <div class="rp-demo-viewer__toolbar-left">
+                        <rp-tooltip tip="Mobile screen (375x667)" position="bottom">
+                            <button
+                                class={`rp-demo-viewer__button ${this.isSelectedSize(375, 667) ? 'rp-demo-viewer__button--selected' : ''}`}
+                                onClick={() => this.switchTo(375, 667)}
+                            >
+                                <rp-icon-mobile />
+                            </button>
+                        </rp-tooltip>
 
-                    <rp-tooltip tip="Tablet screen (1024x768)" position="bottom">
-                        <button
-                            class={`rp-demo-viewer__button ${this.isSelectedSize(1024, 768) ? 'rp-demo-viewer__button--selected' : ''}`}
-                            onClick={() => this.switchTo(1024, 768)}
-                        >
-                            <rp-icon-tablet />
-                        </button>
-                    </rp-tooltip>
+                        <rp-tooltip tip="Tablet screen (1024x768)" position="bottom">
+                            <button
+                                class={`rp-demo-viewer__button ${this.isSelectedSize(1024, 768) ? 'rp-demo-viewer__button--selected' : ''}`}
+                                onClick={() => this.switchTo(1024, 768)}
+                            >
+                                <rp-icon-tablet />
+                            </button>
+                        </rp-tooltip>
 
-                    <rp-tooltip tip="Laptop screen (1366x768)" position="bottom">
-                        <button
-                            class={`rp-demo-viewer__button ${this.isSelectedSize(1366, 768) ? 'rp-demo-viewer__button--selected' : ''}`}
-                            onClick={() => this.switchTo(1366, 768)}
-                        >
-                            <rp-icon-laptop />
-                        </button>
-                    </rp-tooltip>
+                        <rp-tooltip tip="Laptop screen (1366x768)" position="bottom">
+                            <button
+                                class={`rp-demo-viewer__button ${this.isSelectedSize(1366, 768) ? 'rp-demo-viewer__button--selected' : ''}`}
+                                onClick={() => this.switchTo(1366, 768)}
+                            >
+                                <rp-icon-laptop />
+                            </button>
+                        </rp-tooltip>
 
-                    <rp-tooltip tip="Desktop screen (1920x1080)" position="bottom">
-                        <button
-                            class={`rp-demo-viewer__button ${this.isSelectedSize(1920, 1080) ? 'rp-demo-viewer__button--selected' : ''}`}
-                            onClick={() => this.switchTo(1920, 1080)}
-                        >
-                            <rp-icon-desktop />
-                        </button>
-                    </rp-tooltip>
+                        <rp-tooltip tip="Desktop screen (1920x1080)" position="bottom">
+                            <button
+                                class={`rp-demo-viewer__button ${this.isSelectedSize(1920, 1080) ? 'rp-demo-viewer__button--selected' : ''}`}
+                                onClick={() => this.switchTo(1920, 1080)}
+                            >
+                                <rp-icon-desktop />
+                            </button>
+                        </rp-tooltip>
 
-                    <div class="rp-demo-viewer__divider" />
+                        <div class="rp-demo-viewer__divider" />
 
-                    <rp-tooltip tip="Other screen sizes" position="bottom">
-                        <button class="rp-demo-viewer__button" onClick={this.toggleScreenList}>
-                            <rp-icon-screens />
-                        </button>
-                    </rp-tooltip>
+                        <rp-tooltip tip="Other screen sizes" position="bottom">
+                            <button class="rp-demo-viewer__button" onClick={this.toggleScreenList}>
+                                <rp-icon-screens />
+                            </button>
+                        </rp-tooltip>
+                    </div>
+
+                    <a class="rp-demo-viewer__button rp-demo-viewer__button--selected" href="https://github.com/phuoc-ng/responsive-page" target="_blank">
+                        <rp-icon-github />
+                    </a>
                 </div>
 
                 <div

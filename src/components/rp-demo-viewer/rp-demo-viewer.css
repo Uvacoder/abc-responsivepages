@@ -25,8 +25,7 @@
     grid-column-start: 1;
     grid-row-end: auto;
     grid-column-end: span 2;
-    justify-content: center;
-    padding: 0.25rem 2rem;
+    padding: 0.25rem;
 }
 .rp-demo-viewer__main {
     display: flex;
@@ -43,6 +42,12 @@
 }
 
 /* Toolbar */
+.rp-demo-viewer__toolbar-left {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
 .rp-demo-viewer__divider {
     background-color: rgba(0, 0, 0, .3);
     height: 1.5rem;
@@ -56,6 +61,7 @@
     cursor: pointer;
     margin: 0.25rem;
     padding: 0.25rem;
+    text-decoration: none;
 }
 .rp-demo-viewer__button:hover {
     background: rgba(0, 0, 0, .1);

@@ -27,6 +27,8 @@ export namespace Components {
     }
     interface RpIconDesktop {
     }
+    interface RpIconGithub {
+    }
     interface RpIconLaptop {
     }
     interface RpIconLayout {
@@ -109,6 +111,12 @@ declare global {
     var HTMLRpIconDesktopElement: {
         prototype: HTMLRpIconDesktopElement;
         new (): HTMLRpIconDesktopElement;
+    };
+    interface HTMLRpIconGithubElement extends Components.RpIconGithub, HTMLStencilElement {
+    }
+    var HTMLRpIconGithubElement: {
+        prototype: HTMLRpIconGithubElement;
+        new (): HTMLRpIconGithubElement;
     };
     interface HTMLRpIconLaptopElement extends Components.RpIconLaptop, HTMLStencilElement {
     }
@@ -237,6 +245,7 @@ declare global {
         "rp-highlight-code": HTMLRpHighlightCodeElement;
         "rp-icon-code": HTMLRpIconCodeElement;
         "rp-icon-desktop": HTMLRpIconDesktopElement;
+        "rp-icon-github": HTMLRpIconGithubElement;
         "rp-icon-laptop": HTMLRpIconLaptopElement;
         "rp-icon-layout": HTMLRpIconLayoutElement;
         "rp-icon-list": HTMLRpIconListElement;
@@ -281,6 +290,8 @@ declare namespace LocalJSX {
     interface RpIconCode {
     }
     interface RpIconDesktop {
+    }
+    interface RpIconGithub {
     }
     interface RpIconLaptop {
     }
@@ -337,6 +348,7 @@ declare namespace LocalJSX {
         "rp-highlight-code": RpHighlightCode;
         "rp-icon-code": RpIconCode;
         "rp-icon-desktop": RpIconDesktop;
+        "rp-icon-github": RpIconGithub;
         "rp-icon-laptop": RpIconLaptop;
         "rp-icon-layout": RpIconLayout;
         "rp-icon-list": RpIconList;
@@ -369,6 +381,7 @@ declare module "@stencil/core" {
             "rp-highlight-code": LocalJSX.RpHighlightCode & JSXBase.HTMLAttributes<HTMLRpHighlightCodeElement>;
             "rp-icon-code": LocalJSX.RpIconCode & JSXBase.HTMLAttributes<HTMLRpIconCodeElement>;
             "rp-icon-desktop": LocalJSX.RpIconDesktop & JSXBase.HTMLAttributes<HTMLRpIconDesktopElement>;
+            "rp-icon-github": LocalJSX.RpIconGithub & JSXBase.HTMLAttributes<HTMLRpIconGithubElement>;
             "rp-icon-laptop": LocalJSX.RpIconLaptop & JSXBase.HTMLAttributes<HTMLRpIconLaptopElement>;
             "rp-icon-layout": LocalJSX.RpIconLayout & JSXBase.HTMLAttributes<HTMLRpIconLayoutElement>;
             "rp-icon-list": LocalJSX.RpIconList & JSXBase.HTMLAttributes<HTMLRpIconListElement>;
